@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "210910772337",
+    "firebase_url": "https://multiling-a2ad2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "multiling-a2ad2",
+    "storage_bucket": "multiling-a2ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210910772337:android:be4e5b794244ecb8fdafd0",
+        "android_client_info": {
+          "package_name": "com.example.multiling"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqCkYU3WTUiG0x6b8RMLDtmDzWVIEh7OQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
