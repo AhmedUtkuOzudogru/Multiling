@@ -1,5 +1,10 @@
 package com.example.multiling;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2ccfb15b1ddf81d3187d313ef4df749b281c349a
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
