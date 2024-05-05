@@ -24,8 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Register Class
- * Register New Users with Firebase Authantication
- * Code code by Ahmed and Saljug
+ * Register New Users with Firebase Authentication
+ * Code dode by Ahmed and Saljug 05/05/2024 23:55
  * Xml done by Ibrahim
  */
 public class Register extends AppCompatActivity {
@@ -49,6 +49,11 @@ public class Register extends AppCompatActivity {
         editTextPasswordAgain = findViewById(R.id.password_Again);
         registerButton = findViewById(R.id.register);
         logInButton = findViewById(R.id.logInButton2);
+        /**
+         * logInButton's code and Intents
+         * Right now Log in button fowards user to Login.class
+         * To get in the app
+         * */
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +62,9 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
-
+        /**
+         * registerButton's code and Necesary methods to create a user via Firebase
+         * */
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,12 +75,13 @@ public class Register extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this,"Enter email!", Toast.LENGTH_LONG).show();
-                }
-                if(TextUtils.isEmpty(password)){
+                    return;
+                }else if(TextUtils.isEmpty(password)){
                     Toast.makeText(Register.this,"Enter password!", Toast.LENGTH_LONG).show();
-                }
-                if(!passwordAgain.equals(password)){
+                    return;
+                }else if((passwordAgain.equals(password))){
                     Toast.makeText(Register.this,"Passwords does not match!", Toast.LENGTH_LONG).show();
+                    return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
@@ -81,8 +89,11 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(Register.this, "Authentication Created.",
+                                    Toast.makeText(Register.this, "Account  Created.",
                                             Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                                    startActivity(intent);
+                                    finish();
 
                                     FirebaseUser user = mAuth.getCurrentUser();
                                 } else {
