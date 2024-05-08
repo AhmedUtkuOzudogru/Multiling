@@ -73,7 +73,7 @@ public class Register extends AppCompatActivity {
             }
         });
         /**
-         * registerButton's code and Necesary methods to create a user via Firebase
+         * registerButton's code and Necessary methods to create a user via Firebase
          * */
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,4 +5,6 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="password_again">Password Again</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
 </resources>
