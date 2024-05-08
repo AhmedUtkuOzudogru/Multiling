@@ -16,11 +16,17 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Register Class
@@ -29,10 +35,11 @@ import com.google.firebase.auth.FirebaseUser;
  * Xml done by Ibrahim
  */
 public class Register extends AppCompatActivity {
-
+    String userID;
     TextInputEditText editTextEmail, editTextPassword, editTextPasswordAgain ;
     Button registerButton , logInButton ;
     FirebaseAuth mAuth;
+    FirebaseFirestore firestore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +56,7 @@ public class Register extends AppCompatActivity {
         editTextPasswordAgain = findViewById(R.id.password_Again);
         registerButton = findViewById(R.id.register);
         logInButton = findViewById(R.id.logInButton2);
+        firestore = FirebaseFirestore.getInstance();
         /**
          * logInButton's code and Intents
          * Right now Log in button fowards user to Login.class
@@ -70,16 +78,16 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 String email, password, passwordAgain;
                 email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
                 passwordAgain = String.valueOf(editTextPasswordAgain.getText());
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this,"Enter email!", Toast.LENGTH_LONG).show();
                     return;
-                }else if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Register.this,"Enter password!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(password)||password.length()<6){
+                    Toast.makeText(Register.this,"Enter a password that is at least 6 characters!", Toast.LENGTH_LONG).show();
                     return;
-                }else if((passwordAgain.equals(password))){
+                }else if(!(passwordAgain.equals(password))){
                     Toast.makeText(Register.this,"Passwords does not match!", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -91,11 +99,23 @@ public class Register extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(Register.this, "Account  Created.",
                                             Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Login.class);
-                                    startActivity(intent);
+                                    userID=mAuth.getCurrentUser().getUid();
+                                    DocumentReference documentReference = firestore.collection("users").document(userID);
+                                    // Storing data using hash map
+                                    Map<String,Object> user = new HashMap<>();
+                                    // Might add password soon but this is enough for now
+                                    user.put("email",email);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("Tag","userProfile is created for ID:"+ userID);
+
+                                        }
+                                    });
+                                    // Change this intent to Fill profile when its done
+                                    startActivity( new Intent(getApplicationContext(), Login.class));
                                     finish();
 
-                                    FirebaseUser user = mAuth.getCurrentUser();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(Register.this, "Authentication failed.",

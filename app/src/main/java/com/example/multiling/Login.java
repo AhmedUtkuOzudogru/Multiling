@@ -86,7 +86,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
 
 
                 if(TextUtils.isEmpty(email)){
