@@ -1,0 +1,28 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigator_settings"
+        android:title="Settings"
+        android:icon="@drawable/settings_icon" />
+
+    <item
+        android:id="@+id/navigator_profile"
+        android:title="Profile"
+        android:icon="@drawable/user_icon" />
+
+    <item
+        android:id="@+id/navigator_home"
+        android:title="Home"
+        android:icon="@drawable/home_icon" />
+
+    <item
+        android:id="@+id/navigator_flashcard"
+        android:title="FlashCards"
+        android:icon="@drawable/flash_card_icon" />
+
+    <item
+        android:id="@+id/navigator_writingexercises"
+        android:title="WritingExercises"
+        android:icon="@drawable/pencil_icon" />
+</menu>
