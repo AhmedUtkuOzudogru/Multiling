@@ -84,13 +84,13 @@ public class Register extends AppCompatActivity {
                 passwordAgain = String.valueOf(editTextPasswordAgain.getText());
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Register.this,"Enter email!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,"Enter email!", Toast.LENGTH_SHORT).show();
                     return;
                 }else if(TextUtils.isEmpty(password)||password.length()<6){
-                    Toast.makeText(Register.this,"Enter a password that is at least 6 characters!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,"Enter a password that is at least 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }else if(!(passwordAgain.equals(password))){
-                    Toast.makeText(Register.this,"Passwords does not match!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,"Passwords does not match!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -115,9 +115,10 @@ public class Register extends AppCompatActivity {
 
                                         }
                                     });
-                                    // Change this intent to Fill profile when its done
-                                    startActivity( new Intent(getApplicationContext(), FillProfile.class));
-                                    finish();
+                                    Intent intent = new Intent(getApplicationContext(), FillProfile.class);
+                                    intent.putExtra("userID",userID);
+                                    startActivity(intent);
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
