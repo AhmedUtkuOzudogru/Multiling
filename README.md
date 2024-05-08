@@ -9,3 +9,7 @@ memorization.
 Error dialog pops up even when two passwords match. (Fixed)
 2. Login
 Remember me does not work.
+3.StartPage
+Login button Is not Centered
+4.FillProfile
+The proficiencyLevel level should be Combo box needs implementation
