@@ -2,7 +2,6 @@ package com.example.multiling;
 
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,7 +12,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,24 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 rootDatabaseref.setValue(data);
 
             }
-        });
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.navigator_profile);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigator_settings:
-                    return true;
-                case R.id.navigator_profile:
-                    return true;
-                case R.id.navigator_home:
-                    return true;
-                case R.id.navigator_flashcard:
-                    return true;
-                case R.id.navigator_writingexercises:
-                    return true;
-            }
-            return false;
         });
     }
 }
