@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Multiling"
         tools:targetApi="31">
         <activity
+            android:name=".WritingExercises"
+            android:exported="false" />
+        <activity
+            android:name=".FlashCard"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".StartPage"
             android:exported="true">
             <intent-filter>
