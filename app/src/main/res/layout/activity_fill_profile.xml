@@ -62,7 +62,6 @@ proficiencyLevel should be combo box
         android:drawablePadding="8dp"
         android:ems="10"
         android:hint="Proficiency Level"
-        android:inputType="textPassword"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

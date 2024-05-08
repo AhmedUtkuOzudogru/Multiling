@@ -123,7 +123,7 @@ public class FillProfile extends AppCompatActivity {
 
                     }
                 });
-                Toast.makeText(FillProfile.this, "userProfile is created for ID:"+ userID+"with Name:"+name+
+                Toast.makeText(FillProfile.this, "userProfile is created with Name:"+name+
                                 " Surname:"+surname+" proficiencyLevel:"+proficiencyLevel,
                         Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
