@@ -31,8 +31,10 @@ import java.util.Map;
 /**
  * Register Class
  * Register New Users with Firebase Authentication
- * Code dode by Ahmed and Saljug 05/05/2024 23:55
+ * Code done by Ahmed and Saljug 05/05/2024 23:55
  * Xml done by Ibrahim
+ * ***Update*****
+ * FireStore Database Added by Ahmed 08/05/22:42
  */
 public class Register extends AppCompatActivity {
     String userID;
@@ -105,6 +107,7 @@ public class Register extends AppCompatActivity {
                                     Map<String,Object> user = new HashMap<>();
                                     // Might add password soon but this is enough for now
                                     user.put("email",email);
+                                    user.put("userID", userID);
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

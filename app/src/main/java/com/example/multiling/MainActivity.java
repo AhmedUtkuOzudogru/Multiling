@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-
+    private  String userID;
     private EditText input;
     private Button btn;
     private DatabaseReference rootDatabaseref;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        userID=getIntent().getStringExtra("userID");
         input=findViewById(R.id.input);
         btn=findViewById(R.id.btn);
         rootDatabaseref= FirebaseDatabase.getInstance().getReference();
