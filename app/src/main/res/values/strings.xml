@@ -7,4 +7,6 @@
     <string name="password_again">Password Again</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
+    <string name="start">Start</string>
+    <string name="skip">Skip</string>
 </resources>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Activity fill_Profile GUI
+Done by: Ibrahim&Ahmed
+Date: 09/05/2024 00:08
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,5 +11,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FillProfile">
+
+    <TextView
+        android:id="@+id/nameText1"
+        android:layout_width="300dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Fill Your Profile"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameTextField"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText1" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/surnameTextField"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="@string/surname"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/proficiencyLevel"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="Proficiency Level"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surnameTextField" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:onClick="registerOnClick"
+        android:text="@string/start"
+        android:textSize="20sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proficiencyLevel" />
+
+
+
+    <TextView
+        android:id="@+id/signUpText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="or"
+        android:textSize="16sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start" />
+
+    <Button
+        android:id="@+id/skipButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="openSignInPage"
+        android:text="You can always edit your profile "
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+
+        app:layout_constraintStart_toStartOf="@+id/start"
+        app:layout_constraintTop_toBottomOf="@+id/signUpText2" />
+
+    <Button
+        android:id="@+id/skipButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="openLoginPage"
+        android:text="@string/skip"
+        android:textColor="#E91E63"
+        android:textSize="12sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/start"
+        app:layout_constraintTop_toBottomOf="@+id/signUpText2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

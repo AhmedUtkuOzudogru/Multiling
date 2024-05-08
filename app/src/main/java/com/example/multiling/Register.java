@@ -116,7 +116,7 @@ public class Register extends AppCompatActivity {
                                         }
                                     });
                                     // Change this intent to Fill profile when its done
-                                    startActivity( new Intent(getApplicationContext(), Login.class));
+                                    startActivity( new Intent(getApplicationContext(), FillProfile.class));
                                     finish();
 
                                 } else {
