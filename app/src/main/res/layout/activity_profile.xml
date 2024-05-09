@@ -59,19 +59,30 @@
                 <!-- Middle Element (TextView) -->
 
                 <!-- Right Element (Switch) -->
+
                 <TextView
                     android:id="@+id/profileLevel"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:layout_marginStart="12dp"
                     android:gravity="center"
-                    android:text="Notifications"
+                    android:text="Level"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/profileChangeLevel"
                     app:layout_constraintStart_toEndOf="@id/profileLevelIcon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.4" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/profileChangeLevel"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/change_icon"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,7 +144,7 @@
                 android:id="@+id/ProfileLayout3"
                 android:layout_width="350dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
