@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText input;
     private Button btn;
     private DatabaseReference rootDatabaseref;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         input=findViewById(R.id.input);
         btn=findViewById(R.id.btn);
         rootDatabaseref= FirebaseDatabase.getInstance().getReference();
+
 
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
