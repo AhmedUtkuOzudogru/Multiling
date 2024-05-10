@@ -17,6 +17,17 @@
         <activity
             android:name=".FillProfile"
             android:exported="true" />
+            android:name=".ResultPage"
+            android:exported="false" />
+        <activity
+            android:name=".WritingExercise"
+            android:exported="false" />
+        <activity
+            android:name=".Flashcard"
+            android:exported="false" />
+        <activity
+            android:name=".FillProfile"
+            android:exported="true" />
         <activity
             android:name=".StartPage"
             android:exported="true">
@@ -26,9 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Settings"
-            android:exported="true" />
         <activity
             android:name=".Register"
             android:exported="true" />
