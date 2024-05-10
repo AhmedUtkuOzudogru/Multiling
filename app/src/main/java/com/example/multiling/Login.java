@@ -27,8 +27,9 @@ import com.google.firebase.auth.FirebaseAuth;
  * Xml done by Ibrahim
  */
 public class Login extends AppCompatActivity {
+    String userID;
     TextInputEditText editTextEmail, editTextPassword;
-    Button registerButton , logInButton ;
+    Button registerButton , logInButton, rememberMeButton;
     FirebaseAuth mAuth;
     /**
      * This code snippet is for already Logged in users
@@ -62,6 +63,16 @@ public class Login extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         registerButton = findViewById(R.id.registerButton2);
         logInButton = findViewById(R.id.loginButton);
+        rememberMeButton = findViewById(R.id.checkBox);
+        /**
+         * TODO: Full Implement remember me Button
+         */
+        rememberMeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         /**
          * registerButton's and Intents
@@ -86,7 +97,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
 
 
                 if(TextUtils.isEmpty(email)){
@@ -104,7 +115,12 @@ public class Login extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(Login.this, "Authentication successful.",
                                             Toast.LENGTH_LONG).show();
+                                    userID=mAuth.getCurrentUser().getUid();
+                                    /*
+                                    * TODO: Look Into SharedPreferences it can be done without passing values every time
+                                    * */
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.putExtra("userID",userID);
                                     startActivity(intent);
                                     finish();
 

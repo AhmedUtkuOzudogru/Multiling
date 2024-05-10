@@ -14,7 +14,7 @@ Date: 06/05/2024
 
 
     <ImageView
-        android:id="@+id/settingsImage1"
+        android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
@@ -24,132 +24,76 @@ Date: 06/05/2024
         app:srcCompat="@drawable/multiling_logo_transparent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsLayout3"
+        android:id="@+id/settingsLayout1"
         android:layout_width="350dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/settings_background"
         android:elevation="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <!-- Left Element (ImageView) -->
 
-        <ImageView
-            android:id="@+id/settingsImage3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pencil_icon" />
-
-        <!-- Middle Element (TextView) -->
-
-        <!-- Right Element (Switch) -->
-
-        <TextView
-            android:id="@+id/settingsText2"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="Writing Question Number"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settingsEditText1"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/settingsImage3"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/settingsEditText1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="16dp"
-            android:autofillHints="10"
-            android:ems="10"
-            android:inputType="number"
-            android:text="10"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsLayout1"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/settings_background"
+            android:elevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsLayout4"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/settings_background"
-        android:elevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsLayout3">
-
-
-        <ImageView
-            android:id="@+id/settingsImage4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/playing_cards_icon" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <TextView
-            android:id="@+id/settingsText3"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="Flash Card Number"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settingsEditText2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/settingsImage4"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!-- Left Element (ImageView) -->
 
-        <EditText
-            android:id="@+id/settingsEditText2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="16dp"
-            android:autofillHints="10"
-            android:ems="10"
-            android:inputType="number"
-            android:text="10"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/settingsImage1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/notification_icon" />
 
+            <!-- Middle Element (TextView) -->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Right Element (Switch) -->
+            <TextView
+                android:id="@+id/settingsText1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="Notifications"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/settingsSwitch1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/settingsImage1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.506" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsLayout2"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="31dp"
-        android:background="@drawable/settings_background"
-        android:elevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsImage1">
+            <Switch
+                android:id="@+id/settingsSwitch1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Left Element (ImageView) -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/profileLevelIcon"
+            android:id="@+id/settingsImage1"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
@@ -172,7 +116,7 @@ Date: 06/05/2024
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/settingsSwitch1"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/profileLevelIcon"
+            app:layout_constraintStart_toEndOf="@id/settingsImage1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.506" />
 
@@ -189,18 +133,118 @@ Date: 06/05/2024
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/navigator_background"
-        android:elevation="100dp"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@drawable/item_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsLayout2"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/settings_background"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsLayout1">
+
+        <!-- Left Element (ImageView) -->
+
+        <ImageView
+            android:id="@+id/settingsImage1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pencil_icon" />
+
+        <!-- Middle Element (TextView) -->
+
+        <!-- Right Element (Switch) -->
+        <TextView
+            android:id="@+id/settingsText1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Writing Question Number"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+            app:layout_constraintStart_toEndOf="@id/settingsImage1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.506" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsLayout3"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/settings_background"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsLayout2">
+
+        <!-- Left Element (ImageView) -->
+
+        <ImageView
+            android:id="@+id/settingsImage1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/playing_cards_icon" />
+
+        <!-- Middle Element (TextView) -->
+
+        <!-- Right Element (Switch) -->
+        <TextView
+            android:id="@+id/settingsText1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Flash Card Number"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editTextNumber2"
+            app:layout_constraintStart_toEndOf="@id/settingsImage1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.506" />
+
+        <EditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        SeekBar
+            android:id="@+id/seekBar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="278dp"
+            tools:layout_editor_absoluteY="41dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

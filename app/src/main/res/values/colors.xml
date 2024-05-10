@@ -2,9 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#424949</color>
-    <color name="red">#E74C3C</color>
-    <color name="toolbarColor">#979A9A</color>
+    <color name="toolbarColor">#ABB2B9</color>
+    <color name="grey">#6E6E6E</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#008000</color>
 
 
 </resources>
