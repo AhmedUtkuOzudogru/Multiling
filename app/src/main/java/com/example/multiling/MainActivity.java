@@ -14,6 +14,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Button goToProfilePageButton;
+    Button goToWritingExercisePageButton;
+    Button goToFlashCardPageButton;
+    Button goToSettingsPageButton;
 
 
 
@@ -36,10 +39,47 @@ public class MainActivity extends AppCompatActivity {
         goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Profile.class);
-                startActivity(intent);
+                Intent intentProfilePage = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intentProfilePage);
 
             }
         });
+
+        goToWritingExercisePageButton =findViewById(R.id.mainWritingButton);
+
+        goToWritingExercisePageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(getApplicationContext(), WritingExercise.class);
+                startActivity(intentProfile);
+            }
+        });
+
+        goToFlashCardPageButton = findViewById(R.id.mainFlashButton);
+        goToFlashCardPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentFlashCard = new Intent(getApplicationContext(), FlashCard.class);
+                startActivity(intentFlashCard);
+            }
+        });
+
+        goToSettingsPageButton = findViewById(R.id.mainSettingsButton);
+        goToSettingsPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentSettings = new Intent(getApplicationContext(), Settings.class);
+                startActivity(intentSettings);
+            }
+        });
+
+
+
+
+
+
+
+
+
     }
 }
