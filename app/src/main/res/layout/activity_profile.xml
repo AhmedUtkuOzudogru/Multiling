@@ -62,27 +62,37 @@
 
                 <TextView
                     android:id="@+id/profileLevel"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="218dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Level"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profileChangeLevel"
-                    app:layout_constraintStart_toEndOf="@id/profileLevelIcon"
+                    app:layout_constraintBottom_toTopOf="@+id/levelEdit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/profileLevelIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/profileChangeLevel"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/change_icon"
-                    android:text="Button"
+                <TextView
+                    android:id="@+id/levelEdit"
+                    android:layout_width="160dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="175dp"
+                    android:layout_marginBottom="19dp"
+                    android:gravity="center"
+                    android:text="Advanced"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/profileLevelIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/profileLevel" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,29 +124,40 @@
                 <!-- Middle Element (TextView) -->
 
                 <!-- Right Element (Switch) -->
+
                 <TextView
                     android:id="@+id/profileUserName"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="170dp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="center"
-                    android:text="Username"
+                    android:text="Username:"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profileChangeName"
+                    app:layout_constraintBottom_toTopOf="@+id/userNameEdit"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/profileNameIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/profileChangeName"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/change_icon"
-                    android:text="Button"
+                <TextView
+                    android:id="@+id/userNameEdit"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="170dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Your name"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/profileNameIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/profileUserName" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -169,27 +190,37 @@
 
                 <TextView
                     android:id="@+id/profileMail"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="216dp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="center"
                     android:text="Email"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profileChangeMail"
+                    app:layout_constraintBottom_toTopOf="@+id/emailEdit"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/profileMailIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/profileChangeMail"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/change_icon"
-                    android:text="Button"
+                <TextView
+                    android:id="@+id/emailEdit"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="104dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="email@gmail.com"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/profileMailIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/profileMail" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -222,27 +253,35 @@
 
                 <TextView
                     android:id="@+id/profilePassword"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="177dp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="center"
                     android:text="Password"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/profileChangePassword"
+                    app:layout_constraintBottom_toTopOf="@+id/passwordEdit"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/profileChangePassword"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/change_icon"
-                    android:text="Button"
+                <TextView
+                    android:id="@+id/passwordEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="144dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="password123"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -259,10 +298,11 @@
                 app:srcCompat="@drawable/graph_icon" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/profileButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chane your Profile"
+                tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="122dp"
                 tools:layout_editor_absoluteY="156dp" />
 
