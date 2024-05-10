@@ -17,13 +17,13 @@ proficiencyLevel should be combo box
         android:id="@+id/nameText1"
         android:layout_width="300dp"
         android:layout_height="96dp"
-        android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-black"
-        android:text="Fill Your Profile"
+        android:text="    Fill Your Profile"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        tools:layout_editor_absoluteY="210dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nameTextField"
@@ -38,6 +38,18 @@ proficiencyLevel should be combo box
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText1" />
+
+    <ImageView
+        android:id="@+id/signUpImage1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/multiling_logo_transparent"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/surnameTextField"
@@ -122,17 +134,6 @@ proficiencyLevel should be combo box
 
         app:layout_constraintEnd_toEndOf="@+id/start"
         app:layout_constraintTop_toBottomOf="@+id/signUpText2" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/potato"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
