@@ -46,22 +46,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.navigator_profile);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigator_settings:
-                    return true;
-                case R.id.navigator_profile:
-                    return true;
-                case R.id.navigator_home:
-                    return true;
-                case R.id.navigator_flashcard:
-                    return true;
-                case R.id.navigator_writingexercises:
-                    return true;
-            }
-            return false;
-        });
     }
 }

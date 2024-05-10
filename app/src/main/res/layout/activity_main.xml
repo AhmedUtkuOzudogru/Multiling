@@ -305,4 +305,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
