@@ -9,4 +9,6 @@
     <string name="surname">Surname</string>
     <string name="start">Start</string>
     <string name="skip">Skip</string>
+    <string name="level">Level</string>
+    <string name="username">UserName</string>
 </resources>
