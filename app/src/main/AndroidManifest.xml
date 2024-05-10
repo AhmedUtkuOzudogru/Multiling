@@ -17,6 +17,7 @@
         <activity
             android:name=".FillProfile"
             android:exported="true" />
+        <activity
             android:name=".ResultPage"
             android:exported="false" />
         <activity
