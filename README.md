@@ -6,10 +6,13 @@ writing exercises, adapting repetition intervals based on user performance to op
 memorization.
 # Known Errors
 1. Register
-Error dialog pops up even when two passwords match. (Fixed)
+- Error dialog pops up even when two passwords match. (Fixed)
+- UserID should be sent to the firestore
 2. Login
-Remember me does not work.
+- Remember me does not work.
 3.StartPage
-Login button Is not Centered
+- Login button Is not Centered  when app is running
 4.FillProfile
-The proficiencyLevel level should be Combo box needs implementation
+- The proficiencyLevel level should be Combo box needs implementation
+5. Main Activity
+- Sample user icon doesnt show up when app is running
