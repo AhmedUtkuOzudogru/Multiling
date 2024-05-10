@@ -24,20 +24,27 @@ public class Profile extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.navigator_profile);
+        bottomNavigationView.setSelectedItemId(R.id.navigator_flashcard);
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.navigator_settings:
-                    return true;
-                case R.id.navigator_profile:
-                    return true;
-                case R.id.navigator_home:
-                    return true;
-                case R.id.navigator_flashcard:
-                    return true;
-                case R.id.navigator_writingexercises:
-                    return true;
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.navigator_settings) {
+                // Handle settings navigation
+                return true;
+            } else if (itemId == R.id.navigator_profile) {
+                // Handle profile navigation
+                return true;
+            } else if (itemId == R.id.navigator_home) {
+                // Handle home navigation
+                return true;
+            } else if (itemId == R.id.navigator_flashcard) {
+                // Handle flashcard navigation
+                return true;
+            } else if (itemId == R.id.navigator_writingexercises) {
+                // Handle writing exercises navigation
+                return true;
             }
+
             return false;
         });
     }
