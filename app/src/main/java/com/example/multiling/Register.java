@@ -117,6 +117,7 @@ public class Register extends AppCompatActivity {
                                     });
                                     Intent intent = new Intent(getApplicationContext(), FillProfile.class);
                                     intent.putExtra("userID",userID);
+                                    intent.putExtra("email",email);
                                     startActivity(intent);
 
 

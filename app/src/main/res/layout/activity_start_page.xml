@@ -20,8 +20,9 @@ TODO: Login Button Is not centered
         android:layout_marginTop="50dp"
         android:text="@string/login"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/startPageText1"
-        tools:layout_editor_absoluteX="55dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startPageText1" />
 
     <ImageView
         android:id="@+id/startPageImage"
@@ -37,9 +38,7 @@ TODO: Login Button Is not centered
         android:id="@+id/startPageText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="115dp"
         android:text="Let's Start"
         android:textSize="40dp"
         android:textStyle="bold"
