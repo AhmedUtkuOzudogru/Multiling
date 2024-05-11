@@ -17,7 +17,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
+        BottomNavigationView bottomNavigation = findViewById(R.id.settingsNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_settings);
 
         // Set listener for item selection

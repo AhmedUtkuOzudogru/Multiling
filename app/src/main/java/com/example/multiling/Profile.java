@@ -76,7 +76,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
+        BottomNavigationView bottomNavigation = findViewById(R.id.profileNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_profile);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

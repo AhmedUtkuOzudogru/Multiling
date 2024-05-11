@@ -17,7 +17,7 @@ public class WritingExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing_exercise);
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
+        BottomNavigationView bottomNavigation = findViewById(R.id.writingExerciseNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
