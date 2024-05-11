@@ -9,164 +9,132 @@
     tools:context=".WritingExercise">
 
     <ProgressBar
-        android:id="@+id/progressBar2"
+        android:id="@+id/writingProgressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="250dp"
         android:layout_height="10dp"
+        android:layout_marginTop="40dp"
         android:max="10"
         android:progress="7"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintTop_toBottomOf="@+id/writingLogo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/writingText"
         style="@style/Widget.AppCompat.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Fill in the blanks"
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintTop_toBottomOf="@+id/writingProgressBar" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/writingQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:text="The United States of America was _____ in 1776"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintTop_toBottomOf="@+id/writingText" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/writingText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Pick the correct verb"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="327dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="638dp"
-        android:background="?android:selectableItemBackground"
-        android:contentDescription="Notifications"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bell"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/writingQuestion" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/writingAnswer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/green"
         android:text="Found"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
-        android:backgroundTint="@color/green"/>
+        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/writingAnswer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/red"
         android:text="Digest"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
-        android:backgroundTint="@color/red"/>
+        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/writingAnswer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/red"
         android:text="Eat"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
-        android:backgroundTint="@color/red"/>
+        app:layout_constraintEnd_toStartOf="@+id/writingAnswer3"
+        app:layout_constraintStart_toEndOf="@+id/writingAnswer1"
+        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/writingText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Write it in the correct tense"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.757" />
+        app:layout_constraintTop_toBottomOf="@+id/writingAnswer2" />
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/writingCorrectTense"
         android:layout_width="200dp"
         android:layout_height="48dp"
+        android:layout_marginTop="40dp"
         android:hint="Founded"
         android:inputType="textPersonName|textCapWords"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87"
-        android:maxLines="1"/>
+        app:layout_constraintTop_toBottomOf="@+id/writingText3" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/writingLogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/multiling_logo_transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
+        android:id="@+id/writingExerciseNavigation"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/navigator_background"

@@ -16,13 +16,14 @@ proficiencyLevel should be combo box
     <TextView
         android:id="@+id/nameText1"
         android:layout_width="300dp"
-        android:layout_height="96dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-black"
         android:text="    Fill Your Profile"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="210dp"
+        app:layout_constraintTop_toBottomOf="@+id/signUpImage1"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText

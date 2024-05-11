@@ -12,13 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -80,7 +76,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
+        BottomNavigationView bottomNavigation = findViewById(R.id.profileNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_profile);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
