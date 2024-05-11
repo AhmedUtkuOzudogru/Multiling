@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,10 +30,11 @@ import java.util.Map;
  * TODO: The proficiencyLevel level should be Combo box needs implementation
  */
 public class FillProfile extends AppCompatActivity {
-    String userID,name,surname,proficiencyLevel;
+    String email,userID,name,surname,proficiencyLevel;
     TextInputEditText nameTextField, surnameTextField, proficiencyLevelTextField ;
     Button startButton,skipButton;
     FirebaseFirestore firestore;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class FillProfile extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        userID = getIntent().getStringExtra("userID");
+
         nameTextField = findViewById(R.id.nameTextField);
         surnameTextField = findViewById(R.id.surnameTextField);
         proficiencyLevelTextField = findViewById(R.id.proficiencyLevel);
@@ -54,6 +56,9 @@ public class FillProfile extends AppCompatActivity {
         surname="aSurname";
         proficiencyLevel="aProficiencyLevel";
         firestore = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        userID = mAuth.getUid();
+        email = mAuth.getCurrentUser().getEmail();
 
 
         /*
@@ -67,9 +72,11 @@ public class FillProfile extends AppCompatActivity {
                 DocumentReference documentReference = firestore.collection("users").document(userID);
                 // Storing data using hash map
                 Map<String,Object> user = new HashMap<>();
+                user.put("e-mail", email);
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
+
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -115,6 +122,7 @@ public class FillProfile extends AppCompatActivity {
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
+                user.put("email", email);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

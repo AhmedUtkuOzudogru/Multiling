@@ -11,8 +11,9 @@ memorization.
 2. Login
 - Remember me does not work.
 3.StartPage
-- Login button Is not Centered  when app is running
+- Login button Is not Centered  when app is running(Fixed)
 4.FillProfile
 - The proficiencyLevel level should be Combo box needs implementation
 5. Main Activity
 - Sample user icon doesnt show up when app is running
+- Logout and Notification Buttons are not implemented

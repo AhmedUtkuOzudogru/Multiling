@@ -7,12 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@+id/flashcardNavigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -26,7 +25,7 @@
                 android:id="@+id/profilePicture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +35,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout5"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -62,11 +61,9 @@
 
                 <TextView
                     android:id="@+id/profileLevel"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="218dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Level"
@@ -79,12 +76,10 @@
 
                 <TextView
                     android:id="@+id/levelEdit"
-                    android:layout_width="160dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="175dp"
-                    android:layout_marginBottom="19dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="Advanced"
                     android:textAlignment="center"
@@ -99,15 +94,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout2"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture">
+                app:layout_constraintTop_toBottomOf="@+id/profileButton">
 
                 <!-- Left Element (ImageView) -->
 
@@ -127,12 +122,10 @@
 
                 <TextView
                     android:id="@+id/profileUserName"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="170dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Username:"
                     android:textAlignment="center"
@@ -144,12 +137,10 @@
 
                 <TextView
                     android:id="@+id/userNameEdit"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="170dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="Your name"
                     android:textAlignment="center"
@@ -164,7 +155,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ProfileLayout3"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -190,12 +181,10 @@
 
                 <TextView
                     android:id="@+id/profileMail"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="216dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Email"
                     android:textAlignment="center"
@@ -209,10 +198,8 @@
                     android:id="@+id/emailEdit"
                     android:layout_width="250dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="104dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="email@gmail.com"
                     android:textAlignment="center"
@@ -227,7 +214,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ProfileLayout4"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -253,12 +240,10 @@
 
                 <TextView
                     android:id="@+id/profilePassword"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="177dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Password"
                     android:textAlignment="center"
@@ -270,29 +255,30 @@
 
                 <TextView
                     android:id="@+id/passwordEdit"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="144dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="password123"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon" />
+                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/profilePassword" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/flashcardQuestionImage"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout5"
                 app:srcCompat="@drawable/graph_icon" />
@@ -300,11 +286,25 @@
             <Button
                 android:id="@+id/profileButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="60dp"
                 android:text="Chane your Profile"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="122dp"
-                tools:layout_editor_absoluteY="156dp" />
+                app:icon="@drawable/change_icon2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+                app:srcCompat="@drawable/change_icon2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -312,18 +312,18 @@
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
+        android:id="@+id/profileNavigation"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/navigator_background"
-        android:elevation="100dp"
+        android:elevation="20dp"
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/item_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
