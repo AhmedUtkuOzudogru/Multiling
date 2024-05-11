@@ -16,3 +16,4 @@ memorization.
 - The proficiencyLevel level should be Combo box needs implementation
 5. Main Activity
 - Sample user icon doesnt show up when app is running
+- Logout and Notification Buttons are not implemented

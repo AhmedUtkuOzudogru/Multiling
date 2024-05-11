@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     String userID;
 
-    Button goToProfilePageButton;
+    Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton;
 
 
 
@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         userNameTextView=findViewById(R.id.mainUserName);
         levelTextView=findViewById(R.id.mainLevel);
         emailTextView=findViewById(R.id.mainEmail);
+        goToWritingExerciseButton=findViewById(R.id.mainWritingButton);
+        goToFlashcardButton=findViewById(R.id.mainFlashButton);
+        goToSettingsButton=findViewById(R.id.mainSettingsButton);
+        goToProfilePageButton=findViewById(R.id.mainProfileButton);
 
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -63,11 +67,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        goToProfilePageButton=findViewById(R.id.mainProfileButton);
+
         goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intent);
+
+            }
+        });
+        goToWritingExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WritingExercise.class);
+                startActivity(intent);
+
+            }
+        });
+        goToFlashcardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FlashCard.class);
+                startActivity(intent);
+
+            }
+        });
+        goToSettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
 
             }
