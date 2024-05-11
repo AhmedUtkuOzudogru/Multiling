@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class FlashCard extends AppCompatActivity {
+public class Flashcard extends AppCompatActivity {
     private String front;
     private String[] questionComponents;
     private String ID;
@@ -26,7 +26,7 @@ public class FlashCard extends AppCompatActivity {
     private String firstWrongAnswer;
     private String secondWrongAnswer;
 
-    public FlashCard()
+    public Flashcard()
     {
         this.questionComponents = createFlashcard("easy_words.txt");//TODO:this should be changed to the var in the user class that will hold the file name
         this.ID = questionComponents[0];
