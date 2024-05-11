@@ -14,15 +14,17 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class WritingExercise extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_writing_exercise);
+        setContentView(R.layout.activity_settings);
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
-        bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
+        bottomNavigation.setSelectedItemId(R.id.navigator_settings);
+
+        // Set listener for item selection
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -38,7 +40,6 @@ public class WritingExercise extends AppCompatActivity {
                 }
                 else if (item.getItemId() == R.id.navigator_settings)
                 {
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
                     return true;
                 }
                 else if (item.getItemId() == R.id.navigator_flashcard)
@@ -48,6 +49,7 @@ public class WritingExercise extends AppCompatActivity {
                 }
                 else if (item.getItemId() == R.id.navigator_writingexercises)
                 {
+                    startActivity(new Intent(getApplicationContext(), WritingExercise.class));
                     return true;
                 }
                 return false;

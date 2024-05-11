@@ -23,6 +23,6 @@
 
     <item
         android:id="@+id/navigator_writingexercises"
-        android:title="WritingExercises"
+        android:title="Writing Ex"
         android:icon="@drawable/pencil_icon" />
 </menu>
