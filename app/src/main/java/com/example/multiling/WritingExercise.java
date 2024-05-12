@@ -1,5 +1,6 @@
 package com.example.multiling;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -123,9 +124,10 @@ public class WritingExercise extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                if(firstChoice.getContext().equals(answer))
+                if(firstChoice.getText().equals(answer))
                 {
-                    
+                    Context contextInstance = firstChoice.getContext();
+                    firstChoice.setBackgroundTintList(contextInstance.getResources().getColorStateList(R.color.colorstatelist));
                 }
             }
         });
