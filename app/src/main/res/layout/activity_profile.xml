@@ -43,7 +43,7 @@
                 android:elevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ProfileLayout4">
+                app:layout_constraintTop_toBottomOf="@+id/ProfileLayout3">
 
                 <!-- Left Element (ImageView) -->
 
@@ -210,65 +210,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/profileMailIcon"
                     app:layout_constraintTop_toBottomOf="@+id/profileMail" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ProfileLayout4"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/settings_background"
-                android:elevation="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ProfileLayout3">
-
-                <!-- Left Element (ImageView) -->
-
-                <ImageView
-                    android:id="@+id/profilePasswordIcon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/password_icon" />
-
-                <!-- Middle Element (TextView) -->
-
-                <!-- Right Element (Switch) -->
-
-                <TextView
-                    android:id="@+id/profilePassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="center"
-                    android:text="Password"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/passwordEdit"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/passwordEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center"
-                    android:text="password123"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon"
-                    app:layout_constraintTop_toBottomOf="@+id/profilePassword" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

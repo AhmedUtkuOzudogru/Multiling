@@ -72,7 +72,7 @@ public class FillProfile extends AppCompatActivity {
                 DocumentReference documentReference = firestore.collection("users").document(userID);
                 // Storing data using hash map
                 Map<String,Object> user = new HashMap<>();
-                user.put("e-mail", email);
+                user.put("email", email);
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);

@@ -56,11 +56,11 @@ public class EditProfile extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     StorageReference storageReference;
-    EditText nameEditText, surnameEditText, emailEditText, levelEditText;
+    EditText nameEditText, surnameEditText, levelEditText;
     FirebaseUser user;
 
 
-    String userID,name,surname,email,level,password;
+    String userID,name,surname,email,level;
 
 
     @Override
@@ -88,8 +88,8 @@ public class EditProfile extends AppCompatActivity {
         resetPasswordButton=findViewById(R.id.resetPasswordButton);
         nameEditText=findViewById(R.id.nameEditText);
         surnameEditText =findViewById(R.id.surnameEditText);
-        emailEditText =findViewById(R.id.emailEditText);
-        levelEditText =findViewById(R.id.levelEditText);
+
+        levelEditText =findViewById(R.id.editProfileLevel);
         cancelButton=findViewById(R.id.cancelButton);
 
 
@@ -105,7 +105,6 @@ public class EditProfile extends AppCompatActivity {
                 nameEditText.setText(name);
                 surnameEditText.setText(surname);
                 levelEditText.setText(level);
-                emailEditText.setText(email);
             }
         });
 
@@ -115,17 +114,15 @@ public class EditProfile extends AppCompatActivity {
                 name = String.valueOf(nameEditText.getText());
                 surname = String.valueOf(surnameEditText.getText());
                 level = String.valueOf(levelEditText.getText());
-                email = String.valueOf(emailEditText.getText());
-                if(name.isEmpty()||surname.isEmpty()||level.isEmpty()||email.isEmpty()){
+                if(name.isEmpty()||surname.isEmpty()||level.isEmpty()){
                     Toast.makeText(EditProfile.this,"All fields should be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Map<String,Object> user = new HashMap<>();
-                user.put("e-mail", email);
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",level);
-
+                user.put("email",firebaseAuth.getCurrentUser().getEmail());
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
