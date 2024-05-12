@@ -25,6 +25,7 @@ public class Flashcard extends AppCompatActivity {
     private String correctAnswer;
     private String firstWrongAnswer;
     private String secondWrongAnswer;
+    private int numOfQuestions; // TODO: get this from settings page
 
     public Flashcard()
     {
@@ -69,6 +70,8 @@ public class Flashcard extends AppCompatActivity {
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
+
+
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
