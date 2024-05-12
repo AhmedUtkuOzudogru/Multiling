@@ -13,9 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Multiling">
         <activity
-            android:name=".Question"
+            android:name=".User"
             android:exported="false" />
-        <!-- Launcher Activity -->
+        <activity
+            android:name=".Question"
+            android:exported="false" /> <!-- Launcher Activity -->
         <activity
             android:name=".StartPage"
             android:exported="true">

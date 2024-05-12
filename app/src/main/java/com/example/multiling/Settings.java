@@ -16,15 +16,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends AppCompatActivity
+{
     private int writingNumber;
     private int flashcardNumber;
     private Switch notificationSwitch;
     private EditText writingNumEditText;
     private EditText flashcardNumEditText;
+    private static Settings instance = null;
+
+    public static Settings getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new Settings();
+        }
+        return instance;
+    }
+
+    public int getWritingNumber()
+    {
+        return writingNumber;
+    }
+
+    public int getFlashcardNumber()
+    {
+        return flashcardNumber;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
