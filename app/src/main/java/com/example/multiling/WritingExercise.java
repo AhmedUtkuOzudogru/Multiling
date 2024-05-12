@@ -119,18 +119,6 @@ public class WritingExercise extends AppCompatActivity
         StringBuffer firstChoiceBuffer = new StringBuffer();
         firstChoiceBuffer.append(allAnswers[ranIndex]);
         firstChoice.setText(firstChoiceBuffer);
-        firstChoice.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                if(firstChoice.getText().equals(answer))
-                {
-                    Context contextInstance = firstChoice.getContext();
-                    firstChoice.setBackgroundTintList(contextInstance.getResources().getColorStateList(R.color.colorstatelist));
-                }
-            }
-        });
         //removing the first choice from the array of choices and copying the remaining 2 words into another array
         for(int i = ranIndex; i < allAnswers.length; i++)
         {
@@ -158,5 +146,35 @@ public class WritingExercise extends AppCompatActivity
             secondChoice.setText(secondChoiceBuffer);
             thirdChoice.setText(thirdChoiceBuffer);
         }
+
+        firstChoice.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Context firstContextInstance = firstChoice.getContext();
+                Context secContextInstance = secondChoice.getContext();
+                Context thirdContextInstance = thirdChoice.getContext();
+                if(firstChoice.getText().equals(answer))
+                {
+
+                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                }
+                else if (secondChoice.getText().equals(answer))
+                {
+                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                }
+                else
+                {
+                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                }
+            }
+        });
     }
 }
