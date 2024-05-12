@@ -15,13 +15,13 @@ import java.util.Random;
 
 public class Question extends AppCompatActivity
 {
-    public String[] questionComponents;
-    public String ID;
-    public String question;
-    public String answer;
-    public String firstWrongAnswer;
-    public String secondWrongAnswer;
-    public String[] allAnswers;
+    private String[] questionComponents;
+    private String ID;
+    private String question;
+    private String answer;
+    private String firstWrongAnswer;
+    private String secondWrongAnswer;
+    private String[] allAnswers;
 
     public Question(WritingExercise writingExercise)
     {
@@ -34,7 +34,7 @@ public class Question extends AppCompatActivity
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
     }
 
-    public Question(Flashcard exercise)
+    public Question(Flashcard flashExercise)
     {
         this.questionComponents = createQuestion("easy_words.txt");//TODO:this should be changed to the var in the user class that will hold the file name
         this.ID = questionComponents[0];

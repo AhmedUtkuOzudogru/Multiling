@@ -24,20 +24,33 @@ import java.util.Random;
 
 public class WritingExercise extends AppCompatActivity
 {
-    public Question[] questions;
+    private Question[] questions;
+    private int correctAnswers;
 
-    public WritingExercise(int num)
+    public WritingExercise(int num) //TODO: num should be obtained from settings page
     {
         questions = new Question[num];
         for(int i = 0; i < num; i++)
         {
             questions[i] = new Question(this);
         }
+
+        this.correctAnswers = 0;
     }
 
     public Question[] getQuestions()
     {
         return this.questions;
+    }
+
+    public int getCorrectAnswers()
+    {
+        return this.correctAnswers;
+    }
+
+    public void incrementScore()
+    {
+        this.correctAnswers++;
     }
 
 
@@ -127,18 +140,22 @@ public class WritingExercise extends AppCompatActivity
             ProgressBar progressBar = findViewById(R.id.writingProgressBar);
 
             int finalI = i;
-            firstChoice.setOnClickListener(new View.OnClickListener() {
+            firstChoice.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
                 public void onClick(View view) {
                     Context firstContextInstance = firstChoice.getContext();
                     Context secContextInstance = secondChoice.getContext();
                     Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer())) {
-
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
                         firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
                         secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
                         thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    } else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer())) {
+                        incrementScore();
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
                         firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
                         secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
                         thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
@@ -148,6 +165,67 @@ public class WritingExercise extends AppCompatActivity
                         firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
                         secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
                         thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            secondChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            thirdChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                        incrementScore();
                     }
                     progressBar.incrementProgressBy(1);
                 }
