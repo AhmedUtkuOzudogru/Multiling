@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,7 +22,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -28,12 +35,15 @@ import com.squareup.picasso.Picasso;
 
 public class EditProfile extends AppCompatActivity {
     ImageView profileImage;
-    Button changeProfileButton;
-    FirebaseAuth mAuth;
-    FirebaseFirestore firestore;
+    Button changeProfileButton, saveButton, resetPasswordButton, cancelButton;
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore;
     StorageReference storageReference;
+    EditText nameEditText, surnameEditText, emailEditText, levelEditText;
+    FirebaseUser user;
 
-    String userID;
+
+    String userID,name,surname,email,level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +66,46 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
-        firestore = FirebaseFirestore.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-        userID = mAuth.getCurrentUser().getUid();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user=firebaseAuth.getCurrentUser();
+        userID = firebaseAuth.getCurrentUser().getUid();
 
 
         profileImage = findViewById(R.id.profileImage);
         changeProfileButton = findViewById(R.id.changeProfileButton);
+        saveButton=findViewById(R.id.saveButton);
+        resetPasswordButton=findViewById(R.id.resetPasswordButton);
+        nameEditText=findViewById(R.id.nameEditText);
+        surnameEditText =findViewById(R.id.surnameEditText);
+        emailEditText =findViewById(R.id.emailEditText);
+        levelEditText =findViewById(R.id.levelEditText);
+        cancelButton=findViewById(R.id.cancelButton);
+
+        DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                name=value.getString("name");
+                surname=value.getString("surname");
+                level=value.getString("proficiencyLevel");
+                email=firebaseAuth.getCurrentUser().getEmail();
+                nameEditText.setText(name);
+                surnameEditText.setText(surname);
+                levelEditText.setText(level);
+                emailEditText.setText(email);
+            }
+        });
 
 
 
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfile.this, Profile.class));
 
+            }
+        });
 
         changeProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override

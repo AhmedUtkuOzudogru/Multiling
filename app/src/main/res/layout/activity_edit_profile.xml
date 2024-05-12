@@ -23,7 +23,7 @@
         tools:visibility="visible" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/nameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/surnameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -50,10 +50,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/emailEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -61,14 +61,14 @@
         android:layout_marginEnd="39dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Password"
+        android:text="Email"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/surnameEditText" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/levelEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -80,22 +80,54 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/resetPasswordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="68dp"
+        android:text="Reset Password"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveButton"
+        app:layout_constraintVertical_bias="0.916" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="68dp"
         android:text="Save"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/levelEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="16dp"
+        android:text="Cancel"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/changeProfileButton"
@@ -106,7 +138,7 @@
         android:layout_marginEnd="164dp"
         android:layout_marginBottom="17dp"
         android:text="Change Profile"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
