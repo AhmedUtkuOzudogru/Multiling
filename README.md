@@ -17,6 +17,4 @@ memorization.
 5. Main Activity
 - Sample user icon doesnt show up when app is running
 - Logout and Notification Buttons are not implemented
-6. Edit Profile Activity
-- Save button is not aligned
 # The levels should be Combo box needs to change from Field Text view in all of the classes

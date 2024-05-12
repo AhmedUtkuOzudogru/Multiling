@@ -2,7 +2,6 @@ package com.example.multiling;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,13 +14,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,21 +76,6 @@ public class FillProfile extends AppCompatActivity {
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
-                documentReference.set(user, SetOptions.merge())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d("Tag", "userProfile is created for ID:" + userID + " with Name:" + name +
-                                        " Surname:" + surname + " proficiencyLevel:" + proficiencyLevel);
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.e("Tag", "Error creating userProfile", e);
-                            }
-                        });
-
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -141,20 +123,6 @@ public class FillProfile extends AppCompatActivity {
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
                 user.put("email", email);
-                documentReference.set(user, SetOptions.merge())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d("Tag", "userProfile is created for ID:" + userID + " with Name:" + name +
-                                        " Surname:" + surname + " proficiencyLevel:" + proficiencyLevel);
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.e("Tag", "Error creating userProfile", e);
-                            }
-                        });
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
