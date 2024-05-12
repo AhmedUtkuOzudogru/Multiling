@@ -24,15 +24,13 @@
 
             <ImageView
                 android:id="@+id/profilePicture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="30dp"
-                app:layout_constraintBottom_toTopOf="@+id/profileButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/user_icon" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout5"
@@ -244,9 +242,8 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/profileNavigation"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/navigator_background"
-        android:elevation="20dp"
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/item_selector"
         app:labelVisibilityMode="labeled"
