@@ -1,100 +1,100 @@
-1 : Politik durum nedeniyle pazar ___ dalgalanmalar yaşadı : ekonomik : ekonomik : sosyal : teknik
-2 : Yazarın anlatımı kitapta ___ bir üsluba sahipti : oldukça sofistike : oldukça sofistike : basit : sade
-3 : Hukuk konferansında çok ___ konular ele alındı : derin : derin : yüzeysel : genel
-4 : Çalışmalarını tamamlamak için gece ___ uykusuz kaldı : gündüz : gündüz gibi : akşam : sabah
-5 : Yeni teknoloji pazarında ___ bir atılım bekleniyor : devrimsel : devrimsel : küçük : geçici
-6 : Şirketin büyüme stratejisi ___ gözden geçirildi : detaylıca : detaylıca : özetle : hızlıca
-7 : Olayın perde arkası çok geçmeden ___ ortaya çıktı : tüm detaylarıyla : tüm detaylarıyla : kısmen : yüzeysel olarak
-8 : Dil öğrenirken kültürel bağlamı ___ göz önünde bulundurmak önemlidir : her zaman : her zaman : bazen : nadiren
-9 : Eleştirmenler filmi ___ eleştirdiler : ağır bir şekilde : ağır bir şekilde : hafifçe : olumlu
-10 : Yazar, eserini bir ___ olarak sundu : alegori : alegori : hikaye : anlatı
-11 : Değerlendirme süreci ___ zaman aldı : beklenenden daha fazla : beklenenden daha fazla : az : yeterli
-12 : Yeni yönetmelikler ___ bir biçimde uygulanmaya başlandı : resmi : resmi : gayriresmi : rastgele
-13 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : teknik : basit : genel
-14 : Eski metinler ___ bir titizlikle incelendi : büyük : büyük : küçük : yetersiz
-15 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : astronomik : düşük : makul
-16 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : büyük : az : yetersiz
-17 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kapsamlı : kısa : özet
-18 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : en ince : yüzeysel : kaba
-19 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : eleştirel : övücü : yüzeysel
-20 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : yakından : uzaktan : genel olarak
-21 : Yapılan araştırma ___ verilerle desteklendi : sağlam : sağlam : zayıf : geçici
-22 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : sürekli : ara sıra : yetersiz
-23 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : yenilikçi : geleneksel : basit
-24 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : keskin : yumuşak : genel
-25 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : stratejik : rastgele : kısa vadeli
-26 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : geniş : dar : sınırlı
-27 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : geniş : dar : sınırlı
-28 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : ciddi : hafif : geçici
-29 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : derinlemesine : yüzeysel : genel
-30 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : karmaşık : basit : genel
-31 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : ayrıntılı : özet : yüzeysel
-32 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : sert : ılımlı : övgüyle
-33 : Eğitim sistemini ___ bir şekilde reform etmek gerekir : köklü : köklü : kısmi : yüzeysel
-34 : Eleştirmen kitabı ___ bir dille değerlendirdi : eleştirel : eleştirel : övücü : yüzeysel
-35 : Filmin görsel efektleri ___ beğeni topladı : büyük : büyük : az : yetersiz
-36 : Hükümet kriz üzerine ___ bir plan açıkladı : kapsamlı : kapsamlı : kısa : yüzeysel
-37 : Roman kahramanının iç dünyası ___ bir şekilde işlendi : derin : derin : yüzeysel : kısa
-38 : Sanat eleştirmeni sergiyi ___ bir açıdan değerlendirdi : farklı : farklı : benzer : sıradan
-39 : Yönetmen filmi ___ bir tema üzerine kurdu : özgün : özgün : klişe : genel
-40 : Konferansta sunulan fikirler ___ yenilikçiydi : son derece : son derece : orta : geleneksel
-41 : Kitap, yazarın yaşam öyküsünü ___ bir bakış açısıyla ele aldı : benzersiz : benzersiz : tipik : sıradan
-42 : Müze, tarihi eserleri ___ bir şekilde sergiliyor : etkileyici : etkileyici : sıradan : yetersiz
-43 : Toplantıda stratejik planlar ___ bir şekilde sunuldu : detaylı : detaylı : özet : yüzeysel
-44 : Filozof düşüncelerini ___ bir dille ifade etti : karmaşık : karmaşık : basit : açık
-45 : Sergi, sanatçının eserlerini ___ bir biçimde sunuyor : kronolojik : kronolojik : rastgele : karışık
-46 : Konferansın ana konusu ___ bir şekilde işlendi : derin : derin : yüzeysel : kısa
-47 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : teknik : basit : genel
-48 : Eski metinler ___ bir titizlikle incelendi : büyük : büyük : küçük : yetersiz
-49 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : astronomik : düşük : makul
-50 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : büyük : az : yetersiz
-51 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kapsamlı : kısa : özet
-52 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : en ince : yüzeysel : kaba
-53 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : eleştirel : övücü : yüzeysel
-54 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : yakından : uzaktan : genel olarak
-55 : Yapılan araştırma ___ verilerle desteklendi : sağlam : sağlam : zayıf : geçici
-56 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : sürekli : ara sıra : yetersiz
-57 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : yenilikçi : geleneksel : basit
-58 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : keskin : yumuşak : genel
-59 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : stratejik : rastgele : kısa vadeli
-60 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : geniş : dar : sınırlı
-61 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : geniş : dar : sınıldı
-62 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : ciddi : hafif : geçici
-63 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : derinlemesine : yüzeysel : genel
-64 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : karmaşık : basit : genel
-65 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : ayrıntılı : özet : yüzeysel
-66 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : sert : ılımlı : övgüyle
-67 : Eğitim sistemini ___ bir şekilde reform etmek gerekir : köklü : köklü : kısmi : yüzeysel
-68 : Eleştirmen kitabı ___ bir dille değerlendirdi : eleştirel : eleştirel : övücü : yüzeysel
-69 : Filmin görsel efektleri ___ beğeni topladı : büyük : büyük : az : yetersiz
-70 : Hükümet kriz üzerine ___ bir plan açıkladı : kapsamlı : kapsamlı : kısa : yüzeysel
-71 : Roman kahramanının iç dünyası ___ bir şekilde işlendi : derin : derin : yüzeysel : kısa
-72 : Sanat eleştirmeni sergiyi ___ bir açıdan değerlendirdi : farklı : farklı : benzer : sıradan
-73 : Yönetmen filmi ___ bir tema üzerine kurdu : özgün : özgün : klişe : genel
-74 : Konferansta sunulan fikirler ___ yenilikçiydi : son derece : son derece : orta : geleneksel
-75 : Kitap, yazarın yaşam öyküsünü ___ bir bakış açısıyla ele aldı : benzersiz : benzersiz : tipik : sıradan
-76 : Müze, tarihi eserleri ___ bir şekilde sergiliyor : etkileyici : etkileyici : sıradan : yetersiz
-77 : Toplantıda stratejik planlar ___ bir şekilde sunuldu : detaylı : detaylı : özet : yüzeysel
-78 : Filozof düşüncelerini ___ bir dille ifade etti : karmaşık : karmaşık : basit : açık
-79 : Sergi, sanatçının eserlerini ___ bir biçimde sunuyor : kronolojik : kronolojik : rastgele : karışık
-80 : Konferansın ana konusu ___ bir şekilde işlendi : derin : derin : yüzeysel : kısa
-81 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : teknik : basit : genel
-82 : Eski metinler ___ bir titizlikle incelendi : büyük : büyük : küçük : yetersiz
-83 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : astronomik : düşük : makul
-84 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : büyük : az : yetersiz
-85 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kapsamlı : kısa : özet
-86 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : en ince : yüzeysel : kaba
-87 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : eleştirel : övücü : yüzeysel
-88 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : yakından : uzaktan : genel olarak
-89 : Yapılan araştırma ___ verilerle desteklendi : sağlam : sağlam : zayıf : geçici
-90 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : sürekli : ara sıra : yetersiz
-91 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : yenilikçi : geleneksel : basit
-92 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : keskin : yumuşak : genel
-93 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : stratejik : rastgele : kısa vadeli
-94 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : geniş : dar : sınırlı
-95 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : geniş : dar : sınıldı
-96 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : ciddi : hafif : geçici
-97 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : derinlemesine : yüzeysel : genel
-98 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : karmaşık : basit : genel
-99 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : ayrıntılı : özet : yüzeysel
-100 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : sert : ılımlı : övgüyle
+1 : Politik durum nedeniyle pazar ___ dalgalanmalar yaşadı : ekonomik : sosyal : teknik
+2 : Yazarın anlatımı kitapta ___ bir üsluba sahipti : oldukça sofistike : basit : sade
+3 : Hukuk konferansında çok ___ konular ele alındı : derin : yüzeysel : genel
+4 : Çalışmalarını tamamlamak için gece ___ uykusuz kaldı : gündüz gibi : akşam : sabah
+5 : Yeni teknoloji pazarında ___ bir atılım bekleniyor : devrimsel : küçük : geçici
+6 : Şirketin büyüme stratejisi ___ gözden geçirildi : detaylıca : özetle : hızlıca
+7 : Olayın perde arkası çok geçmeden ___ ortaya çıktı : tüm detaylarıyla : kısmen : yüzeysel olarak
+8 : Dil öğrenirken kültürel bağlamı ___ göz önünde bulundurmak önemlidir : her zaman : bazen : nadiren
+9 : Eleştirmenler filmi ___ eleştirdiler : ağır bir şekilde : hafifçe : olumlu
+10 : Yazar, eserini bir ___ olarak sundu : alegori : hikaye : anlatı
+11 : Değerlendirme süreci ___ zaman aldı : beklenenden daha fazla : az : yeterli
+12 : Yeni yönetmelikler ___ bir biçimde uygulanmaya başlandı : resmi : gayriresmi : rastgele
+13 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : basit : genel
+14 : Eski metinler ___ bir titizlikle incelendi : büyük : küçük : yetersiz
+15 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : düşük : makul
+16 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : az : yetersiz
+17 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kısa : özet
+18 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : yüzeysel : kaba
+19 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : övücü : yüzeysel
+20 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : uzaktan : genel olarak
+21 : Yapılan araştırma ___ verilerle desteklendi : sağlam : zayıf : geçici
+22 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : ara sıra : yetersiz
+23 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : geleneksel : basit
+24 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : yumuşak : genel
+25 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : rastgele : kısa vadeli
+26 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : dar : sınırlı
+27 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : dar : sınırlı
+28 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : hafif : geçici
+29 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : yüzeysel : genel
+30 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : basit : genel
+31 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : özet : yüzeysel
+32 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : ılımlı : övgüyle
+33 : Eğitim sistemini ___ bir şekilde reform etmek gerekir : köklü : kısmi : yüzeysel
+34 : Eleştirmen kitabı ___ bir dille değerlendirdi : eleştirel : övücü : yüzeysel
+35 : Filmin görsel efektleri ___ beğeni topladı : büyük : az : yetersiz
+36 : Hükümet kriz üzerine ___ bir plan açıkladı : kapsamlı : kısa : yüzeysel
+37 : Roman kahramanının iç dünyası ___ bir şekilde işlendi : derin : yüzeysel : kısa
+38 : Sanat eleştirmeni sergiyi ___ bir açıdan değerlendirdi : farklı : benzer : sıradan
+39 : Yönetmen filmi ___ bir tema üzerine kurdu : özgün : klişe : genel
+40 : Konferansta sunulan fikirler ___ yenilikçiydi : son derece : orta : geleneksel
+41 : Kitap, yazarın yaşam öyküsünü ___ bir bakış açısıyla ele aldı : benzersiz : tipik : sıradan
+42 : Müze, tarihi eserleri ___ bir şekilde sergiliyor : etkileyici : sıradan : yetersiz
+43 : Toplantıda stratejik planlar ___ bir şekilde sunuldu : detaylı : özet : yüzeysel
+44 : Filozof düşüncelerini ___ bir dille ifade etti : karmaşık : basit : açık
+45 : Sergi, sanatçının eserlerini ___ bir biçimde sunuyor : kronolojik : rastgele : karışık
+46 : Konferansın ana konusu ___ bir şekilde işlendi : derin : yüzeysel : kısa
+47 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : basit : genel
+48 : Eski metinler ___ bir titizlikle incelendi : büyük : küçük : yetersiz
+49 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : düşük : makul
+50 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : az : yetersiz
+51 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kısa : özet
+52 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : yüzeysel : kaba
+53 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : övücü : yüzeysel
+54 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : uzaktan : genel olarak
+55 : Yapılan araştırma ___ verilerle desteklendi : sağlam : zayıf : geçici
+56 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : ara sıra : yetersiz
+57 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : geleneksel : basit
+58 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : yumuşak : genel
+59 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : rastgele : kısa vadeli
+60 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : dar : sınırlı
+61 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : dar : sınıldı
+62 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : hafif : geçici
+63 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : yüzeysel : genel
+64 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : basit : genel
+65 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : özet : yüzeysel
+66 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : ılımlı : övgüyle
+67 : Eğitim sistemini ___ bir şekilde reform etmek gerekir : köklü : kısmi : yüzeysel
+68 : Eleştirmen kitabı ___ bir dille değerlendirdi : eleştirel : övücü : yüzeysel
+69 : Filmin görsel efektleri ___ beğeni topladı : büyük : az : yetersiz
+70 : Hükümet kriz üzerine ___ bir plan açıkladı : kapsamlı : kısa : yüzeysel
+71 : Roman kahramanının iç dünyası ___ bir şekilde işlendi : derin : yüzeysel : kısa
+72 : Sanat eleştirmeni sergiyi ___ bir açıdan değerlendirdi : farklı : benzer : sıradan
+73 : Yönetmen filmi ___ bir tema üzerine kurdu : özgün : klişe : genel
+74 : Konferansta sunulan fikirler ___ yenilikçiydi : son derece : orta : geleneksel
+75 : Kitap, yazarın yaşam öyküsünü ___ bir bakış açısıyla ele aldı : benzersiz : tipik : sıradan
+76 : Müze, tarihi eserleri ___ bir şekilde sergiliyor : etkileyici : sıradan : yetersiz
+77 : Toplantıda stratejik planlar ___ bir şekilde sunuldu : detaylı : özet : yüzeysel
+78 : Filozof düşüncelerini ___ bir dille ifade etti : karmaşık : basit : açık
+79 : Sergi, sanatçının eserlerini ___ bir biçimde sunuyor : kronolojik : rastgele : karışık
+80 : Konferansın ana konusu ___ bir şekilde işlendi : derin : yüzeysel : kısa
+81 : Bilim insanları sonuçları ___ bir dille açıkladılar : teknik : basit : genel
+82 : Eski metinler ___ bir titizlikle incelendi : büyük : küçük : yetersiz
+83 : Müzayedede antikalar ___ fiyatlarla satıldı : astronomik : düşük : makul
+84 : Gösteri, sanatseverler tarafından ___ takdir edildi : büyük : az : yetersiz
+85 : Konferansın ana teması ___ bir şekilde işlendi : kapsamlı : kısa : özet
+86 : Mühendisler projeyi ___ bir hassasiyetle yürütüyor : en ince : yüzeysel : kaba
+87 : Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor : eleştirel : övücü : yüzeysel
+88 : Doktorlar, hastanın durumunu ___ bir şekilde izliyor : yakından : uzaktan : genel olarak
+89 : Yapılan araştırma ___ verilerle desteklendi : sağlam : zayıf : geçici
+90 : Eğitimde fırsat eşitliği ___ vurgulandı : sürekli : ara sıra : yetersiz
+91 : Filmin kurgusu oldukça ___ ve karmaşıktı : yenilikçi : geleneksel : basit
+92 : Politikacılar ekonomik krizi ___ bir dille tartıştılar : keskin : yumuşak : genel
+93 : Şehir planlaması ___ bir vizyon gerektirir : stratejik : rastgele : kısa vadeli
+94 : Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı : geniş : dar : sınırlı
+95 : Tarihi olaylar kitapta ___ bir çerçevede sunuldu : geniş : dar : sınıldı
+96 : Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı : ciddi : hafif : geçici
+97 : Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler : derinlemesine : yüzeysel : genel
+98 : Tartışma sırasında çok sayıda ___ konu gündeme geldi : karmaşık : basit : genel
+99 : Konferansta çeşitli konular ___ bir şekilde ele alındı : ayrıntılı : özet : yüzeysel
+100 : Hükümetin politikaları ___ bir şekilde eleştirildi : sert : ılımlı : övgüyle

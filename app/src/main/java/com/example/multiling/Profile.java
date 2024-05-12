@@ -97,7 +97,7 @@ public class Profile extends AppCompatActivity {
                 }
                 else if (item.getItemId() == R.id.navigator_flashcard)
                 {
-                    startActivity(new Intent(getApplicationContext(), FlashCard.class));
+                    startActivity(new Intent(getApplicationContext(), Flashcard.class));
                     return true;
                 }
                 else if (item.getItemId() == R.id.navigator_writingexercises)
