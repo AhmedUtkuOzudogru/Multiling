@@ -1,0 +1,100 @@
+1 : Bugün hava çok ___ : güzeldir : kötü : yavaş
+2 : Kediler ___ severler : suyu : taş : araba
+3 : Kitaplar masanın ___ var : üstünde : altında : yanında
+4 : Türkiye'nin başkenti ___ : Ankara : İstanbul : Adana
+5 : Çay genellikle ___ içilir : sıcak : soğuk : ağır
+6 : Yemek için masa ___ kurulur : önceden : sonra : alt
+7 : Araba garajda ___ duruyor : yeni : eski : kullanılmış
+8 : Sinema biletimi ___ kaybettim : dün : bugün : yarın
+9 : Çiçekler bahçede ___ güzel görünüyor : çok : az : biraz
+10 : Kitapları rafta ___ düzenledim : dikkatlice : rastgele : kötü
+11 : Çocuklar parkta ___ oynuyorlar : şenlikle : üzgün : korkarak
+12 : Tatilde denize ___ girdim : sıkça : nadiren : zor
+13 : Annem pasta için ___ aldı : yumurtayı : peynir : sosis
+14 : Okul yarın ___ başlıyor : erkenden : geç : düzenli
+15 : Oda çok ___ görünüyor : temiz : kirli : karışık
+16 : Arabayı ___ yıkadım : dün : yarın : her zaman
+17 : Çoraplarımı çekmecede ___ buldum : kolayca : zorla : dışarıda
+18 : Müzik ___ yüksek sesle çalıyor : çok : az : biraz
+19 : Kahvaltıda genellikle ___ yerim : peyniri : pasta : çikolata
+20 : Tatil için ___ rezervasyon yaptırdım : oteli : uçak : restoran
+21 : Kitabı masanın ___ bıraktım : üstüne : altına : yanına
+22 : Telefonumu ___ şarj ediyorum : her gece : her sabah : her öğlen
+23 : Dışarıda yağmur ___ yağıyor : şiddetlice : hafif : güneşli
+24 : Çayı ___ demledim : yeni : eski : bozuk
+25 : Oyunu ___ kazandık : kolayca : zorla : kaybederek
+26 : Çocuk parkta ___ oynadı : top ile : taş : defter
+27 : Kalem masanın ___ duruyor : üstünde : altında : içinde
+28 : Yemek ___ pişirildi : dün : bugün : haftaya
+29 : Meyveleri ___ yıkadım : hızlıca : yavaşça : kırmızı
+30 : Sınıf çok ___ görünüyor : büyük : küçük : dar
+31 : Köpek ___ havladı : dışarıda : içeride : aşağıda
+32 : Annem bana ___ ördü : kazağı : şapka : ayakkabı
+33 : Tren ___ saatte kalkıyor : her : bazen : sık
+34 : Çiçekler ___ sulanmalı : düzenli olarak : ara sıra : yanlış
+35 : Okuldan sonra ___ gitmek istiyorum : eve : parka : işe
+36 : Tatil için ___ gittik : yazın : kışın : öğlen
+37 : Deniz suyu ___ tuzludur : çok : az : tatlı
+38 : Kitabı ___ bitirdim : nihayet : başlangıçta : sonunda
+39 : Hava çok ___ olduğu için dışarı çıkmadık : soğuk : sıcak : ılık
+40 : Çayı ___ içerim : genellikle : nadiren : bazen
+41 : Film ___ başladı : tam zamanında : geç : erken
+42 : Araba ___ park edildi : dışarıda : içeride : yanında
+43 : Pasta ___ güzel oldu : çok : az : biraz
+44 : Oda ___ temizlenmeli : hemen : sonra : önce
+45 : Meyve suları ___ dolapta soğutulur : genellikle : bazen : dışında
+46 : Çalışma odasında ___ çalışırım : sessizce : gürültülü : açık
+47 : Yürüyüşe çıkmak için ___ giydim : ayakkabılarımı : terlik : çorap
+48 : Kitaplar ___ düzenli : raflarda : masada : yerde
+49 : Telefonum ___ çalıyor : sürekli : bazen : seyrek
+50 : Yeni yılı ___ kutladık : coşkuyla : üzüntüyle : sessizce
+51 : Çikolata ___ tatlıdır : çok : az : tuzlu
+52 : Resim ___ asıldı : duvara : tavana : zemine
+53 : Okul ___ uzak : değildir : yakın : orta
+54 : Yemek ___ sıcak servis edilir : her zaman : bazen : soğuk
+55 : Çocuklar ___ için dışarı çıktılar : oynamak : çalışmak : dinlenmek
+56 : Yaz tatilinde ___ denize girdik : sık sık : nadiren : asla
+57 : Buzdolabı ___ çalışıyor : sürekli : ara sıra : durarak
+58 : Film ___ ilginçti : çok : az : sıkıcı
+59 : Kitap ___ başladım : dün : bugün : gelecek hafta
+60 : Yemeği ___ yedik : dışarıda : içeride : yolda
+61 : Oyun ___ sona erdi : erken : geç : başında
+62 : Kedi ___ uyuyor : şu anda : daha sonra : önce
+63 : Çaydanlık ___ kaynıyor : şu anda : dün : yarın
+64 : Hava ___ soğudu : aniden : yavaşça : sıcak
+65 : Sınıf çok ___ sessiz : bugün : gürültülü : dışarıda
+66 : Arabanın ___ bozuldu : motoru : camı : kapısı
+67 : Tatil için ___ hazırlıklar yapıyoruz : şimdi : daha sonra : dün
+68 : Film ___ başlamadan salonu terk ettik : erken : geç : ortasında
+69 : Kitap ___ yere düştü : birden : yavaşça : yüksekten
+70 : Oyun çok ___ bitti : hızlı : yavaş : uzun
+71 : Çiçekler ___ açtı : baharda : kışın : yazın
+72 : Hava ___ güzelleşti : sonunda : başlangıçta : arada
+73 : Kedi yemeğini ___ yedi : hemen : sonra : önce
+74 : Müze ___ kapalıydı : dün : bugün : her zaman
+75 : Film ___ sıkıcıydı : hiç : çok : az
+76 : Denize ___ gittik : tekrar : ilk : son
+77 : Yemek ___ pişirdim : dün : bugün : her gün
+78 : Kitapçı ___ kapalı : şu anda : her zaman : bazen
+79 : Çocuklar ___ için erken kalktılar : okula gitmek : oynamak : dinlenmek
+80 : Yürüyüşe ___ gittim : dün : bugün : yarın
+81 : Sinema ___ doluydu : neredeyse : boş : kapalı
+82 : Kitap ___ ilginç : çoktur : sıkıcı : basit
+83 : Oda ___ toplandı : hızlıca : yavaşça : zorla
+84 : Çay ___ içilir : genellikle : nadiren : asla
+85 : Kitapları ___ düzenledim : tekrar : ilk : son
+86 : Çocuk ___ uyudu : hemen : sonra : önce
+87 : Araba ___ temizlendi : dün : bugün : yarın
+88 : Film ___ güzeldi : gerçektendir : kötü : sıkıcı
+89 : Müzik ___ yüksek sesle çalınıyor : çoktur : az : düşük
+90 : Yemek ___ pişti : tam zamanında : erken : geç
+91 : Deniz ___ soğuktu : çoktur : sıcak : ılık
+92 : Kitap ___ yerdeydi : oradadır : burada : şurada
+93 : Sinema ___ uzaktır : çoktur : yakın : orta
+94 : Oyun ___ başladı : şimdi : dün : yarın
+95 : Yemek ___ yedik : dışarıdadır : içeride : yolda
+96 : Çocuklar parkta ___ oynuyorlar : şenlikle : üzgün : korkarak
+97 : Çayı ___ içerim : her zamandır : bazen : nadiren
+98 : Kitap ___ bitirdim : nihayettir : başlangıçta : sonunda
+99 : Film çok ___ bitti : hızlıdır : yavaş : uzun
+100 : Oyun ___ sona erdi : güzeldir : kötü : sıkıcı

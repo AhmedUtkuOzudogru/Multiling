@@ -26,7 +26,8 @@
                 android:id="@+id/profilePicture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/profileButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout5"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -64,9 +65,7 @@
                     android:id="@+id/profileLevel"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="218dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Level"
@@ -81,10 +80,8 @@
                     android:id="@+id/levelEdit"
                     android:layout_width="160dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="9dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="175dp"
-                    android:layout_marginBottom="19dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="Advanced"
                     android:textAlignment="center"
@@ -99,15 +96,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout2"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture">
+                app:layout_constraintTop_toBottomOf="@+id/profileButton">
 
                 <!-- Left Element (ImageView) -->
 
@@ -127,12 +124,10 @@
 
                 <TextView
                     android:id="@+id/profileUserName"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="170dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Username:"
                     android:textAlignment="center"
@@ -145,10 +140,8 @@
                 <TextView
                     android:id="@+id/userNameEdit"
                     android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="Your name"
@@ -164,7 +157,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ProfileLayout3"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -190,12 +183,10 @@
 
                 <TextView
                     android:id="@+id/profileMail"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="216dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Email"
                     android:textAlignment="center"
@@ -207,11 +198,9 @@
 
                 <TextView
                     android:id="@+id/emailEdit"
-                    android:layout_width="250dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="104dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="email@gmail.com"
@@ -227,7 +216,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ProfileLayout4"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/settings_background"
                 android:elevation="20dp"
@@ -253,12 +242,10 @@
 
                 <TextView
                     android:id="@+id/profilePassword"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="177dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="Password"
                     android:textAlignment="center"
@@ -270,10 +257,9 @@
 
                 <TextView
                     android:id="@+id/passwordEdit"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="144dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="password123"
@@ -281,7 +267,8 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon" />
+                    app:layout_constraintStart_toEndOf="@+id/profilePasswordIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/profilePassword" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -301,13 +288,11 @@
                 android:id="@+id/profileButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="122dp"
-                android:layout_marginEnd="123dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginTop="30dp"
                 android:text="Chane your Profile"
-                app:layout_constraintBottom_toTopOf="@+id/profileLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
                 tools:ignore="MissingConstraints" />
 
 

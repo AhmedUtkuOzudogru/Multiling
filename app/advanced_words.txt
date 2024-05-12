@@ -1,0 +1,100 @@
+1 : abdicate : tahttan çekilmek : zeki : aptal
+2 : ontology : ontoloji : gözlük : elbise
+3 : hedonism : hedonizm : parlak : karanlık
+4 : hypothesize : hipotez kurmak : heyecanlı : yorgun
+5 : reconcile : uzlaştırmak : güzel : çirkin
+6 : philosophy : felsefe : elma : araba
+7 : hermeneutics : hermeneutik : yıldız : elma
+8 : venerate : saygı göstermek : mutlu : üzgün
+9 : vindicate : haklı çıkarmak : sessiz : gürültülü
+10 : decipher : deşifre etmek : açık : kapalı
+11 : whistleblowing : ihbar etme : doğru : yanlış
+12 : utilitarianism : faydacılık : tatlı : çorba
+13 : whistleblower : ihbarcı : zengin : fakir
+14 : ubiquity : her yerde bulunma : güzel : çirkin
+15 : benchmark : referans noktası : güzel : çirkin
+16 : facilitate : kolaylaştırmak : erken : geç
+17 : synthesis : sentez : yüksek : alçak
+18 : belligerent : savaşçı : zengin : fakir
+19 : tangible : somut : parlak : karanlık
+20 : coalesce : birleşmek : doğru : yanlış
+21 : pragmatism : pragmatizm : balık : süt
+22 : bureaucracy : bürokrasi : mutlu : üzgün
+23 : gerrymandering : seçim bölge manipülasyonu : boş : dolu
+24 : surrealism : sürrealizm : ekmek : kahve
+25 : solipsism : solipsizm : hızlı : yavaş
+26 : postmodernism : postmodernizm : sessiz : gürültülü
+27 : dialectics : diyalektik : bulut : güneş
+28 : crowdsourcing : kitle kaynak kullanımı : hızlı : yavaş
+29 : patriarchy : patriarka : yeni : eski
+30 : reticent : ketum : temiz : kirli
+31 : nostalgia : nostalji : yüksek : alçak
+32 : legislate : yasalaştırmak : zengin : fakir
+33 : nihilism : nihlizm : şeker : biber
+34 : deconstruction : dekonstrüksiyon : temiz : kirli
+35 : microaggression : mikro saldırganlık : parlak : karanlık
+36 : disenfranchise : oy hakkını elinden almak : parlak : karanlık
+37 : blockchain : blok zinciri : açık : kapalı
+38 : psychoanalysis : psikanaliz : şapka : portakal
+39 : pluralism : çoğulculuk : et : meyve
+40 : socialism : sosyalizm : kalın : ince
+41 : cognition : biliş : okul : balık
+42 : nomenclature : adlandırma sistemi : açık : kapalı
+43 : grandiose : görkemli : aynı : farklı
+44 : zealot : fanatik : güçlü : zayıf
+45 : gerrymander : seçim bölgesi çizmek : kızgın : korkmuş
+46 : quantitative easing : niceliksel genişleme : kızgın : korkmuş
+47 : sustainability : sürdürülebilirlik : hasta : sağlıklı
+48 : ubiquitous : her yerde bulunan : güçlü : zayıf
+49 : aesthetics : estetik : pencere : çiçek
+50 : ethics : etik : köpek : kitap
+51 : whimsical : kaprisli : doğru : yanlış
+52 : phenomenology : fenomenoloji : ay : kuş
+53 : zenith : zirve : doğru : yanlış
+54 : proletariat : proletarya : mutlu : üzgün
+55 : relativism : görecelik : çay : peynir
+56 : quandary : ikilem : açık : kapalı
+57 : zeitgeist : zamanın ruhu : erken : geç
+58 : cultural appropriation : kültürel apropriasyon : iyi : kötü
+59 : kinetics : kinetik : zeki : aptal
+60 : fabricate : uydurmak : mutlu : üzgün
+61 : iconoclast : ikonoklast : hasta : sağlıklı
+62 : paradox : paradoks : masa : kapı
+63 : benchmarking : referans oluşturma : doğru : yanlış
+64 : gentrification : soylulaştırma : aynı : farklı
+65 : anarchism : anarşizm : aç : susuz
+66 : existentialism : varoluşçuluk : muz : sandalye
+67 : efficacy : etkililik : hızlı : yavaş
+68 : paradigm : paradigma : erken : geç
+69 : infallible : yanılmaz : güçlü : zayıf
+70 : totalitarianism : totaliterizm : büyük : küçük
+71 : yield : verim : hasta : sağlıklı
+72 : cryptocurrency : kripto para : erken : geç
+73 : hegemony : hegemonya : yemek : pişirmek
+74 : xenophobia : yabancı düşmanlığı : açık : kapalı
+75 : unprecedented : emsalsiz : sessiz : gürültülü
+76 : xenogenesis : yabancı köken oluşum : heyecanlı : yorgun
+77 : warrant : garanti etmek : kızgın : korkmuş
+78 : feminism : feminizm : ağır : hafif
+79 : quintessential : tam özü : aynı : farklı
+80 : epistemology : epistemoloji : saat : ayakkabı
+81 : stoicism : stoacılık : sebze : içmek
+82 : redistribution : yeniden dağıtım : heyecanlı : yorgun
+83 : oscillate : dalgalanmak : hızlı : yavaş
+84 : globalization : küreselleşme : zor : kolay
+85 : chronological : kronolojik : yüksek : alçak
+86 : liberalism : liberalizm : uzun : kısa
+87 : echelon : kademe : sessiz : gürültülü
+88 : juxtapose : yan yana koymak : güçlü : zayıf
+89 : unilateralism : tek taraflılık : zeki : aptal
+90 : intersectionality : kavşaklık : yüksek : alçak
+91 : abstraction : soyutlama : aynı : farklı
+92 : marginalize : marjinalleştirmek : doğru : yanlış
+93 : youthquake : gençlik depremi : hızlı : yavaş
+94 : vanguard : öncü : zengin : fakir
+95 : altruism : altruizm : sıcak : soğuk
+96 : heteronormativity : heteronormativite : güzel : çirkin
+97 : secularism : sekülerizm : sıcak : soğuk
+98 : capitalism : kapitalizm : geniş : dar
+99 : metaphor : metafor : su : kedi
+100 : absurdism : absürdizm : ılık : serin

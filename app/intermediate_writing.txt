@@ -1,0 +1,100 @@
+1 : Bilgisayarımı masanın ___ bıraktım : üstüne : yanına : altına
+2 : Türk kahvesi genellikle ___ servis edilir : küçük bardakta : büyük bardakta : tabakta
+3 : Konser dün gece ___ düzenlendi : parkta : sinemada : okulda
+4 : Ünlü ressam tabloyu ___ boyadı : yağlı boya ile : su bazlı boya ile : kalemle
+5 : Kitabı bitirdikten sonra ___ geri verdim : ona : bana : sana
+6 : Otobüs her gün ___ saatte gelir : sabah saat sekizde : gece : öğlen
+7 : Yeni bir işe ___ başladım : dün : bugün : geçen hafta
+8 : Sinemada film ___ başladı : birden : yavaşça : planlandığı gibi
+9 : Tatil için ___ yer ayırttık : Antalya'ya : İstanbul'a : Bodrum'a
+10 : Tiyatro oyunu ___ sona erdi : aniden : beklenenden erken : uzatmalı
+11 : Müze ziyaretçilere ___ açılır : sabahları : akşam : gece
+12 : Kitap ___ masada unutulmuş : üzerindeki : yanında : altında
+13 : Okul projemizi ___ sunduk : başarıyla : başarısız olarak : aceleye getirerek
+14 : Film çok ___ etkileyiciydi : gerçekten : az : yeterince
+15 : Pazardan taze ___ aldım : meyveleri : sebze : balık
+16 : Kitap okumak için ___ sessiz bir yer buldum : sonunda : başlangıçta : arada
+17 : Yemek için ___ harika bir restoran önerdi : arkadaşım : düşmanım : tanımadığım biri
+18 : Konferans ___ düzenlenecek : İstanbul'da : Ankara'da : İzmir'de
+19 : Oyun sırasında ___ hava soğudu : birdenbire : yavaş yavaş : dengeli bir şekilde
+20 : Yaz tatili için ___ planlar yapıyoruz : şimdiden : son anda : dün
+21 : Dersler ___ başladı : bugünden : yarından : geçen haftadan
+22 : Kitapçı ___ kapalıydı : dünde : bugün : yarın
+23 : Öğle yemeği için ___ dışarı çıktık : hızla : yavaşça : zamanında
+24 : Sinema biletimizi ___ aldık : önceden : sonradan : iptal ederek
+25 : Konser biletleri ___ tükendi : hızla : yavaşça : kademeli olarak
+26 : Çalışma odamı ___ düzenledim : tamamen : kısmen : yarım yamalak
+27 : Resim sergisi ___ açıldı : geçen haftada : bugün : yarın
+28 : Kitap ___ ilgi çekici buldum : çoktur : az : yetersiz
+29 : Yaz tatilini ___ geçirmeyi planlıyorum : İtalya'da : Fransa'da : Almanya'da
+30 : Yeni dizi ___ başladı : dünde : bugün : geçen hafta
+31 : Müzik kursuna ___ yazıldım : geçen ayda : bu ay : gelecek ay
+32 : Spor salonuna ___ üye oldum : yeni : eski : önceki
+33 : Telefonumuzu ___ yükselttik : yazılımını : donanımını : ekranını
+34 : Kitaplarımı ___ taşıdım : yeni eve : eski eve : depoya
+35 : Proje için ___ ek bilgi topladık : detaylı : genel : yüzeysel
+36 : Üniversite sınavına ___ hazırlanıyorum : yoğun bir şekilde : gevşek : rahat
+37 : Film festivali ___ düzenleniyor : şehir merkezinde : banliyöde : kırsal alanda
+38 : Kitap fuarı ___ sona erdi : dünde : bugün : geçen hafta
+39 : Yeni bir dil öğrenmek için ___ başladım : kursa : kitaba : uygulamaya
+40 : Tatil için ___ kamp yapacağız : dağlarda : sahilde : şehirde
+41 : Müze ziyareti ___ planladık : cumartesi için : pazar : çarşamba
+42 : Kitap okumak için ___ zaman ayırıyorum : her gün : haftada bir : ayda bir
+43 : Yemek kursuna ___ katıldım : geçen haftada : bugün : yarın
+44 : Film ___ etkileyici buldum : gerçektendir : az : yetersiz
+45 : Spor yapmak için ___ sabah erkenden kalkıyorum : genellikle : bazen : nadiren
+46 : Yeni bir hobi olarak ___ başladım : resim çizmeye : şarkı söylemeye : dans etmeye
+47 : Kitap serisini ___ tamamladım : nihayet : başlangıçta : ortasında
+48 : Sinema salonu ___ doluydu : neredeyse : tamamen : kısmen
+49 : Yaz tatilinde ___ denize girmeyi seviyorum : sık sık : nadiren : asla
+50 : Konferans için ___ erken geldim : çok : az : yeterince
+51 : Proje toplantısına ___ katıldım : dünde : bugün : geçen hafta
+52 : Kitap okumayı ___ seviyorum : gerçektendir : az : yeterince
+53 : Yeni dizi ___ ilginç buldum : çoktur : az : sıkıcı
+54 : Yemek için ___ harika bir yer bulduk : nihayet : başlangıçta : ortasında
+55 : Spor salonunda ___ çalışıyorum : düzenli olarak : ara sıra : nadiren
+56 : Sinema için ___ bilet aldık : önceden : sonradan : iptal ederek
+57 : Konferans ___ ilgi çekiciydi : çoktur : az : yetersiz
+58 : Üniversiteye ___ başvurdum : geçen yılda : bu yıl : gelecek yıl
+59 : Kitap okumak için ___ zaman buluyorum : her zamandır : bazen : nadiren
+60 : Film ___ başladı : tam zamanındadır : geç : erken
+61 : Spor yapmak için ___ uyandım : erken : geç : ortasında
+62 : Sinema ___ uzak : değildir : yakın : orta
+63 : Kitapçı ___ kapalı : şu andadır : her zaman : bazen
+64 : Film ___ güzeldi : gerçektendir : kötü : sıkıcı
+65 : Müzik ___ yüksek sesle çalınıyor : çoktur : az : düşük
+66 : Yemek ___ pişti : tam zamanında : erken : geç
+67 : Deniz ___ soğuktu : çoktur : sıcak : ılık
+68 : Kitap ___ yerdeydi : oradadır : burada : şurada
+69 : Sinema ___ uzaktır : çoktur : yakın : orta
+70 : Oyun ___ başladı : şimdi : dün : yarın
+71 : Yemek ___ yedik : dışarıdadır : içeride : yolda
+72 : Çocuklar parkta ___ oynuyorlar : şenlikle : üzgün : korkarak
+73 : Çayı ___ içerim : her zamandır : bazen : nadiren
+74 : Kitap ___ bitirdim : nihayettir : başlangıçta : sonunda
+75 : Film çok ___ bitti : hızlıdır : yavaş : uzun
+76 : Oyun ___ sona erdi : güzeldir : kötü : sıkıcı
+77 : Bilgisayarımı masanın ___ bıraktım : üstüne : yanına : altına
+78 : Türk kahvesi genellikle ___ servis edilir : küçük bardakta : büyük bardakta : tabakta
+79 : Konser dün gece ___ düzenlendi : parkta : sinemada : okulda
+80 : Ünlü ressam tabloyu ___ boyadı : yağlı boya ile : su bazlı boya ile : kalemle
+81 : Kitabı bitirdikten sonra ___ geri verdim : ona : bana : sana
+82 : Otobüs her gün ___ saatte gelir : sabah saat sekizde : gece : öğlen
+83 : Yeni bir işe ___ başladım : dün : bugün : geçen hafta
+84 : Sinemada film ___ başladı : birden : yavaşça : planlandığı gibi
+85 : Tatil için ___ yer ayırttık : Antalya'ya : İstanbul'a : Bodrum'a
+86 : Tiyatro oyunu ___ sona erdi : aniden : beklenenden erken : uzatmalı
+87 : Müze ziyaretçilere ___ açılır : sabahları : akşam : gece
+88 : Kitap ___ masada unutulmuş : üzerindeki : yanında : altında
+89 : Okul projemizi ___ sunduk : başarıyla : başarısız olarak : aceleye getirerek
+90 : Film çok ___ etkileyiciydi : gerçekten : az : yeterince
+91 : Pazardan taze ___ aldım : meyveleri : sebze : balık
+92 : Kitap okumak için ___ sessiz bir yer buldum : sonunda : başlangıçta : arada
+93 : Yemek için ___ harika bir restoran önerdi : arkadaşım : düşmanım : tanımadığım biri
+94 : Konferans ___ düzenlenecek : İstanbul'da : Ankara'da : İzmir'de
+95 : Oyun sırasında ___ hava soğudu : birdenbire : yavaş yavaş : dengeli bir şekilde
+96 : Yaz tatili için ___ planlar yapıyoruz : şimdiden : son anda : dün
+97 : Dersler ___ başladı : bugünden : yarından : geçen haftadan
+98 : Kitapçı ___ kapalıydı : dünde : bugün : yarın
+99 : Öğle yemeği için ___ dışarı çıktık : hızla : yavaşça : zamanında
+100 : Sinema biletimizi ___ aldık : önceden : sonradan : iptal ederek
