@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,49 +24,35 @@ import java.util.Random;
 
 public class WritingExercise extends AppCompatActivity
 {
-    private String[] questionComponents;
-    private String ID;
-    private String sentence;
-    private String answer;
-    private String firstWrongAnswer;
-    private String secondWrongAnswer;
-    private String[] allAnswers;
+    private Question[] questions;
+    private int correctAnswers;
 
-    public WritingExercise()
+    public WritingExercise(int num) //TODO: num should be obtained from settings page
     {
-        this.questionComponents = createWriting("easy_writing.txt");//TODO:this should be changed to the var in the user class that will hold the file name
-        this.ID = questionComponents[0];
-        this.sentence = questionComponents[1];
-        this.answer = questionComponents[2];
-        this.firstWrongAnswer = questionComponents[3];
-        this.secondWrongAnswer = questionComponents[4];
-        System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
+        questions = new Question[num];
+        for(int i = 0; i < num; i++)
+        {
+            questions[i] = new Question(this);
+        }
+
+        this.correctAnswers = 0;
     }
 
-    public String[] createWriting(String filename)
+    public Question[] getQuestions()
     {
-        Random random = new Random();
-        String[] components = new String[5];
-        //this array will contain the id, sentence with a blank, correct answer without any suffixes, suffixed correct answer, and 2 wrong answers respectively
-        try(BufferedReader reader = new BufferedReader(new FileReader(filename)))
-        {
-            for(int i = 0; i < random.nextInt(100) - 1; ++i)
-            {
-                reader.readLine();
-            }
-            String line = reader.readLine();
-            components = line.trim().split(":");
-            for(String i : components)
-            {
-                i.trim();
-            }
-        }
-        catch (IOException e)
-        {
-            System.out.println("No file with such name");
-        }
-        return components;
+        return this.questions;
     }
+
+    public int getCorrectAnswers()
+    {
+        return this.correctAnswers;
+    }
+
+    public void incrementScore()
+    {
+        this.correctAnswers++;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -107,74 +94,142 @@ public class WritingExercise extends AppCompatActivity
                 return false;
             }
         });
-        //code block that displays the question's sentence
-        TextView sentenceText = findViewById(R.id.writingQuestion);
-        StringBuffer sentenceBuffer = new StringBuffer();
-        sentenceBuffer.append(this.sentence);
-        sentenceText.setText(sentenceBuffer);
-        //code block that displays the first choice
-        Button firstChoice = findViewById(R.id.writingAnswer1);
-        Random rand = new Random();
-        int ranIndex = rand.nextInt(3);
-        StringBuffer firstChoiceBuffer = new StringBuffer();
-        firstChoiceBuffer.append(allAnswers[ranIndex]);
-        firstChoice.setText(firstChoiceBuffer);
-        //removing the first choice from the array of choices and copying the remaining 2 words into another array
-        for(int i = ranIndex; i < allAnswers.length; i++)
-        {
-            allAnswers[i] = allAnswers[i + 1];
-        }
-        String[] twoAnswers = new String[2];
-        System.arraycopy(allAnswers, 0, twoAnswers, 0, 2);
-        //code block that displays the second and third choices
-        Button secondChoice = findViewById(R.id.writingAnswer2);
-        int secondRandIndex = rand.nextInt(2);
-        StringBuffer secondChoiceBuffer = new StringBuffer();
-        Button thirdChoice = findViewById(R.id.writingAnswer3);
-        StringBuffer thirdChoiceBuffer = new StringBuffer();
-        if(secondRandIndex == 0)
-        {
-            secondChoiceBuffer.append(twoAnswers[0]);
-            thirdChoiceBuffer.append(twoAnswers[1]);
-            secondChoice.setText(secondChoiceBuffer);
-            thirdChoice.setText(thirdChoiceBuffer);
-        }
-        else
-        {
-            secondChoiceBuffer.append(twoAnswers[1]);
-            thirdChoiceBuffer.append(twoAnswers[0]);
-            secondChoice.setText(secondChoiceBuffer);
-            thirdChoice.setText(thirdChoiceBuffer);
-        }
 
-        firstChoice.setOnClickListener(new View.OnClickListener()
+        for(int i = 0; i < this.questions.length; i++)
         {
-            @Override
-            public void onClick(View view)
+            //code block that displays the question's sentence
+            TextView sentenceText = findViewById(R.id.writingQuestion);
+            StringBuffer sentenceBuffer = new StringBuffer();
+            sentenceBuffer.append(this.questions[i].getQuestion());
+            sentenceText.setText(sentenceBuffer);
+            //code block that displays the first choice
+            Button firstChoice = findViewById(R.id.writingAnswer1);
+            Random rand = new Random();
+            int ranIndex = rand.nextInt(3);
+            StringBuffer firstChoiceBuffer = new StringBuffer();
+            firstChoiceBuffer.append(this.questions[i].getAllAnswers()[ranIndex]);
+            firstChoice.setText(firstChoiceBuffer);
+            //removing the first choice from the array of choices and copying the remaining 2 words into another array
+            for (int j = ranIndex; j < this.questions[i].getAllAnswers().length; i++)
             {
-                Context firstContextInstance = firstChoice.getContext();
-                Context secContextInstance = secondChoice.getContext();
-                Context thirdContextInstance = thirdChoice.getContext();
-                if(firstChoice.getText().equals(answer))
-                {
-
-                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                }
-                else if (secondChoice.getText().equals(answer))
-                {
-                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                }
-                else
-                {
-                    firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                    secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                    thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                }
+                this.questions[i].getAllAnswers()[j] = this.questions[i].getAllAnswers()[j + 1];
             }
-        });
+            String[] twoAnswers = new String[2];
+            System.arraycopy(this.questions[i].getAllAnswers(), 0, twoAnswers, 0, 2);
+            //code block that displays the second and third choices
+            Button secondChoice = findViewById(R.id.writingAnswer2);
+            int secondRandIndex = rand.nextInt(2);
+            StringBuffer secondChoiceBuffer = new StringBuffer();
+            Button thirdChoice = findViewById(R.id.writingAnswer3);
+            StringBuffer thirdChoiceBuffer = new StringBuffer();
+            if (secondRandIndex == 0)
+            {
+                secondChoiceBuffer.append(twoAnswers[0]);
+                thirdChoiceBuffer.append(twoAnswers[1]);
+                secondChoice.setText(secondChoiceBuffer);
+                thirdChoice.setText(thirdChoiceBuffer);
+            }
+            else
+            {
+                secondChoiceBuffer.append(twoAnswers[1]);
+                thirdChoiceBuffer.append(twoAnswers[0]);
+                secondChoice.setText(secondChoiceBuffer);
+                thirdChoice.setText(thirdChoiceBuffer);
+            }
+
+            ProgressBar progressBar = findViewById(R.id.writingProgressBar);
+
+            int finalI = i;
+            firstChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            secondChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            thirdChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                        incrementScore();
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+        }
     }
 }

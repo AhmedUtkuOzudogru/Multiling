@@ -52,18 +52,19 @@
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settingsEditText1"
+            app:layout_constraintEnd_toStartOf="@+id/settingsWritingNum"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/settingsImage3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/settingsEditText1"
+            android:id="@+id/settingsWritingNum"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="16dp"
             android:autofillHints="10"
             android:ems="10"
+            android:hint="0-99"
             android:inputType="number"
             android:text="10"
             android:textAlignment="center"
@@ -104,18 +105,19 @@
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settingsEditText2"
+            app:layout_constraintEnd_toStartOf="@+id/settingsFlashNum"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/settingsImage4"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/settingsEditText2"
+            android:id="@+id/settingsFlashNum"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="16dp"
             android:autofillHints="10"
             android:ems="10"
+            android:hint="0-99"
             android:inputType="number"
             android:text="10"
             android:textAlignment="center"

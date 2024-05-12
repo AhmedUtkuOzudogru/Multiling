@@ -1,8 +1,13 @@
 package com.example.multiling;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,61 +22,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class Flashcard extends AppCompatActivity {
-    private String front;
-    private String[] questionComponents;
-    private String ID;
-    private String askedWord;
-    private String correctAnswer;
-    private String firstWrongAnswer;
-    private String secondWrongAnswer;
+public class Flashcard extends AppCompatActivity
+{
 
-    public Flashcard()
+    private Question[] questions;
+    private int correctAnswers;
+    public Flashcard(int num) //TODO: num should be obtained from settings page
     {
-        this.questionComponents = createFlashcard("easy_words.txt");//TODO:this should be changed to the var in the user class that will hold the file name
-        this.ID = questionComponents[0];
-        this.askedWord = questionComponents[1];
-        this.correctAnswer = questionComponents[2];
-        this.firstWrongAnswer = questionComponents[3];
-        this.secondWrongAnswer = questionComponents[4];
+        questions = new Question[num];
+        for(int i = 0; i < num; i++)
+        {
+            questions[i] = new Question(this);
+        }
+
+        this.correctAnswers = 0;
     }
 
-    public String[] createFlashcard(String filename)//TODO: declare a filename var in the user class in accordance with the proficiency level
+    public Question[] getQuestions()
     {
-        Random random = new Random();
-        String[] components = new String[5];
-        //this array will contain the id, question, correct answer, and 2 wrong answers respectively
-        try(BufferedReader reader = new BufferedReader(new FileReader(filename)))
-        {
-            for(int i = 0; i < random.nextInt(100) - 1; ++i)
-            {
-                reader.readLine();
-            }
-            String line = reader.readLine();
-            components = line.trim().split(":");
-            for(String i : components)
-            {
-                i.trim();
-            }
-        }
-        catch (IOException e)
-        {
-            System.out.println("No file with such name");
-        }
-        return components;
+        return this.questions;
+    }
+
+    public void incrementScore()
+    {
+        this.correctAnswers++;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card);
 
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+
+
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
+        {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
                 if (item.getItemId() == R.id.navigator_home)
                 {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -100,5 +92,143 @@ public class Flashcard extends AppCompatActivity {
             }
         });
 
+        for(int i = 0; i < this.questions.length; i++)
+        {
+            //code block that displays the question word
+            TextView question = findViewById(R.id.flashcardQuestionText);
+            StringBuffer questionBuffer = new StringBuffer();
+            questionBuffer.append(this.questions[i].getQuestion());
+            //code block that displays the first choice
+            Button firstChoice = findViewById(R.id.flashcardAnswer1);
+            Random rand = new Random();
+            int ranIndex = rand.nextInt(3);
+            StringBuffer firstChoiceBuffer = new StringBuffer();
+            firstChoiceBuffer.append(this.questions[i].getAllAnswers()[ranIndex]);
+            firstChoice.setText(firstChoiceBuffer);
+            //removing the first choice from the array of choices and copying the remaining 2 words into another array
+            for (int j = ranIndex; j < this.questions[i].getAllAnswers().length; i++)
+            {
+                this.questions[i].getAllAnswers()[j] = this.questions[i].getAllAnswers()[j + 1];
+            }
+            String[] twoAnswers = new String[2];
+            System.arraycopy(this.questions[i].getAllAnswers(), 0, twoAnswers, 0, 2);
+            //code block that displays the second and third choices
+            Button secondChoice = findViewById(R.id.flashcardAnswer2);
+            int secondRandIndex = rand.nextInt(2);
+            StringBuffer secondChoiceBuffer = new StringBuffer();
+            Button thirdChoice = findViewById(R.id.flashcardAnswer3);
+            StringBuffer thirdChoiceBuffer = new StringBuffer();
+            if (secondRandIndex == 0)
+            {
+                secondChoiceBuffer.append(twoAnswers[0]);
+                thirdChoiceBuffer.append(twoAnswers[1]);
+                secondChoice.setText(secondChoiceBuffer);
+                thirdChoice.setText(thirdChoiceBuffer);
+            }
+            else
+            {
+                secondChoiceBuffer.append(twoAnswers[1]);
+                thirdChoiceBuffer.append(twoAnswers[0]);
+                secondChoice.setText(secondChoiceBuffer);
+                thirdChoice.setText(thirdChoiceBuffer);
+            }
+
+            ProgressBar progressBar = findViewById(R.id.writingProgressBar);
+
+            int finalI = i;
+            firstChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            secondChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+
+            thirdChoice.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Context firstContextInstance = firstChoice.getContext();
+                    Context secContextInstance = secondChoice.getContext();
+                    Context thirdContextInstance = thirdChoice.getContext();
+                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                    }
+                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
+                        incrementScore();
+                    }
+                    else
+                    {
+                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
+                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
+                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
+                        incrementScore();
+                    }
+                    progressBar.incrementProgressBy(1);
+                }
+            });
+        }
     }
 }
