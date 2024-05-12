@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.multiling">
-
     <!-- Required permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,18 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Multiling">
-
+        <activity
+            android:name=".Question"
+            android:exported="false" />
         <!-- Launcher Activity -->
         <activity
             android:name=".StartPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Other Activities -->
+        </activity> <!-- Other Activities -->
         <activity
             android:name=".Profile"
             android:exported="false" />
@@ -55,7 +55,6 @@
         <activity
             android:name=".Login"
             android:exported="true" />
-
     </application>
 
 </manifest>
