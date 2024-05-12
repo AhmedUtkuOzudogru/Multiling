@@ -27,10 +27,10 @@ public class WritingExercise extends AppCompatActivity
     private Question[] questions;
     private int correctAnswers;
 
-    public WritingExercise(int num) //TODO: num should be obtained from settings page
+    public WritingExercise()
     {
-        questions = new Question[num];
-        for(int i = 0; i < num; i++)
+        questions = new Question[Settings.getInstance().getWritingNumber()];
+        for(int i = 0; i < Settings.getInstance().getWritingNumber(); i++)
         {
             questions[i] = new Question(this);
         }

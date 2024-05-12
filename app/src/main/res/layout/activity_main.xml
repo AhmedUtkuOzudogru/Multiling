@@ -76,7 +76,7 @@
             android:id="@+id/mainUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:text="@string/username"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -284,11 +284,24 @@
         android:id="@+id/imageView9"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
+
+    <ImageButton
+        android:id="@+id/mainNotificationsButton"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/notification_icon"
+        tools:layout_editor_absoluteX="365dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints"
+        android:layout_width="35dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

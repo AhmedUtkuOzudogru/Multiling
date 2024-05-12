@@ -49,7 +49,8 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditProfile extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity
+{
     private SharedPreferences sharedPreferences;
     ImageView profileImage;
     Button changeProfileButton, saveButton, resetPasswordButton, cancelButton;
