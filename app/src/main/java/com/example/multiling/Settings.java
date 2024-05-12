@@ -43,7 +43,7 @@ public class Settings extends AppCompatActivity {
 
 
 
-        // Set listener for item selection
+        // Set listener for navigation bar
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -111,7 +111,7 @@ public class Settings extends AppCompatActivity {
 
     private void setWritingNumListener() {
         writingNumEditText.addTextChangedListener(new TextWatcher() {
-            @Override
+             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // This method is called before the text is changed
             }
@@ -134,9 +134,8 @@ public class Settings extends AppCompatActivity {
                     int number = Integer.parseInt(enteredText);
                     if (number >= 0 && number <= 99) {
                         writingNumber = number;
-                        Toast.makeText(Settings.this, "Valid input: " + enteredText, Toast.LENGTH_SHORT).show();
                     } else {
-                        // Out of range input
+                        writingNumEditText.setText(String.valueOf(writingNumber));
                         Toast.makeText(Settings.this, "Please enter a number between 0 and 99", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -165,10 +164,9 @@ public class Settings extends AppCompatActivity {
                     int number = Integer.parseInt(enteredText);
                     if (number >= 0 && number <= 99) {
                         flashcardNumber = number;
-                        Toast.makeText(Settings.this, "Valid input: " + enteredText, Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        // Out of range input
+                        flashcardNumEditText.setText(String.valueOf(flashcardNumber));
                         Toast.makeText(Settings.this, "Please enter a number between 0 and 99", Toast.LENGTH_SHORT).show();
                     }
                 }
