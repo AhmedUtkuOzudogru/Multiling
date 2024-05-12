@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Profile.class);
-                startActivity(intent);
+                Intent intentProfilePage = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intentProfilePage);
 
             }
         });

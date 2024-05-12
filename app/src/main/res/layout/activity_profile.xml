@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/flashcardNavigation"
+        app:layout_constraintBottom_toTopOf="@+id/profileNavigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -26,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/profileButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +63,8 @@
 
                 <TextView
                     android:id="@+id/profileLevel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
@@ -76,10 +78,10 @@
 
                 <TextView
                     android:id="@+id/levelEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="Advanced"
                     android:textAlignment="center"
@@ -123,7 +125,7 @@
                 <TextView
                     android:id="@+id/profileUserName"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="center"
@@ -137,10 +139,10 @@
 
                 <TextView
                     android:id="@+id/userNameEdit"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="Your name"
                     android:textAlignment="center"
@@ -196,10 +198,10 @@
 
                 <TextView
                     android:id="@+id/emailEdit"
-                    android:layout_width="250dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="email@gmail.com"
                     android:textAlignment="center"
@@ -258,7 +260,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="password123"
                     android:textAlignment="center"
@@ -271,14 +273,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
-                android:id="@+id/flashcardQuestionImage"
+                android:id="@+id/imageView2"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout5"
                 app:srcCompat="@drawable/graph_icon" />
@@ -286,25 +287,13 @@
             <Button
                 android:id="@+id/profileButton"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="60dp"
                 android:text="Chane your Profile"
-                app:icon="@drawable/change_icon2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
-                tools:ignore="MissingConstraints" />
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="30dp"
-                android:background="@android:color/transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profilePicture"
-                app:srcCompat="@drawable/change_icon2" />
+                tools:ignore="MissingConstraints" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -327,3 +316,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
