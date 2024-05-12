@@ -1,10 +1,18 @@
 package com.example.multiling;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,8 +27,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -33,7 +46,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EditProfile extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
     ImageView profileImage;
     Button changeProfileButton, saveButton, resetPasswordButton, cancelButton;
     FirebaseAuth firebaseAuth;
@@ -43,7 +60,8 @@ public class EditProfile extends AppCompatActivity {
     FirebaseUser user;
 
 
-    String userID,name,surname,email,level;
+    String userID,name,surname,email,level,password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +74,12 @@ public class EditProfile extends AppCompatActivity {
             return insets;
         });
 
-        storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference profileRef = storageReference.child("users/"+userID+"profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profileImage);
-
-            }
-        });
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         user=firebaseAuth.getCurrentUser();
-        userID = firebaseAuth.getCurrentUser().getUid();
+        userID=user.getUid();
+        sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
 
 
         profileImage = findViewById(R.id.profileImage);
@@ -81,6 +91,8 @@ public class EditProfile extends AppCompatActivity {
         emailEditText =findViewById(R.id.emailEditText);
         levelEditText =findViewById(R.id.levelEditText);
         cancelButton=findViewById(R.id.cancelButton);
+
+
 
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -97,7 +109,82 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name = String.valueOf(nameEditText.getText());
+                surname = String.valueOf(surnameEditText.getText());
+                level = String.valueOf(levelEditText.getText());
+                email = String.valueOf(emailEditText.getText());
+                if(name.isEmpty()||surname.isEmpty()||level.isEmpty()||email.isEmpty()){
+                    Toast.makeText(EditProfile.this,"All fields should be filled", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Map<String,Object> user = new HashMap<>();
+                user.put("e-mail", email);
+                user.put("name",name);
+                user.put("surname", surname);
+                user.put("proficiencyLevel",level);
 
+                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Tag","userProfile is updated for ID:"+ userID+"with Name:"+name+
+                                " Surname:"+surname+" proficiencyLevel:"+level);
+
+                    }
+                });
+                Toast.makeText(EditProfile.this, "userProfile is updated with Name:"+name+
+                                " Surname:"+surname+" proficiencyLevel:"+level,
+                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), EditProfile.class);
+                /*user = FirebaseAuth.getInstance().getCurrentUser();
+                AuthCredential credential = EmailAuthProvider
+                        .getCredential(sharedPreferences.getString("username", "default_value"), sharedPreferences.getString("password", "default_value"));
+
+                // Get auth credentials from the user for re-authentication
+                user.reauthenticate(credential)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Log.d(TAG, "User re-authenticated.");
+                                user.updateEmail(email)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Toast.makeText(getApplicationContext(), "Account  updated successfully", Toast.LENGTH_SHORT).show();
+                                                Map<String,Object> user = new HashMap<>();
+                                                user.put("e-mail", email);
+                                                user.put("name",name);
+                                                user.put("surname", surname);
+                                                user.put("proficiencyLevel",level);
+
+                                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Log.d("Tag","userProfile is created for ID:"+ userID+"with Name:"+name+
+                                                                " Surname:"+surname+" proficiencyLevel:"+level);
+
+                                                    }
+                                                });
+                                                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                // Email update failed
+                                                Toast.makeText(getApplicationContext(), "Account update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+                            }
+                        });*/
+
+
+            }
+        });
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +199,33 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGalleryIntent, 1000);
+
+            }
+        });
+
+        resetPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(EditProfile.this,"Reset Password Email Sent", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(EditProfile.this,"Unable to Send Email", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+userID+"profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileImage);
 
             }
         });
@@ -157,6 +271,7 @@ public class EditProfile extends AppCompatActivity {
         });
 
     }
+
 
 
 }

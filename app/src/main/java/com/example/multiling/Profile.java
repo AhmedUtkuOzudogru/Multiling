@@ -60,8 +60,8 @@ public class Profile extends AppCompatActivity {
         profilePicture = findViewById(R.id.profilePicture);
         profileButton = findViewById(R.id.profileButton);
         userNameTextView = findViewById(R.id.userNameEdit);
-        levelTextView = findViewById(R.id.emailEdit);
-        emailTextView = findViewById(R.id.levelEdit);
+        levelTextView = findViewById(R.id.levelEdit);
+        emailTextView = findViewById(R.id.emailEdit);
 
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -141,13 +141,6 @@ public class Profile extends AppCompatActivity {
             }
         }
     }
-
-
-
-
-
-
-
 
 }
 
