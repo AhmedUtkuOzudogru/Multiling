@@ -27,10 +27,10 @@ public class Flashcard extends AppCompatActivity
 
     private Question[] questions;
     private int correctAnswers;
-    public Flashcard(int num) //TODO: num should be obtained from settings page
+    public Flashcard() 
     {
-        questions = new Question[num];
-        for(int i = 0; i < num; i++)
+        questions = new Question[Settings.getInstance().getFlashcardNumber()];
+        for(int i = 0; i < Settings.getInstance().getFlashcardNumber(); i++)
         {
             questions[i] = new Question(this);
         }
