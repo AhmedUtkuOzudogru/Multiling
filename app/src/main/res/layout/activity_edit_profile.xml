@@ -22,8 +22,8 @@
         android:src="@drawable/user_icon"
         tools:visibility="visible" />
 
-    <EditText
-        android:id="@+id/editTextText"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -37,8 +37,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
-    <EditText
-        android:id="@+id/editTextText3"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/surnameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -46,14 +46,14 @@
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Your Email Adress"
+        android:text="Your Surname"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
-    <EditText
-        android:id="@+id/editTextText4"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -61,14 +61,14 @@
         android:layout_marginEnd="39dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Password"
+        android:text="@string/email"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/surnameEditText" />
 
-    <EditText
-        android:id="@+id/editTextText5"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/levelEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -80,13 +80,12 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="68dp"
@@ -94,8 +93,27 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/levelEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/resetPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="68dp"
+        android:text="Reset Password"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/levelEditText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/changeProfileButton"
@@ -106,7 +124,7 @@
         android:layout_marginEnd="164dp"
         android:layout_marginBottom="17dp"
         android:text="Change Profile"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
