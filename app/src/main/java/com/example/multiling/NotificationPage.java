@@ -20,16 +20,20 @@ public class NotificationPage extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NotificationAdapter(notifications);
         recyclerView.setAdapter(adapter);
+
+        // Add spacing between items
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        // Add a sample notification
-        addNotification("New notification", "Selam selam selam", 10);
+        // Add sample notifications
+        addNotification(new NotificationModel("Notification 1", "This is notification 1 content",10));
+        addNotification(new NotificationModel("Notification 2", "This is notification 2 content",20));
+        addNotification(new NotificationModel("Notification 3", "This is notification 3 content",30));
     }
 
-    private void addNotification(String title, String text, int image) {
-        notifications.add(new NotificationModel(title, text, image));
+    private void addNotification(NotificationModel notification) {
+        notifications.add(0,notification);
         adapter.notifyDataSetChanged();
     }
 }

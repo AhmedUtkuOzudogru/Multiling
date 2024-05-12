@@ -1,8 +1,10 @@
 package com.example.multiling;
 
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -24,7 +26,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         NotificationModel notification = notifications.get(position);
-        holder.notificationText.setText(notification.getNotificationText());
+        holder.notificationHeader.setText(notification.getNotificationTitle());
+        holder.notificationContent.setText(notification.getNotificationText());
+        holder.notificationIcon.setImageAlpha(notification.getNotificationImage());
     }
 
     @Override
@@ -33,11 +37,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView notificationText;
+        public TextView notificationHeader;
+        public TextView notificationContent;
+
+        public ImageView notificationIcon;
 
         public ViewHolder(View view) {
             super(view);
-            notificationText = view.findViewById(R.id.notificationText);
+            notificationHeader = view.findViewById(R.id.notificationTitle);
+            notificationContent = view.findViewById(R.id.notificationText);
+            notificationIcon = view.findViewById(R.id.notificationImage);
         }
     }
 }
