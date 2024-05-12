@@ -1,6 +1,8 @@
 package com.example.multiling;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
  * Xml done by Ibrahim
  */
 public class Login extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
     String userID;
     TextInputEditText editTextEmail, editTextPassword;
     Button registerButton , logInButton, rememberMeButton;
@@ -116,6 +119,14 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, "Authentication successful.",
                                             Toast.LENGTH_LONG).show();
                                     userID=mAuth.getCurrentUser().getUid();
+                                    SharedPreferences sharedPreferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
+
+                                    // Edit SharedPreferences
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("email", email);
+                                    editor.putString("password",password);
+                                    editor.apply();
+
                                     /*
                                     * TODO: Look Into SharedPreferences it can be done without passing values every time
                                     * */
