@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -31,7 +35,9 @@ import java.util.Map;
  */
 public class FillProfile extends AppCompatActivity {
     String email,userID,name,surname,proficiencyLevel;
-    TextInputEditText nameTextField, surnameTextField, proficiencyLevelTextField ;
+    TextInputEditText nameTextField, surnameTextField;
+
+    Spinner proficiencyLevelSpinner;
     Button startButton,skipButton;
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
@@ -49,7 +55,34 @@ public class FillProfile extends AppCompatActivity {
 
         nameTextField = findViewById(R.id.nameTextField);
         surnameTextField = findViewById(R.id.surnameTextField);
-        proficiencyLevelTextField = findViewById(R.id.proficiencyLevel);
+        proficiencyLevelSpinner = findViewById(R.id.proficiencyLevelSpinner);
+
+        // Define the list of proficiency levels
+        String[] proficiencyLevels = {"Beginner", "Intermediate", "Advanced"};
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, proficiencyLevels);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        proficiencyLevelSpinner.setAdapter(adapter);
+
+        // Set a listener to handle item selection
+        proficiencyLevelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedProficiencyLevel = parent.getItemAtPosition(position).toString();
+                // Handle selected item (e.g., store in a variable or perform action)
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle case where nothing is selected
+            }
+        });
+
         skipButton = findViewById(R.id.skipButton2);
         startButton = findViewById(R.id.start);
         name="aName";
@@ -104,7 +137,7 @@ public class FillProfile extends AppCompatActivity {
             public void onClick(View v) {
                 name=String.valueOf(nameTextField.getText());
                 surname=String.valueOf(surnameTextField.getText());
-                proficiencyLevel=String.valueOf(proficiencyLevelTextField.getText());
+                proficiencyLevel=String.valueOf(proficiencyLevelSpinner.getContext());
 
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(FillProfile.this,"Enter a Name!", Toast.LENGTH_SHORT).show();
@@ -141,6 +174,5 @@ public class FillProfile extends AppCompatActivity {
 
             }
         });
-
     }
 }

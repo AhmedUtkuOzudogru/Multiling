@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, NotificationPage.class);
                 startActivity(intent);
             }
+        });
+
         goToWritingExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
