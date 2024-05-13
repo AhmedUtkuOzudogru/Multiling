@@ -27,7 +27,7 @@ public class Flashcard extends AppCompatActivity
 
     private Question[] questions;
     private int correctAnswers;
-    public Flashcard() 
+    public Flashcard()
     {
         questions = new Question[Settings.getInstance().getFlashcardNumber()];
         for(int i = 0; i < Settings.getInstance().getFlashcardNumber(); i++)

@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
+        goToProfilePageButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 Intent intentProfilePage = new Intent(getApplicationContext(), Profile.class);
@@ -74,15 +75,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        goToNotificationsButton.setOnClickListener(new View.OnClickListener() {
+        goToNotificationsButton.setOnClickListener(new View.OnClickListener()
+        {
+           @Override
+           public void onClick(View v)
+           {
+               Intent intent = new Intent(MainActivity.this, NotificationPage.class);
+               startActivity(intent);
+           }
+       });
+        goToWritingExerciseButton.setOnClickListener(new View.OnClickListener()
+            {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NotificationPage.class);
-                startActivity(intent);
-            }
-        goToWritingExerciseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+                {
                 Intent intent = new Intent(getApplicationContext(), WritingExercise.class);
                 startActivity(intent);
 
