@@ -17,6 +17,7 @@ firebaseFirestore = "25.0.0"
 googleGmsGoogleServices = "4.4.1"
 firebaseFirestoreVersion = "25.0.0"
 firebaseStorage = "21.0.0"
+library = "3.2.0-alpha11"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -35,6 +36,7 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestoreVersion" }
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+library = { group = "androidx.databinding", name = "library", version.ref = "library" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

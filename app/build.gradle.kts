@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.coordinatorlayout)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
+    implementation(libs.library)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
