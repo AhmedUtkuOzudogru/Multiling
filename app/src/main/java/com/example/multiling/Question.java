@@ -45,6 +45,12 @@ public class Question extends AppCompatActivity
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
     }
 
+    // I created this constructor to suppress the warning given in AndroidManifest.xml
+    public Question()
+    {
+
+    }
+
     public String[] createQuestion(String filename)
     {
         Random random = new Random();

@@ -22,17 +22,15 @@ proficiencyLevel should be combo box
         android:text="    Fill Your Profile"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpImage1"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nameTextField"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-
-        android:drawablePadding="8dp"
         android:ems="10"
         android:hint="@string/name"
         android:padding="8dp"
@@ -40,25 +38,11 @@ proficiencyLevel should be combo box
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText1" />
 
-    <ImageView
-        android:id="@+id/signUpImage1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/multiling_logo_transparent"/>
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/surnameTextField"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-
-        android:drawablePadding="8dp"
         android:ems="10"
         android:hint="@string/surname"
         android:padding="10dp"
@@ -66,16 +50,12 @@ proficiencyLevel should be combo box
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/proficiencyLevel"
+    <Spinner
+        android:id="@+id/proficiencyLevelSpinner"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-
-        android:drawablePadding="8dp"
-        android:ems="10"
-        android:hint="Proficiency Level"
-        android:padding="10dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surnameTextField" />
@@ -85,15 +65,11 @@ proficiencyLevel should be combo box
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:onClick="registerOnClick"
         android:text="@string/start"
         android:textSize="20sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/proficiencyLevel" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/proficiencyLevelSpinner" />
 
     <TextView
         android:id="@+id/signUpText2"
@@ -102,7 +78,6 @@ proficiencyLevel should be combo box
         android:layout_marginTop="20dp"
         android:text="or"
         android:textSize="16sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,11 +89,9 @@ proficiencyLevel should be combo box
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="?android:attr/selectableItemBackground"
-        android:onClick="openSignInPage"
-        android:text="You can always edit your profile "
+        android:text="You can always edit your profile"
         android:textColor="@android:color/black"
         android:textSize="12sp"
-
         app:layout_constraintStart_toStartOf="@+id/start"
         app:layout_constraintTop_toBottomOf="@+id/signUpText2" />
 
@@ -128,13 +101,20 @@ proficiencyLevel should be combo box
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="?android:attr/selectableItemBackground"
-        android:onClick="openLoginPage"
         android:text="@string/skip"
         android:textColor="#E91E63"
         android:textSize="12sp"
-
         app:layout_constraintEnd_toEndOf="@+id/start"
         app:layout_constraintTop_toBottomOf="@+id/signUpText2" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/multiling_logo_transparent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

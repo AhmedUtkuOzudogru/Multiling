@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     String userID;
 
-    Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton, goToNotificationsButton;
+    Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton;
+    AppCompatImageButton goToNotificationsButton;
+
 
 
 
@@ -87,8 +90,15 @@ public class MainActivity extends AppCompatActivity {
         goToWritingExerciseButton.setOnClickListener(new View.OnClickListener()
             {
             @Override
-            public void onClick(View v)
-                {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NotificationPage.class);
+                startActivity(intent);
+            }
+        });
+
+        goToWritingExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WritingExercise.class);
                 startActivity(intent);
 
