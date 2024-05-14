@@ -33,8 +33,8 @@
             android:id="@+id/mainProfileView"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/user_icon"
             app:layout_constraintStart_toStartOf="@+id/mainProfileButton"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,9 +45,8 @@
             android:id="@+id/mainUserIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mainProfileView"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user_icon" />
@@ -56,9 +55,8 @@
             android:id="@+id/mainLevelIcon"
             android:layout_width="44dp"
             android:layout_height="39dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintStart_toEndOf="@+id/mainProfileView"
             app:layout_constraintTop_toBottomOf="@+id/mainUserIcon"
             app:srcCompat="@drawable/level_icon" />
@@ -77,10 +75,10 @@
             android:id="@+id/mainUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="36dp"
             android:text="@string/username"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mainUserIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,10 +86,10 @@
             android:id="@+id/mainLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="45dp"
             android:text="@string/level"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mainLevelIcon"
             app:layout_constraintTop_toBottomOf="@+id/mainUserName" />
 
@@ -287,15 +285,16 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
 
     <Button
         android:id="@+id/mainNotificationsButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/notification_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
