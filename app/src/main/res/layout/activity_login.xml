@@ -63,7 +63,6 @@ Date: 04/05/2024
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:text="Remember Me"
-        android:onClick="rememberMeClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -74,27 +73,15 @@ Date: 04/05/2024
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:text="@string/login"
-        android:onClick="signInClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-    <TextView
-        android:id="@+id/signInText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="or"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <Button
         android:id="@+id/registerButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
-        android:onClick="openSignUpPage"
         android:text="You don't have an account?"
         android:textColor="@android:color/black"
 
@@ -103,14 +90,13 @@ Date: 04/05/2024
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInText2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginForgotPassword" />
 
     <Button
         android:id="@+id/registerButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
-        android:onClick="openSignUpPage"
         android:text="@string/register"
 
         android:textColor="#E91E63"
@@ -119,7 +105,7 @@ Date: 04/05/2024
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInText2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginForgotPassword" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -130,5 +116,18 @@ Date: 04/05/2024
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
+
+    <Button
+        android:id="@+id/loginForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:text="Forgot Password?"
+        android:textColor="#E91E63"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

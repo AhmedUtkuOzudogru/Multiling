@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white" /> <!-- Background color of the spinner -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/black"/><!-- Border width -->
+    <!-- Border color -->
+    <corners android:radius="8dp" /> <!-- Rounded corners of the spinner -->
+</shape>

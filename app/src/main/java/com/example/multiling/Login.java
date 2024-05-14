@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     String userID;
     TextInputEditText editTextEmail, editTextPassword;
-    Button registerButton , logInButton, rememberMeButton;
+    Button registerButton , logInButton, rememberMeButton,forgotPasswordButton;
     FirebaseAuth mAuth;
     /**
      * This code snippet is for already Logged in users
@@ -67,6 +67,7 @@ public class Login extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton2);
         logInButton = findViewById(R.id.loginButton);
         rememberMeButton = findViewById(R.id.checkBox);
+        forgotPasswordButton = findViewById(R.id.loginForgotPassword);
         /**
          * TODO: Full Implement remember me Button
          */
@@ -90,6 +91,14 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
+
         /**
          * LoginButton's code and Intents
          * if user successfully enters its info  this code directs user to MainActivity.class

@@ -11,6 +11,7 @@
     <string name="skip">Skip</string>
     <string name="level">Level</string>
     <string name="username">UserName</string>
+    <string name="submit">Submit</string>
 
     <string-array name="notification_titles">
         <item>Streak Disrupted</item>

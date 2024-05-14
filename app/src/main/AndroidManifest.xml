@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Multiling">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".User"
             android:exported="false" />
         <activity

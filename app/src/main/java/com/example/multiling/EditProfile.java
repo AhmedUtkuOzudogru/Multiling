@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -49,7 +52,8 @@ public class EditProfile extends AppCompatActivity
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     StorageReference storageReference;
-    EditText nameEditText, surnameEditText, levelEditText;
+    EditText nameEditText, surnameEditText;
+    Spinner levelEditText;
     FirebaseUser user;
 
 
@@ -81,8 +85,33 @@ public class EditProfile extends AppCompatActivity
         resetPasswordButton=findViewById(R.id.resetPasswordButton);
         nameEditText=findViewById(R.id.nameEditText);
         surnameEditText =findViewById(R.id.surnameEditText);
+        levelEditText = findViewById(R.id.editProfileLevel);
 
-        levelEditText =findViewById(R.id.editProfileLevel);
+        // Define the list of proficiency levels
+        String[] proficiencyLevels = {"Beginner", "Intermediate", "Advanced"};
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, proficiencyLevels);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        levelEditText.setAdapter(adapter);
+
+        // Set a listener to handle item selection
+        levelEditText.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedProficiencyLevel = parent.getItemAtPosition(position).toString();
+                // Handle selected item (e.g., store in a variable or perform action)
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle case where nothing is selected
+            }
+        });
         cancelButton=findViewById(R.id.cancelButton);
 
 
@@ -97,7 +126,12 @@ public class EditProfile extends AppCompatActivity
                 email=firebaseAuth.getCurrentUser().getEmail();
                 nameEditText.setText(name);
                 surnameEditText.setText(surname);
-                levelEditText.setText(level);
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    if (adapter.getItem(i).toString().equals(level)) {
+                        levelEditText.setSelection(i);
+                        break;
+                    }
+                }
             }
         });
 
@@ -106,8 +140,8 @@ public class EditProfile extends AppCompatActivity
             public void onClick(View v) {
                 name = String.valueOf(nameEditText.getText());
                 surname = String.valueOf(surnameEditText.getText());
-                level = String.valueOf(levelEditText.getText());
-                if(name.isEmpty()||surname.isEmpty()||level.isEmpty()){
+                level = levelEditText.getSelectedItem().toString();
+                if(name.isEmpty()||surname.isEmpty()){
                     Toast.makeText(EditProfile.this,"All fields should be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }

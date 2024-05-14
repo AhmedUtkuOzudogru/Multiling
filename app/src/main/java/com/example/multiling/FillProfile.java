@@ -137,7 +137,7 @@ public class FillProfile extends AppCompatActivity {
             public void onClick(View v) {
                 name=String.valueOf(nameTextField.getText());
                 surname=String.valueOf(surnameTextField.getText());
-                proficiencyLevel=String.valueOf(proficiencyLevelSpinner.getContext());
+                proficiencyLevel=proficiencyLevelSpinner.getSelectedItem().toString();
 
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(FillProfile.this,"Enter a Name!", Toast.LENGTH_SHORT).show();
