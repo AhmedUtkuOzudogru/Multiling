@@ -79,6 +79,8 @@
             android:layout_marginTop="36dp"
             android:text="@string/username"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/mainUserIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,6 +92,8 @@
             android:layout_marginTop="45dp"
             android:text="@string/level"
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/mainLevelIcon"
             app:layout_constraintTop_toBottomOf="@+id/mainUserName" />
 
