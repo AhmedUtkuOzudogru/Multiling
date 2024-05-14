@@ -53,7 +53,7 @@ public class Flashcard extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card);
-
+        Flashcard exercise = new Flashcard();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);

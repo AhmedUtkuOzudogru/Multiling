@@ -59,6 +59,7 @@ public class WritingExercise extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing_exercise);
+        WritingExercise exercise = new WritingExercise();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.writingExerciseNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
