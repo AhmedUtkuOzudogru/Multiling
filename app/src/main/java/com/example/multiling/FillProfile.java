@@ -41,6 +41,21 @@ public class FillProfile extends AppCompatActivity {
     Button startButton,skipButton;
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
+    private static FillProfile instance = null;
+
+    public static FillProfile getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new FillProfile();
+        }
+        return instance;
+    }
+
+    public String getSelectedProficiencyLevel()
+    {
+        return proficiencyLevelSpinner.getSelectedItem().toString();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
