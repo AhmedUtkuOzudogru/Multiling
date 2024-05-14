@@ -1,13 +1,19 @@
 package com.example.multiling;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import android.view.MenuItem;
+import java.util.Set;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import androidx.annotation.NonNull;
@@ -15,9 +21,19 @@ import androidx.annotation.NonNull;
 public class NotificationPage extends AppCompatActivity{
     private List<NotificationModel> notifications = new ArrayList<>();
     private NotificationAdapter adapter;
+    private SharedPreferences sharedPreferences;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification);
+        setContentView(R.layout.activity_notification_page);
+
+        sharedPreferences = getSharedPreferences("Notifications", Context.MODE_PRIVATE);
+
+        // Restore notifications from SharedPreferences
+        Set<String> notificationSet = sharedPreferences.getStringSet("notificationSet", new HashSet<>());
+        for (String notificationString : notificationSet) {
+            String[] notificationArray = notificationString.split(",");
+            notifications.add(new NotificationModel(notificationArray[0], notificationArray[1], Integer.parseInt(notificationArray[2])));
+        }
 
         BottomNavigationView bottomNavigation = findViewById(R.id.notificationNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
@@ -66,9 +82,24 @@ public class NotificationPage extends AppCompatActivity{
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         // Add sample notifications
-        addNotification(new NotificationModel("Notification 1", "This is notification 1 content",R.drawable.notification_icon));
-        addNotification(new NotificationModel("Notification 2", "This is notification 2 content",R.drawable.notification_icon));
-        addNotification(new NotificationModel("Notification 3", "This is notification 3 content",R.drawable.notification_icon));
+        addNotification(new NotificationModel("Notification 1", "This is notification 1 content",R.drawable.photo_icon));
+        addNotification(new NotificationModel("Notification 2", "This is notification 2 content",R.drawable.photo_icon));
+        addNotification(new NotificationModel("Notification 3", "This is notification 3 content",R.drawable.photo_icon));
+
+    }
+    protected void onStop() {
+        super.onStop();
+
+        // Save notifications to SharedPreferences
+        Set<String> notificationSet = new HashSet<>();
+        for (NotificationModel notification : notifications) {
+            notificationSet.add(notification.getNotificationTitle() + "," +
+                    notification.getNotificationText() + "," +
+                    notification.getNotificationImage());
+        }
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("notificationSet", notificationSet);
+        editor.apply();
     }
 
     private void addNotification(NotificationModel notification) {
