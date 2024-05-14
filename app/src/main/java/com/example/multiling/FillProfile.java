@@ -87,7 +87,7 @@ public class FillProfile extends AppCompatActivity {
         startButton = findViewById(R.id.start);
         name="aName";
         surname="aSurname";
-        proficiencyLevel="aProficiencyLevel";
+        proficiencyLevel="Beginner";
         firestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getUid();

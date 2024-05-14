@@ -5,22 +5,22 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
     private List<NotificationModel> notifications;
-    private String[] localDataSet;
 
     public NotificationAdapter(List<NotificationModel> notifications) {
         this.notifications = notifications;
     }
-    public NotificationAdapter(String[] dataSet) {
-        localDataSet = dataSet;
-    }
+
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NotificationAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notification_item, parent, false);
         return new ViewHolder(view);
     }
@@ -38,6 +38,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 if (clickedPosition != RecyclerView.NO_POSITION) {
                     notifications.remove(clickedPosition);
                     notifyItemRemoved(clickedPosition);
+                    notifyItemRangeChanged(clickedPosition, notifications.size());
                 }
             }
         });
