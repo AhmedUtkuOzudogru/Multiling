@@ -29,15 +29,14 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     String userID;
 
-    Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton;
-    AppCompatImageButton goToNotificationsButton;
+    Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton, goToNotificationsButton;
 
 
 
 
 
-    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
-    @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         goToSettingsButton=findViewById(R.id.mainSettingsButton);
         goToProfilePageButton=findViewById(R.id.mainProfileButton);
         goToNotificationsButton=findViewById(R.id.mainNotificationsButton);
-        setContentView(R.layout.activity_main);
+
 
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -80,11 +79,19 @@ public class MainActivity extends AppCompatActivity {
         goToNotificationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NotificationPage.class);
+                Intent intent = new Intent(getApplicationContext(), NotificationPage.class);
                 startActivity(intent);
             }
         });
 
+        goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intent);
+
+            }
+        });
         goToWritingExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -291,17 +291,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
 
-    <ImageButton
+    <Button
         android:id="@+id/mainNotificationsButton"
-        android:layout_height="30dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/notification_icon"
-        tools:layout_editor_absoluteX="365dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints"
-        android:layout_width="35dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/notification_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
