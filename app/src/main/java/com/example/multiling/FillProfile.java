@@ -31,7 +31,6 @@ import java.util.Map;
  * Continues The Registration process with data taken from New Users with FireStore Database
  * Code done by Ahmed 09/05/2024 01:05
  * Xml done by Ahmed
- * TODO: The proficiencyLevel level should be Combo box needs implementation
  */
 public class FillProfile extends AppCompatActivity {
     String email,userID,name,surname,proficiencyLevel;

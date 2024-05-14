@@ -13,8 +13,9 @@ memorization.
 3.StartPage
 - Login button Is not Centered  when app is running(Fixed)
 4.FillProfile
-- The proficiencyLevel level should be Combo box needs implementation
+- The proficiencyLevel level should be Combo box needs implementation(Fixed)
 5. Main Activity
-- Sample user icon doesnt show up when app is running
-- Logout and Notification Buttons are not implemented
-# The levels should be Combo box needs to change from Field Text view in all of the classes
+- Sample user icon doesnt show up when app is running(fixed) 
+- Logout (not Fixed) and Notification Buttons (Fixed)
+
+ 6.The levels should be Combo box needs to change from Field Text view in all of the classes(Fixed)
