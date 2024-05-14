@@ -1,10 +1,12 @@
 package com.example.multiling;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -15,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Settings extends AppCompatActivity
 {
@@ -43,12 +46,37 @@ public class Settings extends AppCompatActivity
     {
         return flashcardNumber;
     }
+    private FirebaseAuth mAuth;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        mAuth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences(Login.SHARED_PREFS, MODE_PRIVATE);
+
+        // Example logout button listener
+        findViewById(R.id.settingsLogout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sign out from Firebase
+                mAuth.signOut();
+
+                // Clear login state
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+
+                // Redirect to login activity
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
 
         BottomNavigationView bottomNavigation = findViewById(R.id.settingsNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_settings);
