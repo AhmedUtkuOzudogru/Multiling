@@ -2,9 +2,12 @@ package com.example.multiling;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,12 +18,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth firebaseAuth;
     String userID;
+    StorageReference storageReference;
+
+    ImageView profilePicture;
 
     Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton, goToNotificationsButton;
 
@@ -55,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         goToSettingsButton=findViewById(R.id.mainSettingsButton);
         goToProfilePageButton=findViewById(R.id.mainProfileButton);
         goToNotificationsButton=findViewById(R.id.mainNotificationsButton);
+        profilePicture=findViewById(R.id.mainProfileView);
 
 
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
@@ -66,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
                 emailTextView.setText(value.getString("email"));
             }
         });
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+userID+"profile.jpg");
+        profileRef.getBytes(1024*1024).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                profilePicture.setImageBitmap(bitmap);
+
+            }
+        });
+
 
 
         goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
