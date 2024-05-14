@@ -32,15 +32,16 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
-            android:id="@+id/flashcardLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/mainProfileView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginStart="30dp"
-            android:layout_marginBottom="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/user_icon"
             app:layout_constraintStart_toStartOf="@+id/mainProfileButton"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/mainUserIcon"
@@ -49,7 +50,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="100dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/flashcardLogo"
+            app:layout_constraintStart_toEndOf="@+id/mainProfileView"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user_icon" />
 
@@ -60,7 +61,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="100dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/flashcardLogo"
+            app:layout_constraintStart_toEndOf="@+id/mainProfileView"
             app:layout_constraintTop_toBottomOf="@+id/mainUserIcon"
             app:srcCompat="@drawable/level_icon" />
 
@@ -71,7 +72,7 @@
             android:layout_marginStart="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flashcardLogo"
+            app:layout_constraintTop_toBottomOf="@+id/mainProfileView"
             app:srcCompat="@drawable/email_icon" />
 
         <TextView
@@ -100,12 +101,12 @@
             android:id="@+id/mainEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:text="@string/email"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mainMailIcon"
-            app:layout_constraintTop_toBottomOf="@+id/flashcardLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/mainProfileView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -297,21 +298,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/multiling_logo_transparent" />
 
-    <ImageButton
+    <Button
         android:id="@+id/mainNotificationsButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:contentDescription="Notifications button"
-        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/notification_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/notification_icon"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,28 +29,31 @@
         </activity> <!-- Other Activities -->
         <activity
             android:name=".Profile"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".NotificationPage"
+            android:exported="true" />
         <activity
             android:name=".EditProfile"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".Settings"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Flashcard"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".FillProfile"
             android:exported="true" />
         <activity
             android:name=".ResultPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".WritingExercise"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Register"
             android:exported="true" />
