@@ -27,28 +27,31 @@ public class Question extends AppCompatActivity
 
     public Question(WritingExercise writingExercise)
     {
+        this.flashcardFilename = determineFlashcardFilename();
+        this.writingFilename = determineWritingFilename();
+        this.questionComponents = new String[5];
+        this.questionComponents = createQuestion(this.writingFilename);
         this.ID = questionComponents[0];
         this.question = questionComponents[1];
         this.answer = questionComponents[2];
         this.firstWrongAnswer = questionComponents[3];
         this.secondWrongAnswer = questionComponents[4];
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
-        this.flashcardFilename = determineFlashcardFilename();
-        this.writingFilename = determineWritingFilename();
-        this.questionComponents = createQuestion(this.writingFilename);
     }
 
     public Question(Flashcard flashExercise)
     {
+
+        this.flashcardFilename = determineFlashcardFilename();
+        this.writingFilename = determineWritingFilename();
+        this.questionComponents = new String[5];
+        this.questionComponents = createQuestion(this.flashcardFilename);
         this.ID = questionComponents[0];
         this.question = questionComponents[1];
         this.answer = questionComponents[2];
         this.firstWrongAnswer = questionComponents[3];
         this.secondWrongAnswer = questionComponents[4];
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
-        this.flashcardFilename = determineFlashcardFilename();
-        this.writingFilename = determineWritingFilename();
-        this.questionComponents = createQuestion(this.flashcardFilename);
     }
 
     public String determineFlashcardFilename()

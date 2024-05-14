@@ -3,6 +3,7 @@ package com.example.multiling;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 import androidx.activity.EdgeToEdge;
@@ -27,15 +33,83 @@ public class Flashcard extends AppCompatActivity
 
     private Question[] questions;
     private int correctAnswers;
+    private int currentQuestionIndex;
     public Flashcard()
     {
         questions = new Question[Settings.getInstance().getFlashcardNumber()];
-        for(int i = 0; i < Settings.getInstance().getFlashcardNumber(); i++)
+        for(int i = 0; i < this.questions.length; i++)
         {
             questions[i] = new Question(this);
         }
 
         this.correctAnswers = 0;
+        this.currentQuestionIndex = 0;
+    }
+
+    private String[] shuffleAnswers(String[] answers)
+    {
+        List<String> list = new ArrayList<>(Arrays.asList(answers));
+        Collections.shuffle(list);
+        String[] shuffled = list.toArray(new String[0]);
+        return shuffled;
+    }
+
+    private void displayCurrentQuestion()
+    {
+        TextView question = findViewById(R.id.flashcardQuestionText);
+        Question currentQuestion = questions[currentQuestionIndex];
+        question.setText(currentQuestion.getQuestion());
+
+        Button firstChoice = findViewById(R.id.flashcardAnswer1);
+        Button secondChoice = findViewById(R.id.flashcardAnswer2);
+        Button thirdChoice = findViewById(R.id.flashcardAnswer3);
+        String[] shuffledAnswers = shuffleAnswers(currentQuestion.getAllAnswers());
+        firstChoice.setText(shuffledAnswers[0]);
+        secondChoice.setText(shuffledAnswers[1]);
+        thirdChoice.setText(shuffledAnswers[2]);
+    }
+
+    private void checkAnswer(Button selectedAnswer)
+    {
+        String selectedText = selectedAnswer.getText().toString();
+        Question currentQuestion = questions[currentQuestionIndex];
+        if (selectedText.equals(currentQuestion.getAnswer()))
+        {
+            selectedAnswer.setBackgroundColor(getResources().getColor(R.color.green));
+            incrementScore();
+        }
+        else
+        {
+            selectedAnswer.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                moveToNextQuestion();
+            }
+        }, 1000);
+    }
+
+    private void resetAnswerButtons()
+    {
+        Button firstChoice = findViewById(R.id.flashcardAnswer1);
+        Button secondChoice = findViewById(R.id.flashcardAnswer2);
+        Button thirdChoice = findViewById(R.id.flashcardAnswer3);
+        firstChoice.setBackgroundColor(getResources().getColor(R.color.black));
+        secondChoice.setBackgroundColor(getResources().getColor(R.color.black));
+        thirdChoice.setBackgroundColor(getResources().getColor(R.color.black));
+    }
+
+    private void moveToNextQuestion()
+    {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length)
+        {
+            displayCurrentQuestion();
+            resetAnswerButtons();
+        }
     }
 
     public Question[] getQuestions()
@@ -53,7 +127,6 @@ public class Flashcard extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card);
-        Flashcard exercise = new Flashcard();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
@@ -92,143 +165,6 @@ public class Flashcard extends AppCompatActivity
             }
         });
 
-        for(int i = 0; i < this.questions.length; i++)
-        {
-            //code block that displays the question word
-            TextView question = findViewById(R.id.flashcardQuestionText);
-            StringBuffer questionBuffer = new StringBuffer();
-            questionBuffer.append(this.questions[i].getQuestion());
-            //code block that displays the first choice
-            Button firstChoice = findViewById(R.id.flashcardAnswer1);
-            Random rand = new Random();
-            int ranIndex = rand.nextInt(3);
-            StringBuffer firstChoiceBuffer = new StringBuffer();
-            firstChoiceBuffer.append(this.questions[i].getAllAnswers()[ranIndex]);
-            firstChoice.setText(firstChoiceBuffer);
-            //removing the first choice from the array of choices and copying the remaining 2 words into another array
-            for (int j = ranIndex; j < this.questions[i].getAllAnswers().length; i++)
-            {
-                this.questions[i].getAllAnswers()[j] = this.questions[i].getAllAnswers()[j + 1];
-            }
-            String[] twoAnswers = new String[2];
-            System.arraycopy(this.questions[i].getAllAnswers(), 0, twoAnswers, 0, 2);
-            //code block that displays the second and third choices
-            Button secondChoice = findViewById(R.id.flashcardAnswer2);
-            int secondRandIndex = rand.nextInt(2);
-            StringBuffer secondChoiceBuffer = new StringBuffer();
-            Button thirdChoice = findViewById(R.id.flashcardAnswer3);
-            StringBuffer thirdChoiceBuffer = new StringBuffer();
-            if (secondRandIndex == 0)
-            {
-                secondChoiceBuffer.append(twoAnswers[0]);
-                thirdChoiceBuffer.append(twoAnswers[1]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
-            else
-            {
-                secondChoiceBuffer.append(twoAnswers[1]);
-                thirdChoiceBuffer.append(twoAnswers[0]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
-
-            ProgressBar progressBar = findViewById(R.id.writingProgressBar);
-
-            int finalI = i;
-            firstChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
-
-            secondChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
-
-            thirdChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                        incrementScore();
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
-        }
+        displayCurrentQuestion();
     }
 }
