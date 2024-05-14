@@ -23,9 +23,9 @@ Date: 04/05/2024
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordImage" />
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/email"
+        android:id="@+id/forgotPasswordEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
@@ -53,7 +53,7 @@ Date: 04/05/2024
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordEmail" />
 
 
     <CheckBox
@@ -107,7 +107,7 @@ Date: 04/05/2024
         app:layout_constraintTop_toBottomOf="@+id/loginForgotPassword" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/forgotPasswordImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"

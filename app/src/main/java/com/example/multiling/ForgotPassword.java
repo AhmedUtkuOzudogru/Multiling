@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
-    Button submitButton;
+    Button submitButton, forgotPasswordTopButton;
     EditText emailEditText;
 
 
@@ -36,7 +36,8 @@ public class ForgotPassword extends AppCompatActivity {
             return insets;
         });
         submitButton= findViewById(R.id.submitButton);
-        emailEditText = findViewById(R.id.email);
+        emailEditText = findViewById(R.id.forgotPasswordEmail);
+        forgotPasswordTopButton = findViewById(R.id.forgotPasswordTopButton);
         firebaseAuth = FirebaseAuth.getInstance();
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,13 @@ public class ForgotPassword extends AppCompatActivity {
                 }else{
                     Toast.makeText(ForgotPassword.this,"Email field should not be empty!", Toast.LENGTH_SHORT).show();                }
 
+            }
+        });
+
+        forgotPasswordTopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
     }

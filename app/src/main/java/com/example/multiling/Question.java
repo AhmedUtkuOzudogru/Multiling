@@ -22,28 +22,68 @@ public class Question extends AppCompatActivity
     private String firstWrongAnswer;
     private String secondWrongAnswer;
     private String[] allAnswers;
+    private String flashcardFilename;
+    private String writingFilename;
 
     public Question(WritingExercise writingExercise)
     {
-        this.questionComponents = createQuestion("easy_writing.txt");//TODO:this should be changed to the var in the user class that will hold the file name
         this.ID = questionComponents[0];
         this.question = questionComponents[1];
         this.answer = questionComponents[2];
         this.firstWrongAnswer = questionComponents[3];
         this.secondWrongAnswer = questionComponents[4];
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
+        this.flashcardFilename = determineFlashcardFilename();
+        this.writingFilename = determineWritingFilename();
+        this.questionComponents = createQuestion(this.writingFilename);
     }
 
     public Question(Flashcard flashExercise)
     {
-        this.questionComponents = createQuestion("easy_words.txt");//TODO:this should be changed to the var in the user class that will hold the file name
         this.ID = questionComponents[0];
         this.question = questionComponents[1];
         this.answer = questionComponents[2];
         this.firstWrongAnswer = questionComponents[3];
         this.secondWrongAnswer = questionComponents[4];
         System.arraycopy(questionComponents, 2, this.allAnswers, 0, 3);
+        this.flashcardFilename = determineFlashcardFilename();
+        this.writingFilename = determineWritingFilename();
+        this.questionComponents = createQuestion(this.flashcardFilename);
     }
+
+    public String determineFlashcardFilename()
+    {
+        if(FillProfile.getInstance().getSelectedProficiencyLevel().equals("Beginner"))
+        {
+            return "easy_words.txt";
+        }
+        else if (FillProfile.getInstance().getSelectedProficiencyLevel().equals("Intermediate"))
+        {
+            return "intermediate_words.txt";
+        }
+        else
+        {
+            return "advanced_words.txt";
+        }
+    }
+
+    public String determineWritingFilename()
+    {
+        if(FillProfile.getInstance().getSelectedProficiencyLevel().equals("Beginner"))
+        {
+            return "easy_writing.txt";
+        }
+        else if(FillProfile.getInstance().getSelectedProficiencyLevel().equals("Intermediate"))
+        {
+            return "intermediate_writing.txt";
+        }
+        else
+        {
+            return "advanced_writing.txt";
+        }
+    }
+
+
 
     // I created this constructor to suppress the warning given in AndroidManifest.xml
     public Question()

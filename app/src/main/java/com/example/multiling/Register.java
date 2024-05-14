@@ -21,7 +21,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -53,7 +52,7 @@ public class Register extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        editTextEmail  = findViewById(R.id.email);
+        editTextEmail  = findViewById(R.id.forgotPasswordEmail);
         editTextPassword = findViewById(R.id.password);
         editTextPasswordAgain = findViewById(R.id.password_Again);
         registerButton = findViewById(R.id.register);

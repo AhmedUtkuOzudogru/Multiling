@@ -31,7 +31,6 @@ import java.util.Map;
  * Continues The Registration process with data taken from New Users with FireStore Database
  * Code done by Ahmed 09/05/2024 01:05
  * Xml done by Ahmed
- * TODO: The proficiencyLevel level should be Combo box needs implementation
  */
 public class FillProfile extends AppCompatActivity {
     String email,userID,name,surname,proficiencyLevel;
@@ -41,6 +40,21 @@ public class FillProfile extends AppCompatActivity {
     Button startButton,skipButton;
     FirebaseFirestore firestore;
     FirebaseAuth mAuth;
+    private static FillProfile instance = null;
+
+    public static FillProfile getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new FillProfile();
+        }
+        return instance;
+    }
+
+    public String getSelectedProficiencyLevel()
+    {
+        return proficiencyLevelSpinner.getSelectedItem().toString();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +101,7 @@ public class FillProfile extends AppCompatActivity {
         startButton = findViewById(R.id.start);
         name="aName";
         surname="aSurname";
-        proficiencyLevel="aProficiencyLevel";
+        proficiencyLevel="Beginner";
         firestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getUid();

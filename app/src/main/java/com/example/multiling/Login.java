@@ -49,6 +49,12 @@ public class Login extends AppCompatActivity {
 
         // UI initialization
         editTextEmail = findViewById(R.id.email);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        editTextEmail  = findViewById(R.id.forgotPasswordEmail);
         editTextPassword = findViewById(R.id.password);
         registerButton = findViewById(R.id.registerButton2);
         logInButton = findViewById(R.id.loginButton);
