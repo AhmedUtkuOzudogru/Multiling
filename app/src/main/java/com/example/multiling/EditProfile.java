@@ -85,6 +85,7 @@ public class EditProfile extends AppCompatActivity
         resetPasswordButton=findViewById(R.id.resetPasswordButton);
         nameEditText=findViewById(R.id.nameEditText);
         surnameEditText =findViewById(R.id.surnameEditText);
+        levelEditText = findViewById(R.id.editProfileLevel);
 
         // Define the list of proficiency levels
         String[] proficiencyLevels = {"Beginner", "Intermediate", "Advanced"};
@@ -125,6 +126,12 @@ public class EditProfile extends AppCompatActivity
                 email=firebaseAuth.getCurrentUser().getEmail();
                 nameEditText.setText(name);
                 surnameEditText.setText(surname);
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    if (adapter.getItem(i).toString().equals(level)) {
+                        levelEditText.setSelection(i);
+                        break;
+                    }
+                }
             }
         });
 
@@ -134,7 +141,7 @@ public class EditProfile extends AppCompatActivity
                 name = String.valueOf(nameEditText.getText());
                 surname = String.valueOf(surnameEditText.getText());
                 level = levelEditText.getSelectedItem().toString();
-                if(name.isEmpty()||surname.isEmpty()||level.isEmpty()){
+                if(name.isEmpty()||surname.isEmpty()){
                     Toast.makeText(EditProfile.this,"All fields should be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }
