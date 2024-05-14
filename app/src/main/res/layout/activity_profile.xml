@@ -7,10 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/profileNavigation"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,16 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageView
                 android:id="@+id/profilePicture"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="184dp"
+                android:layout_height="173dp"
+                android:layout_marginStart="113dp"
+                android:layout_marginTop="59dp"
+                android:layout_marginEnd="114dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/user_icon" />
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/user_icon"
+                tools:visibility="visible" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profileLayout5"
@@ -43,8 +46,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ProfileLayout3">
 
-                <!-- Left Element (ImageView) -->
-
                 <ImageView
                     android:id="@+id/profileLevelIcon"
                     android:layout_width="60dp"
@@ -54,10 +55,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/level_icon" />
-
-                <!-- Middle Element (TextView) -->
-
-                <!-- Right Element (Switch) -->
 
                 <TextView
                     android:id="@+id/profileLevel"
@@ -104,8 +101,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileButton">
 
-                <!-- Left Element (ImageView) -->
-
                 <ImageView
                     android:id="@+id/profileNameIcon"
                     android:layout_width="60dp"
@@ -115,10 +110,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/user_icon" />
-
-                <!-- Middle Element (TextView) -->
-
-                <!-- Right Element (Switch) -->
 
                 <TextView
                     android:id="@+id/profileUserName"
@@ -163,8 +154,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileLayout2">
 
-                <!-- Left Element (ImageView) -->
-
                 <ImageView
                     android:id="@+id/profileMailIcon"
                     android:layout_width="60dp"
@@ -174,10 +163,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/email_icon" />
-
-                <!-- Middle Element (TextView) -->
-
-                <!-- Right Element (Switch) -->
 
                 <TextView
                     android:id="@+id/profileMail"
@@ -228,12 +213,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Chane your Profile"
+                android:text="Change your Profile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
-                tools:ignore="MissingConstraints" />
-
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -252,6 +235,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
