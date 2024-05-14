@@ -12,8 +12,10 @@
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp"
+        android:background="@drawable/background_editprofile"
+        android:elevation="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surnameEditText" />
 
@@ -36,95 +38,108 @@
         android:id="@+id/nameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_editprofile"
+        android:elevation="20dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="New Name"
         android:inputType="text"
+        android:padding="8dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintTop_toBottomOf="@+id/changeProfileButton" />
 
     <EditText
         android:id="@+id/surnameEditText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_editprofile"
+        android:elevation="20dp"
         android:ems="10"
-        android:hint="Surname"
+        android:hint="New Surname"
         android:inputType="text"
-        android:text="Your Surname"
+        android:padding="8dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
-
-    <Button
-        android:id="@+id/resetPasswordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="68dp"
-        android:text="Reset Password"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveButton"
-        app:layout_constraintVertical_bias="0.916" />
-
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="68dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
         android:text="Save"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="30dp"
         android:text="Cancel"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/changeProfileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="17dp"
-        android:text="Change Profile"
-        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Change Picture"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <Button
         android:id="@+id/resetPasswordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:text="Reset Password"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editProfileLevel" />
+
+    <ImageView
+        android:id="@+id/profileImage1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/changeProfileButton"
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+        app:srcCompat="@drawable/photo_icon" />
+
+    <ImageView
+        android:id="@+id/profileImage2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/resetPasswordButton"
+        app:srcCompat="@drawable/password_icon"
+        tools:layout_editor_absoluteY="554dp" />
+
+    <ImageView
+        android:id="@+id/profileImage3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/saveButton"
+        app:srcCompat="@drawable/change_icon2"
+        tools:layout_editor_absoluteY="627dp" />
+
+    <ImageView
+        android:id="@+id/profileImage4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:srcCompat="@drawable/cancel_icon"
+        tools:layout_editor_absoluteY="705dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
