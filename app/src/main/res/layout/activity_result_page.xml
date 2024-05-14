@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/resultLogo" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/forgotPasswordImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordImage" />
 
     <TextView
         android:id="@+id/resultText2"

@@ -36,7 +36,7 @@ public class ForgotPassword extends AppCompatActivity {
             return insets;
         });
         submitButton= findViewById(R.id.submitButton);
-        emailEditText = findViewById(R.id.email);
+        emailEditText = findViewById(R.id.forgotPasswordEmail);
         firebaseAuth = FirebaseAuth.getInstance();
 
         submitButton.setOnClickListener(new View.OnClickListener() {

@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        editTextEmail  = findViewById(R.id.email);
+        editTextEmail  = findViewById(R.id.forgotPasswordEmail);
         editTextPassword = findViewById(R.id.password);
         registerButton = findViewById(R.id.registerButton2);
         logInButton = findViewById(R.id.loginButton);
