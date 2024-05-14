@@ -26,7 +26,7 @@ public class NotificationPage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_page);
 
-        sharedPreferences = getSharedPreferences("Notifications", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Notifications", MODE_PRIVATE);
 
         // Restore notifications from SharedPreferences
         Set<String> notificationSet = sharedPreferences.getStringSet("notificationSet", new HashSet<>());
@@ -103,7 +103,7 @@ public class NotificationPage extends AppCompatActivity{
     }
 
     private void addNotification(NotificationModel notification) {
-        notifications.add(0,notification);
+        notifications.add(notification);
         adapter.notifyDataSetChanged();
     }
 }
