@@ -74,17 +74,24 @@ public class WritingExercise extends AppCompatActivity {
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.navigator_home) {
+                if (item.getItemId() == R.id.navigator_home)
+                {
                     showLeaveWarningDialog(new Intent(getApplicationContext(), MainActivity.class));
                     return true;
-                } else if (item.getItemId() == R.id.navigator_profile) {
+                }
+                else if (item.getItemId() == R.id.navigator_profile)
+                {
                     showLeaveWarningDialog(new Intent(getApplicationContext(), Profile.class));
                     return true;
-                } else if (item.getItemId() == R.id.navigator_settings) {
+                }
+                else if (item.getItemId() == R.id.navigator_settings)
+                {
                     showLeaveWarningDialog(new Intent(getApplicationContext(), Settings.class));
                     return true;
-                } else if (item.getItemId() == R.id.navigator_writingexercises) {
-                    showLeaveWarningDialog(new Intent(getApplicationContext(), WritingExercise.class));
+                }
+                else if (item.getItemId() == R.id.navigator_flashcard)
+                {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), Flashcard.class));
                     return true;
                 }
                 return false;
@@ -246,6 +253,9 @@ public class WritingExercise extends AppCompatActivity {
             writingAnswer1.setEnabled(true);
             writingAnswer2.setEnabled(true);
             writingAnswer3.setEnabled(true);
+
+            // Update progress bar
+            writingProgressBar.setProgress(currentIndex + 1);
         }
     }
 

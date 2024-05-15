@@ -74,7 +74,7 @@ public class Flashcard extends AppCompatActivity {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
-        bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
+        bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
