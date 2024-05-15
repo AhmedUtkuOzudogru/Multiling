@@ -1,11 +1,12 @@
 package com.example.multiling;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +40,6 @@ public class Flashcard extends AppCompatActivity {
     private Button flashcardAnswer1;
     private Button flashcardAnswer2;
     private Button flashcardAnswer3;
-    private Button nextButton;
     private ProgressBar flashcardProgressBar;
 
     private List<FlashcardData> flashcards;
@@ -47,10 +47,8 @@ public class Flashcard extends AppCompatActivity {
     private String level;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
-
-
-    private String userID,noOfFlashcard;
-    private  int numberOfFlashcard;
+    private String userID;
+    private boolean isAttemptingToNavigate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,6 @@ public class Flashcard extends AppCompatActivity {
         flashcardAnswer1 = findViewById(R.id.flashcardAnswer1);
         flashcardAnswer2 = findViewById(R.id.flashcardAnswer2);
         flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
-        nextButton = findViewById(R.id.nextButton);
         flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -69,27 +66,28 @@ public class Flashcard extends AppCompatActivity {
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
+        {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.navigator_home) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), MainActivity.class));
                     return true;
                 } else if (item.getItemId() == R.id.navigator_profile) {
-                    startActivity(new Intent(getApplicationContext(), Profile.class));
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), Profile.class));
                     return true;
                 } else if (item.getItemId() == R.id.navigator_settings) {
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    return true;
-                } else if (item.getItemId() == R.id.navigator_flashcard) {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), Settings.class));
                     return true;
                 } else if (item.getItemId() == R.id.navigator_writingexercises) {
-                    startActivity(new Intent(getApplicationContext(), WritingExercise.class));
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), WritingExercise.class));
                     return true;
                 }
                 return false;
             }
         });
+
+        showStartConfirmationDialog();
 
         if (currentUser != null) {
             userID = currentUser.getUid();
@@ -101,9 +99,6 @@ public class Flashcard extends AppCompatActivity {
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     if (value != null && value.exists()) {
                         level = value.getString("proficiencyLevel");
-                        noOfFlashcard= value.getString("noOfFlashcard");
-                        numberOfFlashcard = Integer.parseInt(noOfFlashcard);
-
                         if (level != null) {
                             Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
                             flashcards = loadFlashcards(level);
@@ -127,20 +122,13 @@ public class Flashcard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button selectedButton = (Button) v;
-                checkAnswer(selectedButton);
+                checkAnswer(selectedButton.getText().toString());
             }
         };
 
         flashcardAnswer1.setOnClickListener(answerClickListener);
         flashcardAnswer2.setOnClickListener(answerClickListener);
         flashcardAnswer3.setOnClickListener(answerClickListener);
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadNextFlashcard();
-            }
-        });
     }
 
     private List<FlashcardData> loadFlashcards(String level) {
@@ -199,47 +187,17 @@ public class Flashcard extends AppCompatActivity {
             flashcardAnswer1.setText(options.get(0));
             flashcardAnswer2.setText(options.get(1));
             flashcardAnswer3.setText(options.get(2));
-
-            // Reset button colors
-            flashcardAnswer1.setBackgroundColor(Color.parseColor("#800080")); // Purple
-            flashcardAnswer2.setBackgroundColor(Color.parseColor("#800080")); // Purple
-            flashcardAnswer3.setBackgroundColor(Color.parseColor("#800080")); // Purple
-
-            // Enable buttons
-            flashcardAnswer1.setEnabled(true);
-            flashcardAnswer2.setEnabled(true);
-            flashcardAnswer3.setEnabled(true);
         }
     }
 
-    private void checkAnswer(Button selectedButton) {
+    private void checkAnswer(String selectedOption) {
         FlashcardData currentFlashcard = flashcards.get(currentIndex);
-        String selectedOption = selectedButton.getText().toString();
-
         if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
-            selectedButton.setBackgroundColor(Color.GREEN);
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
-            selectedButton.setBackgroundColor(Color.RED);
+            Toast.makeText(this, "Incorrect! The correct answer is: " + currentFlashcard.getCorrectTranslation(), Toast.LENGTH_LONG).show();
         }
 
-        // Highlight correct answer in green
-        if (flashcardAnswer1.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
-            flashcardAnswer1.setBackgroundColor(Color.GREEN);
-        }
-        if (flashcardAnswer2.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
-            flashcardAnswer2.setBackgroundColor(Color.GREEN);
-        }
-        if (flashcardAnswer3.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
-            flashcardAnswer3.setBackgroundColor(Color.GREEN);
-        }
-
-        // Disable buttons after selection
-        flashcardAnswer1.setEnabled(false);
-        flashcardAnswer2.setEnabled(false);
-        flashcardAnswer3.setEnabled(false);
-    }
-
-    private void loadNextFlashcard() {
         currentIndex++;
         if (currentIndex >= flashcards.size()) {
             currentIndex = 0;
@@ -270,5 +228,60 @@ public class Flashcard extends AppCompatActivity {
         public List<String> getOptions() {
             return options;
         }
+    }
+
+    private void showStartConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Start Flashcards");
+        builder.setMessage("Do you want to start?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // User clicked Yes, start loading flashcards
+            loadFlashcardsForUser();
+        });
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // User clicked No, close the activity
+            finish();
+        });
+        builder.setOnCancelListener(dialog -> {
+            // Dialog was cancelled (e.g., back button pressed), close the activity
+            finish();
+        });
+        builder.setCancelable(false); // Disable dismissing dialog by tapping outside or back button
+        builder.show();
+    }
+
+    private void loadFlashcardsForUser() {
+        // Retrieve user's proficiency level and load flashcards accordingly...
+
+        // Retrieve flashcards and start loading the first flashcard
+        if (level != null) {
+            Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+            flashcards = loadFlashcards(level);
+            flashcardProgressBar.setMax(flashcards.size());
+            flashcardProgressBar.setProgress(currentIndex + 1);
+            loadFlashcard();
+        } else {
+            Toast.makeText(Flashcard.this, "Level field not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showLeaveWarningDialog(Intent intentToStart) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Warning");
+        builder.setMessage("Your progress will be terminated if you leave now.");
+        builder.setPositiveButton("Leave", (dialog, which) -> {
+            // User clicked Leave, navigate to the selected activity
+            startActivity(intentToStart);
+            finish(); // Finish current activity
+        });
+        builder.setNegativeButton("Stay", (dialog, which) -> {
+            // User clicked Stay, dismiss the dialog
+            // Do nothing
+        });
+        builder.setOnCancelListener(dialog -> {
+            // Dialog was cancelled (e.g., back button pressed), dismiss the dialog
+            // Do nothing
+        });
+        builder.show();
     }
 }
