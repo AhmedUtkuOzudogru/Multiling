@@ -2,6 +2,7 @@ package com.example.multiling;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class ResultPage extends AppCompatActivity {
 
     private ImageView resultStarImage;
+    private ProgressBar resultProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +51,10 @@ public class ResultPage extends AppCompatActivity {
         } else {
             resultStarImage.setImageResource(R.drawable.lose);
         }
+
+        // Set the progress bar based on the percentage of correct answers
+        resultProgressBar = findViewById(R.id.resultProgressBar);
+        int progress = (int) percentageCorrect; // Convert percentage to integer for progress bar
+        resultProgressBar.setProgress(progress);
     }
 }
