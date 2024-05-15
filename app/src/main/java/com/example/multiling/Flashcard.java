@@ -45,7 +45,10 @@ public class Flashcard extends AppCompatActivity {
     private String level;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
-    private String userID;
+
+
+    private String userID,noOfFlashcard;
+    private  int numberOfFlashcard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +109,9 @@ public class Flashcard extends AppCompatActivity {
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     if (value != null && value.exists()) {
                         level = value.getString("proficiencyLevel");
+                        noOfFlashcard= value.getString("noOfFlashcard");
+                        numberOfFlashcard = Integer.parseInt(noOfFlashcard);
+
                         if (level != null) {
                             Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
                             flashcards = loadFlashcards(level);
