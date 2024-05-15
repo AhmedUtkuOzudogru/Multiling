@@ -1,234 +1,199 @@
 package com.example.multiling;
 
-import android.content.Context;
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ProgressBar;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Random;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+public class Flashcard extends AppCompatActivity {
 
-public class Flashcard extends AppCompatActivity
-{
+    private TextView flashcardQuestionText;
+    private Button flashcardAnswer1;
+    private Button flashcardAnswer2;
+    private Button flashcardAnswer3;
+    private ProgressBar flashcardProgressBar;
 
-    private Question[] questions;
-    private int correctAnswers;
-    public Flashcard()
-    {
-        questions = new Question[Settings.getInstance().getFlashcardNumber()];
-        for(int i = 0; i < Settings.getInstance().getFlashcardNumber(); i++)
-        {
-            questions[i] = new Question(this);
-        }
-
-        this.correctAnswers = 0;
-    }
-
-    public Question[] getQuestions()
-    {
-        return this.questions;
-    }
-
-    public void incrementScore()
-    {
-        this.correctAnswers++;
-    }
+    private List<FlashcardData> flashcards;
+    private int currentIndex = 0;
+    private String level;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+    private String userID;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card);
-        Flashcard exercise = new Flashcard();
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
-        bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
+        flashcardQuestionText = findViewById(R.id.flashcardQuestionText);
+        flashcardAnswer1 = findViewById(R.id.flashcardAnswer1);
+        flashcardAnswer2 = findViewById(R.id.flashcardAnswer2);
+        flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
+        flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
-        {
+        if (currentUser != null) {
+            userID = currentUser.getUid();
+            firebaseFirestore = FirebaseFirestore.getInstance();
+
+            DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if (value != null && value.exists()) {
+                        level = value.getString("proficiencyLevel");
+                        if (level != null) {
+                            Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+                            flashcards = loadFlashcards(level);
+                            flashcardProgressBar.setMax(flashcards.size());
+                            flashcardProgressBar.setProgress(currentIndex + 1);
+                            loadFlashcard();
+                        } else {
+                            Toast.makeText(Flashcard.this, "Level field not found", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(Flashcard.this, "User level not found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+            finish(); // Close activity if the user is not authenticated
+        }
+
+        View.OnClickListener answerClickListener = new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item)
-            {
-                if (item.getItemId() == R.id.navigator_home)
-                {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_profile)
-                {
-                    startActivity(new Intent(getApplicationContext(), Profile.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_settings)
-                {
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_flashcard)
-                {
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_writingexercises)
-                {
-                    startActivity(new Intent(getApplicationContext(), WritingExercise.class));
-                    return true;
-                }
-                return false;
+            public void onClick(View v) {
+                Button selectedButton = (Button) v;
+                checkAnswer(selectedButton.getText().toString());
             }
-        });
+        };
 
-        for(int i = 0; i < this.questions.length; i++)
-        {
-            //code block that displays the question word
-            TextView question = findViewById(R.id.flashcardQuestionText);
-            StringBuffer questionBuffer = new StringBuffer();
-            questionBuffer.append(this.questions[i].getQuestion());
-            //code block that displays the first choice
-            Button firstChoice = findViewById(R.id.flashcardAnswer1);
-            Random rand = new Random();
-            int ranIndex = rand.nextInt(3);
-            StringBuffer firstChoiceBuffer = new StringBuffer();
-            firstChoiceBuffer.append(this.questions[i].getAllAnswers()[ranIndex]);
-            firstChoice.setText(firstChoiceBuffer);
-            //removing the first choice from the array of choices and copying the remaining 2 words into another array
-            for (int j = ranIndex; j < this.questions[i].getAllAnswers().length; i++)
-            {
-                this.questions[i].getAllAnswers()[j] = this.questions[i].getAllAnswers()[j + 1];
-            }
-            String[] twoAnswers = new String[2];
-            System.arraycopy(this.questions[i].getAllAnswers(), 0, twoAnswers, 0, 2);
-            //code block that displays the second and third choices
-            Button secondChoice = findViewById(R.id.flashcardAnswer2);
-            int secondRandIndex = rand.nextInt(2);
-            StringBuffer secondChoiceBuffer = new StringBuffer();
-            Button thirdChoice = findViewById(R.id.flashcardAnswer3);
-            StringBuffer thirdChoiceBuffer = new StringBuffer();
-            if (secondRandIndex == 0)
-            {
-                secondChoiceBuffer.append(twoAnswers[0]);
-                thirdChoiceBuffer.append(twoAnswers[1]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
-            else
-            {
-                secondChoiceBuffer.append(twoAnswers[1]);
-                thirdChoiceBuffer.append(twoAnswers[0]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
+        flashcardAnswer1.setOnClickListener(answerClickListener);
+        flashcardAnswer2.setOnClickListener(answerClickListener);
+        flashcardAnswer3.setOnClickListener(answerClickListener);
+    }
 
-            ProgressBar progressBar = findViewById(R.id.writingProgressBar);
+    private List<FlashcardData> loadFlashcards(String level) {
+        List<FlashcardData> flashcardList = new ArrayList<>();
+        int resourceId = R.raw.easy_words; // Default to easy words
 
-            int finalI = i;
-            firstChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
+        switch (level.toLowerCase()) {
+            case "intermediate":
+                resourceId = R.raw.intermediate_words;
+                break;
+            case "advanced":
+                resourceId = R.raw.advanced_words;
+                break;
+            case "beginner":
+            default:
+                resourceId = R.raw.easy_words;
+                break;
+        }
+
+        try {
+            InputStream is = getResources().openRawResource(resourceId);
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+            String json = new String(buffer, StandardCharsets.UTF_8);
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray wordsArray = jsonObject.getJSONArray("words");
+
+            for (int i = 0; i < wordsArray.length(); i++) {
+                JSONObject wordObject = wordsArray.getJSONObject(i);
+                String english = wordObject.getString("english");
+                String correct = wordObject.getString("correct");
+                JSONArray incorrectArray = wordObject.getJSONArray("incorrect");
+
+                List<String> options = new ArrayList<>();
+                options.add(correct);
+                for (int j = 0; j < incorrectArray.length(); j++) {
+                    options.add(incorrectArray.getString(j));
                 }
-            });
+                Collections.shuffle(options);
 
-            secondChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
+                flashcardList.add(new FlashcardData(english, correct, options));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flashcardList;
+    }
 
-            thirdChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                        incrementScore();
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
+    private void loadFlashcard() {
+        if (flashcards != null && !flashcards.isEmpty()) {
+            FlashcardData currentFlashcard = flashcards.get(currentIndex);
+            flashcardQuestionText.setText(currentFlashcard.getEnglishWord());
+            List<String> options = currentFlashcard.getOptions();
+            flashcardAnswer1.setText(options.get(0));
+            flashcardAnswer2.setText(options.get(1));
+            flashcardAnswer3.setText(options.get(2));
+        }
+    }
+
+    private void checkAnswer(String selectedOption) {
+        FlashcardData currentFlashcard = flashcards.get(currentIndex);
+        if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect! The correct answer is: " + currentFlashcard.getCorrectTranslation(), Toast.LENGTH_LONG).show();
+        }
+
+        currentIndex++;
+        if (currentIndex >= flashcards.size()) {
+            currentIndex = 0;
+        }
+        flashcardProgressBar.setProgress(currentIndex + 1);
+        loadFlashcard();
+    }
+
+    private static class FlashcardData {
+        private final String englishWord;
+        private final String correctTranslation;
+        private final List<String> options;
+
+        public FlashcardData(String englishWord, String correctTranslation, List<String> options) {
+            this.englishWord = englishWord;
+            this.correctTranslation = correctTranslation;
+            this.options = options;
+        }
+
+        public String getEnglishWord() {
+            return englishWord;
+        }
+
+        public String getCorrectTranslation() {
+            return correctTranslation;
+        }
+
+        public List<String> getOptions() {
+            return options;
         }
     }
 }
