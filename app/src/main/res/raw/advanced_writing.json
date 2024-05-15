@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "sentence": "Politik durum nedeniyle pazar ___ dalgalanmalar yaşadı",
+      "correct": "ekonomik",
+      "incorrect": ["sosyal", "teknik"]
+    },
+    {
+      "sentence": "Yazarın anlatımı kitapta ___ bir üsluba sahipti",
+      "correct": "oldukça sofistike",
+      "incorrect": ["basit", "sade"]
+    }
+  ]
+}

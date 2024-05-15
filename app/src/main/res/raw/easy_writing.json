@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "sentence": "Bugün hava çok ___",
+      "correct": "güzeldir",
+      "incorrect": ["kötü", "yavaş"]
+    },
+    {
+      "sentence": "Kediler ___ severler",
+      "correct": "suyu",
+      "incorrect": ["taş", "araba"]
+    },
+    {
+      "sentence": "Kitaplar masanın ___ var",
+      "correct": "üstünde",
+      "incorrect": ["altında", "yanında"]
+    }
+  ]
+}

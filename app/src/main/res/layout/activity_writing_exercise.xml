@@ -5,116 +5,88 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/black"
     tools:context=".WritingExercise">
+
+    <ImageView
+        android:id="@+id/mainProfileView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/multiling_logo_transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/writingProgressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="250dp"
         android:layout_height="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:max="10"
         android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/mainProfileView" />
 
     <TextView
-        android:id="@+id/writingText"
-        style="@style/Widget.AppCompat.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Fill in the blanks"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingProgressBar" />
-
-    <TextView
-        android:id="@+id/writingQuestion"
-        android:layout_width="wrap_content"
+        android:id="@+id/writingQuestionText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
-        android:text="The United States of America was _____ in 1776"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingText" />
-
-    <TextView
-        android:id="@+id/writingText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Pick the correct word"
-        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="Sentence here"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/writingProgressBar" />
 
     <Button
         android:id="@+id/writingAnswer1"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/black"
-        android:text="Found"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
-
-    <Button
-        android:id="@+id/writingAnswer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="@color/black"
-        android:text="Digest"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_500"
+        android:text="Option 1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writingQuestionText" />
 
     <Button
         android:id="@+id/writingAnswer2"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/black"
-        android:text="Eat"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/writingAnswer3"
-        app:layout_constraintStart_toEndOf="@+id/writingAnswer1"
-        app:layout_constraintTop_toBottomOf="@+id/writingText2" />
-
-
-    <ImageView
-        android:id="@+id/writingLogo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/multiling_logo_transparent"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_500"
+        android:text="Option 2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/writingAnswer1" />
+
+    <Button
+        android:id="@+id/writingAnswer3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_500"
+        android:text="Option 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writingAnswer2" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Next"
+        android:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writingAnswer3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/writingExerciseNavigation"
@@ -129,3 +101,4 @@
         app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

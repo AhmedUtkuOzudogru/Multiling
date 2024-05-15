@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "sentence": "Bilgisayarımı masanın ___ bıraktım",
+      "correct": "üstüne",
+      "incorrect": ["yanına", "altına"]
+    },
+    {
+      "sentence": "Türk kahvesi genellikle ___ servis edilir",
+      "correct": "küçük bardakta",
+      "incorrect": ["büyük bardakta", "tabakta"]
+    }
+  ]
+}

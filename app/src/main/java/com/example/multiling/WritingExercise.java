@@ -1,236 +1,360 @@
 package com.example.multiling;
 
-import android.content.Context;
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class WritingExercise extends AppCompatActivity
-{
-    private Question[] questions;
-    private int correctAnswers;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    public WritingExercise()
-    {
-        questions = new Question[Settings.getInstance().getWritingNumber()];
-        for(int i = 0; i < Settings.getInstance().getWritingNumber(); i++)
-        {
-            questions[i] = new Question(this);
-        }
+public class WritingExercise extends AppCompatActivity {
 
-        this.correctAnswers = 0;
-    }
+    private TextView writingQuestionText;
+    private Button writingAnswer1;
+    private Button writingAnswer2;
+    private Button writingAnswer3;
+    private Button nextButton;
+    private ProgressBar writingProgressBar;
 
-    public Question[] getQuestions()
-    {
-        return this.questions;
-    }
-
-    public int getCorrectAnswers()
-    {
-        return this.correctAnswers;
-    }
-
-    public void incrementScore()
-    {
-        this.correctAnswers++;
-    }
-
+    private List<WritingData> writings;
+    private int currentIndex = 0;
+    private int numberOfCorrectAnswers = 0;
+    private String level;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+    private boolean isAttemptingToNavigate = false;
+    private int numberOfWritings;
+    private String userID;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing_exercise);
-        WritingExercise exercise = new WritingExercise();
+
+        writingQuestionText = findViewById(R.id.writingQuestionText);
+        writingAnswer1 = findViewById(R.id.writingAnswer1);
+        writingAnswer2 = findViewById(R.id.writingAnswer2);
+        writingAnswer3 = findViewById(R.id.writingAnswer3);
+        nextButton = findViewById(R.id.nextButton);
+        writingProgressBar = findViewById(R.id.writingProgressBar);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         BottomNavigationView bottomNavigation = findViewById(R.id.writingExerciseNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
-        {
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item)
-            {
-                if (item.getItemId() == R.id.navigator_home)
-                {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.navigator_home) {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), MainActivity.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_profile)
-                {
-                    startActivity(new Intent(getApplicationContext(), Profile.class));
+                } else if (item.getItemId() == R.id.navigator_profile) {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), Profile.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_settings)
-                {
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                } else if (item.getItemId() == R.id.navigator_settings) {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), Settings.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_flashcard)
-                {
-                    startActivity(new Intent(getApplicationContext(), Flashcard.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_writingexercises)
-                {
+                } else if (item.getItemId() == R.id.navigator_writingexercises) {
+                    showLeaveWarningDialog(new Intent(getApplicationContext(), WritingExercise.class));
                     return true;
                 }
                 return false;
             }
         });
 
-        for(int i = 0; i < this.questions.length; i++)
-        {
-            //code block that displays the question's sentence
-            TextView sentenceText = findViewById(R.id.writingQuestion);
-            StringBuffer sentenceBuffer = new StringBuffer();
-            sentenceBuffer.append(this.questions[i].getQuestion());
-            sentenceText.setText(sentenceBuffer);
-            //code block that displays the first choice
-            Button firstChoice = findViewById(R.id.writingAnswer1);
-            Random rand = new Random();
-            int ranIndex = rand.nextInt(3);
-            StringBuffer firstChoiceBuffer = new StringBuffer();
-            firstChoiceBuffer.append(this.questions[i].getAllAnswers()[ranIndex]);
-            firstChoice.setText(firstChoiceBuffer);
-            //removing the first choice from the array of choices and copying the remaining 2 words into another array
-            for (int j = ranIndex; j < this.questions[i].getAllAnswers().length; i++)
-            {
-                this.questions[i].getAllAnswers()[j] = this.questions[i].getAllAnswers()[j + 1];
+        // Register onBackPressed callback using OnBackPressedDispatcher
+        OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Check if user is attempting to navigate away
+                if (isAttemptingToNavigate) {
+                    showLeaveWarningDialog(null); // Pass null Intent to stay on current activity
+                } else {
+                    isEnabled(); // Allow default back button handling
+                }
             }
-            String[] twoAnswers = new String[2];
-            System.arraycopy(this.questions[i].getAllAnswers(), 0, twoAnswers, 0, 2);
-            //code block that displays the second and third choices
-            Button secondChoice = findViewById(R.id.writingAnswer2);
-            int secondRandIndex = rand.nextInt(2);
-            StringBuffer secondChoiceBuffer = new StringBuffer();
-            Button thirdChoice = findViewById(R.id.writingAnswer3);
-            StringBuffer thirdChoiceBuffer = new StringBuffer();
-            if (secondRandIndex == 0)
-            {
-                secondChoiceBuffer.append(twoAnswers[0]);
-                thirdChoiceBuffer.append(twoAnswers[1]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
-            else
-            {
-                secondChoiceBuffer.append(twoAnswers[1]);
-                thirdChoiceBuffer.append(twoAnswers[0]);
-                secondChoice.setText(secondChoiceBuffer);
-                thirdChoice.setText(thirdChoiceBuffer);
-            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
 
-            ProgressBar progressBar = findViewById(R.id.writingProgressBar);
+        showStartConfirmationDialog();
 
-            int finalI = i;
-            firstChoice.setOnClickListener(new View.OnClickListener()
-            {
+        if (currentUser != null) {
+            userID = currentUser.getUid();
+            firebaseFirestore = FirebaseFirestore.getInstance();
+
+            DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                 @Override
-                public void onClick(View view) {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if (value != null && value.exists()) {
+
+                        level = value.getString("proficiencyLevel");
+                        String noOfWritings = value.getString("noOfWritings");
+
+                        if (noOfWritings != null) {
+                            Toast.makeText(WritingExercise.this, "Number of writings: " + noOfWritings, Toast.LENGTH_SHORT).show();
+                            numberOfWritings = Integer.parseInt(noOfWritings);
+                        } else {
+                            Toast.makeText(WritingExercise.this, "Number of writings not found", Toast.LENGTH_SHORT).show();
+                            numberOfWritings = 10; // Default value if not set
+                        }
+
+                        if (level != null) {
+                            Toast.makeText(WritingExercise.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+                            writings = loadWritings(level);
+                            if (numberOfWritings > writings.size()) {
+                                numberOfWritings = writings.size();
+                            }
+                            writings = writings.subList(0, numberOfWritings);
+                            writingProgressBar.setMax(numberOfWritings);
+
+                            loadWriting();
+                        } else {
+                            Toast.makeText(WritingExercise.this, "Level field not found", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(WritingExercise.this, "User level not found", Toast.LENGTH_SHORT).show();
                     }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
                 }
             });
+        } else {
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+            finish(); // Close activity if the user is not authenticated
+        }
 
-            secondChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view) {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                    }
-                    progressBar.incrementProgressBy(1);
-                }
-            });
+        View.OnClickListener answerClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button selectedButton = (Button) v;
+                checkAnswer(selectedButton);
+            }
+        };
 
-            thirdChoice.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view) {
-                    Context firstContextInstance = firstChoice.getContext();
-                    Context secContextInstance = secondChoice.getContext();
-                    Context thirdContextInstance = thirdChoice.getContext();
-                    if (firstChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.green));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                    }
-                    else if (secondChoice.getText().equals(getQuestions()[finalI].getAnswer()))
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.green));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.red));
-                        incrementScore();
-                    }
-                    else
-                    {
-                        firstChoice.setBackgroundTintList(firstContextInstance.getResources().getColorStateList(R.color.red));
-                        secondChoice.setBackgroundTintList(secContextInstance.getResources().getColorStateList(R.color.red));
-                        thirdChoice.setBackgroundTintList(thirdContextInstance.getResources().getColorStateList(R.color.green));
-                        incrementScore();
-                    }
-                    progressBar.incrementProgressBy(1);
+        writingAnswer1.setOnClickListener(answerClickListener);
+        writingAnswer2.setOnClickListener(answerClickListener);
+        writingAnswer3.setOnClickListener(answerClickListener);
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentIndex++;
+                if (currentIndex < numberOfWritings) {
+                    loadWriting();
+                } else {
+                    Intent intent = new Intent(WritingExercise.this, ResultPage.class);
+                    intent.putExtra("CORRECT_ANSWERS", numberOfCorrectAnswers); // Pass numberOfCorrectAnswers as an extra
+                    intent.putExtra("NUMBER_OF_QUESTIONS", numberOfWritings); // Pass numberOfCorrectAnswers as an extra
+                    startActivity(intent);
+                    finish();
                 }
-            });
+            }
+        });
+    }
+
+    private List<WritingData> loadWritings(String level) {
+        List<WritingData> writingList = new ArrayList<>();
+        int resourceId = R.raw.easy_writing; // Default to easy writing
+
+        switch (level.toLowerCase()) {
+            case "intermediate":
+                resourceId = R.raw.intermediate_writing;
+                break;
+            case "advanced":
+                resourceId = R.raw.advanced_writing;
+                break;
+            case "beginner":
+            default:
+                resourceId = R.raw.easy_writing;
+                break;
+        }
+
+        try {
+            InputStream is = getResources().openRawResource(resourceId);
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+            String json = new String(buffer, StandardCharsets.UTF_8);
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray questionsArray = jsonObject.getJSONArray("questions");
+
+            for (int i = 0; i < questionsArray.length(); i++) {
+                JSONObject questionObject = questionsArray.getJSONObject(i);
+                String sentence = questionObject.getString("sentence");
+                String correct = questionObject.getString("correct");
+                JSONArray incorrectArray = questionObject.getJSONArray("incorrect");
+
+                List<String> options = new ArrayList<>();
+                options.add(correct);
+                for (int j = 0; j < incorrectArray.length(); j++) {
+                    options.add(incorrectArray.getString(j));
+                }
+                Collections.shuffle(options);
+
+                writingList.add(new WritingData(sentence, correct, options));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return writingList;
+    }
+
+    private void loadWriting() {
+        if (writings != null && !writings.isEmpty()) {
+            WritingData currentWriting = writings.get(currentIndex);
+            writingQuestionText.setText(currentWriting.getSentence());
+            List<String> options = currentWriting.getOptions();
+            writingAnswer1.setText(options.get(0));
+            writingAnswer2.setText(options.get(1));
+            writingAnswer3.setText(options.get(2));
+
+            // Reset button colors
+            writingAnswer1.setBackgroundColor(Color.parseColor("#800080")); // Purple
+            writingAnswer2.setBackgroundColor(Color.parseColor("#800080")); // Purple
+            writingAnswer3.setBackgroundColor(Color.parseColor("#800080")); // Purple
+
+            // Enable buttons
+            writingAnswer1.setEnabled(true);
+            writingAnswer2.setEnabled(true);
+            writingAnswer3.setEnabled(true);
         }
     }
+
+    private void checkAnswer(Button selectedButton) {
+        WritingData currentWriting = writings.get(currentIndex);
+        String selectedOption = selectedButton.getText().toString();
+
+        if (selectedOption.equals(currentWriting.getCorrectOption())) {
+            selectedButton.setBackgroundColor(Color.GREEN);
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+            numberOfCorrectAnswers++;
+        } else {
+            selectedButton.setBackgroundColor(Color.RED);
+        }
+
+        // Highlight correct answer in green
+        if (writingAnswer1.getText().toString().equals(currentWriting.getCorrectOption())) {
+            writingAnswer1.setBackgroundColor(Color.GREEN);
+        }
+        if (writingAnswer2.getText().toString().equals(currentWriting.getCorrectOption())) {
+            writingAnswer2.setBackgroundColor(Color.GREEN);
+        }
+        if (writingAnswer3.getText().toString().equals(currentWriting.getCorrectOption())) {
+            writingAnswer3.setBackgroundColor(Color.GREEN);
+        }
+
+        // Disable buttons after selection
+        writingAnswer1.setEnabled(false);
+        writingAnswer2.setEnabled(false);
+        writingAnswer3.setEnabled(false);
+    }
+
+    private static class WritingData {
+        private final String sentence;
+        private final String correctOption;
+        private final List<String> options;
+
+        public WritingData(String sentence, String correctOption, List<String> options) {
+            this.sentence = sentence;
+            this.correctOption = correctOption;
+            this.options = options;
+        }
+
+        public String getSentence() {
+            return sentence;
+        }
+
+        public String getCorrectOption() {
+            return correctOption;
+        }
+
+        public List<String> getOptions() {
+            return options;
+        }
+    }
+
+    private void showStartConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Start Writing Exercises");
+        builder.setMessage("Do you want to start?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // User clicked Yes, start loading writings
+            loadWritingsForUser();
+        });
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // User clicked No, close the activity
+            finish();
+        });
+        builder.setOnCancelListener(dialog -> {
+            // Dialog was cancelled (e.g., back button pressed), close the activity
+            finish();
+        });
+        builder.setCancelable(false); // Disable dismissing dialog by tapping outside or back button
+        builder.show();
+    }
+
+    private void loadWritingsForUser() {
+        // Retrieve user's proficiency level and load writings accordingly...
+
+        // Retrieve writings and start loading the first writing
+        if (level != null) {
+            Toast.makeText(WritingExercise.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+            writings = loadWritings(level);
+            writingProgressBar.setMax(numberOfWritings);
+            writingProgressBar.setProgress(currentIndex + 1);
+            loadWriting();
+        } else {
+            Toast.makeText(WritingExercise.this, "Level field not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showLeaveWarningDialog(Intent intentToStart) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Warning");
+        builder.setMessage("Your progress will be terminated if you leave now.");
+        builder.setPositiveButton("Leave", (dialog, which) -> {
+            // User clicked Leave, navigate to the selected activity
+            startActivity(intentToStart);
+            finish(); // Finish current activity
+        });
+        builder.setNegativeButton("Stay", (dialog, which) -> {
+            // User clicked Stay, dismiss the dialog
+            // Do nothing
+        });
+        builder.setOnCancelListener(dialog -> {
+            // Dialog was cancelled (e.g., back button pressed), dismiss the dialog
+            // Do nothing
+        });
+        builder.show();
+    }
 }
+
