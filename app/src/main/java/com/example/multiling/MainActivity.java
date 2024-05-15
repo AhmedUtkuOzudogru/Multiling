@@ -29,7 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NotificationListener{
 
     TextView userNameTextView, levelTextView,emailTextView;
     FirebaseFirestore firebaseFirestore;
@@ -37,16 +37,19 @@ public class MainActivity extends AppCompatActivity {
     String userID;
     StorageReference storageReference;
 
-    ImageView profilePicture;
+    ImageView profilePicture, notificationIcon;
+    SharedPreferences sharedPreferences;
 
     Button goToProfilePageButton, goToWritingExerciseButton, goToFlashcardButton,goToSettingsButton, goToNotificationsButton;
 
+    boolean notificationStatus;
 
 
 
 
 
 
+    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -89,7 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        notificationIcon = findViewById(R.id.mainNotificationsButton);
+        sharedPreferences = getSharedPreferences("Notifications", MODE_PRIVATE);
+        notificationStatus = sharedPreferences.getBoolean("notificationStatus", true); // Default is true
 
+        updateNotificationIcon();
 
 
         goToProfilePageButton.setOnClickListener(new View.OnClickListener() {
@@ -141,5 +148,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void updateNotificationIcon() {
+        if (notificationStatus) {
+            notificationIcon.setImageResource(R.drawable.notification_icon1);
+        } else {
+            notificationIcon.setImageResource(R.drawable.notification_icon2);
+        }
+    }
+
+    @Override
+    public void onNotificationStatusChanged(boolean status) {
+        notificationStatus = status;
+        updateNotificationIcon();
     }
 }
