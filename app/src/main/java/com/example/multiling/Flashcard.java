@@ -87,6 +87,20 @@ public class Flashcard extends AppCompatActivity {
             }
         });
 
+        // Register onBackPressed callback using OnBackPressedDispatcher
+        OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Check if user is attempting to navigate away
+                if (isAttemptingToNavigate) {
+                    showLeaveWarningDialog(null); // Pass null Intent to stay on current activity
+                } else {
+                    isEnabled(); // Allow default back button handling
+                }
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+
         showStartConfirmationDialog();
 
         if (currentUser != null) {
@@ -284,4 +298,5 @@ public class Flashcard extends AppCompatActivity {
         });
         builder.show();
     }
+
 }
