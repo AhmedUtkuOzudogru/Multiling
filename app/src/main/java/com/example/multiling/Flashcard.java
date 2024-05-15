@@ -49,6 +49,11 @@ public class Flashcard extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private String userID;
     private boolean isAttemptingToNavigate = false;
+    private int numberOfFlashcards;
+
+
+    private String userID,noOfFlashcard;
+    private  int numberOfFlashcard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +117,27 @@ public class Flashcard extends AppCompatActivity {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     if (value != null && value.exists()) {
+
                         level = value.getString("proficiencyLevel");
+
+                        String noOfFlashcard = value.getString("noOfFlashcard");
+
+                        if (noOfFlashcard != null) {
+                            Toast.makeText(Flashcard.this, "Number of flashcards: " + noOfFlashcard, Toast.LENGTH_SHORT).show();
+                            numberOfFlashcards = Integer.parseInt(noOfFlashcard);
+                        } else {
+                            Toast.makeText(Flashcard.this, "Number of flashcards not found", Toast.LENGTH_SHORT).show();
+                            numberOfFlashcards = 10; // Default value if not set
+                        }
+
                         if (level != null) {
                             Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
                             flashcards = loadFlashcards(level);
-                            flashcardProgressBar.setMax(flashcards.size());
+                            if (numberOfFlashcards > flashcards.size()) {
+                                numberOfFlashcards = flashcards.size();
+                            }
+                            flashcards = flashcards.subList(0, numberOfFlashcards);
+                            flashcardProgressBar.setMax(numberOfFlashcards);
                             flashcardProgressBar.setProgress(currentIndex + 1);
                             loadFlashcard();
                         } else {
@@ -213,11 +234,15 @@ public class Flashcard extends AppCompatActivity {
         }
 
         currentIndex++;
-        if (currentIndex >= flashcards.size()) {
-            currentIndex = 0;
+        if (currentIndex >= numberOfFlashcards) {
+            // Go to result page when all flashcards are shown
+            Intent intent = new Intent(Flashcard.this, ResultPage.class);
+            startActivity(intent);
+            finish();
+        } else {
+            flashcardProgressBar.setProgress(currentIndex + 1);
+            loadFlashcard();
         }
-        flashcardProgressBar.setProgress(currentIndex + 1);
-        loadFlashcard();
     }
 
     private static class FlashcardData {
@@ -300,3 +325,4 @@ public class Flashcard extends AppCompatActivity {
     }
 
 }
+
