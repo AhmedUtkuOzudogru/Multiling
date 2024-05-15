@@ -3,13 +3,18 @@ package com.example.multiling;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ProgressBar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -55,6 +60,41 @@ public class Flashcard extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
+        bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                if (item.getItemId() == R.id.navigator_home)
+                {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    return true;
+                }
+                else if (item.getItemId() == R.id.navigator_profile)
+                {
+                    startActivity(new Intent(getApplicationContext(), Profile.class));
+                    return true;
+                }
+                else if (item.getItemId() == R.id.navigator_settings)
+                {
+                    startActivity(new Intent(getApplicationContext(), Settings.class));
+                    return true;
+                }
+                else if (item.getItemId() == R.id.navigator_flashcard)
+                {
+                    return true;
+                }
+                else if (item.getItemId() == R.id.navigator_writingexercises)
+                {
+                    startActivity(new Intent(getApplicationContext(), WritingExercise.class));
+                    return true;
+                }
+                return false;
+            }
+        });
 
         if (currentUser != null) {
             userID = currentUser.getUid();
