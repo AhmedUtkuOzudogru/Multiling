@@ -52,12 +52,10 @@ public class Flashcard extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private boolean isAttemptingToNavigate = false;
-    private int numberOfFlashcards, numberOfCorrectAnswers;
+    private int numberOfFlashcards;
+
+
     private String userID;
-
-
-    private String userID,noOfFlashcard;
-    private  int numberOfFlashcard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +68,6 @@ public class Flashcard extends AppCompatActivity {
         flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
         nextButton = findViewById(R.id.nextButton);
         flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
-        numberOfCorrectAnswers = 0;
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
@@ -268,23 +265,10 @@ public class Flashcard extends AppCompatActivity {
 
         if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
             selectedButton.setBackgroundColor(Color.GREEN);
-            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-            this.numberOfCorrectAnswers++;
         } else {
             selectedButton.setBackgroundColor(Color.RED);
         }
 
-        currentIndex++;
-        if (currentIndex >= numberOfFlashcards) {
-            // Go to result page when all flashcards are shown
-            Intent intent = new Intent(Flashcard.this, ResultPage.class);
-            intent.putExtra("CORRECT_ANSWERS", numberOfCorrectAnswers); // Pass numberOfCorrectAnswers as an extra
-            intent.putExtra("NUMBER_OF_FLASHCARDS", numberOfFlashcards); // Pass numberOfCorrectAnswers as an extra
-            startActivity(intent);
-            finish();
-        } else {
-            flashcardProgressBar.setProgress(currentIndex + 1);
-            loadFlashcard();
         // Highlight correct answer in green
         if (flashcardAnswer1.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
             flashcardAnswer1.setBackgroundColor(Color.GREEN);
@@ -387,4 +371,5 @@ public class Flashcard extends AppCompatActivity {
         builder.show();
     }
 }
+
 
