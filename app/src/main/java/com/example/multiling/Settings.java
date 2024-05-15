@@ -24,6 +24,7 @@ public class Settings extends AppCompatActivity
     private int writingNumber;
     private int flashcardNumber;
     private Switch notificationSwitch;
+    private NotificationListener notificationListener;
     private EditText writingNumEditText;
     private EditText flashcardNumEditText;
     private static Settings instance = null;
@@ -80,7 +81,6 @@ public class Settings extends AppCompatActivity
 
         BottomNavigationView bottomNavigation = findViewById(R.id.settingsNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_settings);
-        notificationSwitch = findViewById(R.id.settingsSwitch1);
         setNotificationListener();
 
         getData(); // setting writingNumber and flashcardNumber to data in database
@@ -89,6 +89,9 @@ public class Settings extends AppCompatActivity
         flashcardNumEditText = findViewById(R.id.settingsFlashNum);
         setWritingNumListener();
         setFlashNumListener();
+
+        notificationSwitch = findViewById(R.id.settingsSwitch1);
+        setNotificationListener();
 
 
 
@@ -139,24 +142,13 @@ public class Settings extends AppCompatActivity
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // Switch is ON
-                    handleSwitchOn();
+                    Toast.makeText(Settings.this, "Notifications ON", Toast.LENGTH_SHORT).show();
                 } else {
                     // Switch is OFF
-                    handleSwitchOff();
+                    Toast.makeText(Settings.this, "Notifications OFF", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    // TODO: change the notification status in Notification Page.
-    private void handleSwitchOn() {
-        Toast.makeText(Settings.this, "Notifications ON", Toast.LENGTH_SHORT).show();
-        // Perform actions when Switch is ON
-    }
-
-    private void handleSwitchOff() {
-        Toast.makeText(Settings.this, "Notifications OFF", Toast.LENGTH_SHORT).show();
-        // Perform actions when Switch is OFF
     }
 
     private void setWritingNumListener() {
