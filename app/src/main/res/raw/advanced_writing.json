@@ -9,6 +9,216 @@
       "sentence": "Yazarın anlatımı kitapta ___ bir üsluba sahipti",
       "correct": "oldukça sofistike",
       "incorrect": ["basit", "sade"]
+    },
+    {
+      "sentence": "Hukuk konferansında çok ___ konular ele alındı",
+      "correct": "derin",
+      "incorrect": ["yüzeysel", "genel"]
+    },
+    {
+      "sentence": "Çalışmalarını tamamlamak için gece ___ uykusuz kaldı",
+      "correct": "gündüz gibi",
+      "incorrect": ["akşam", "sabah"]
+    },
+    {
+      "sentence": "Yeni teknoloji pazarında ___ bir atılım bekleniyor",
+      "correct": "devrimsel",
+      "incorrect": ["küçük", "geçici"]
+    },
+    {
+      "sentence": "Şirketin büyüme stratejisi ___ gözden geçirildi",
+      "correct": "detaylıca",
+      "incorrect": ["özetle", "hızlıca"]
+    },
+    {
+      "sentence": "Olayın perde arkası çok geçmeden ___ ortaya çıktı",
+      "correct": "tüm detaylarıyla",
+      "incorrect": ["kısmen", "yüzeysel olarak"]
+    },
+    {
+      "sentence": "Dil öğrenirken kültürel bağlamı ___ göz önünde bulundurmak önemlidir",
+      "correct": "her zaman",
+      "incorrect": ["bazen", "nadiren"]
+    },
+    {
+      "sentence": "Eleştirmenler filmi ___ eleştirdiler",
+      "correct": "ağır bir şekilde",
+      "incorrect": ["hafifçe", "olumlu"]
+    },
+    {
+      "sentence": "Yazar, eserini bir ___ olarak sundu",
+      "correct": "alegori",
+      "incorrect": ["hikaye", "anlatı"]
+    },
+    {
+      "sentence": "Değerlendirme süreci ___ zaman aldı",
+      "correct": "beklenenden daha fazla",
+      "incorrect": ["az", "yeterli"]
+    },
+    {
+      "sentence": "Yeni yönetmelikler ___ bir biçimde uygulanmaya başlandı",
+      "correct": "resmi",
+      "incorrect": ["gayriresmi", "rastgele"]
+    },
+    {
+      "sentence": "Bilim insanları sonuçları ___ bir dille açıkladılar",
+      "correct": "teknik",
+      "incorrect": ["basit", "genel"]
+    },
+    {
+      "sentence": "Eski metinler ___ bir titizlikle incelendi",
+      "correct": "büyük",
+      "incorrect": ["küçük", "yetersiz"]
+    },
+    {
+      "sentence": "Müzayedede antikalar ___ fiyatlarla satıldı",
+      "correct": "astronomik",
+      "incorrect": ["düşük", "makul"]
+    },
+    {
+      "sentence": "Gösteri, sanatseverler tarafından ___ takdir edildi",
+      "correct": "büyük",
+      "incorrect": ["az", "yetersiz"]
+    },
+    {
+      "sentence": "Konferansın ana teması ___ bir şekilde işlendi",
+      "correct": "kapsamlı",
+      "incorrect": ["kısa", "özet"]
+    },
+    {
+      "sentence": "Mühendisler projeyi ___ bir hassasiyetle yürütüyor",
+      "correct": "en ince",
+      "incorrect": ["yüzeysel", "kaba"]
+    },
+    {
+      "sentence": "Roman, döneminin sosyal yapısını ___ bir şekilde ele alıyor",
+      "correct": "eleştirel",
+      "incorrect": ["övücü", "yüzeysel"]
+    },
+    {
+      "sentence": "Doktorlar, hastanın durumunu ___ bir şekilde izliyor",
+      "correct": "yakından",
+      "incorrect": ["uzaktan", "genel olarak"]
+    },
+    {
+      "sentence": "Yapılan araştırma ___ verilerle desteklendi",
+      "correct": "sağlam",
+      "incorrect": ["zayıf", "geçici"]
+    },
+    {
+      "sentence": "Eğitimde fırsat eşitliği ___ vurgulandı",
+      "correct": "sürekli",
+      "incorrect": ["ara sıra", "yetersiz"]
+    },
+    {
+      "sentence": "Filmin kurgusu oldukça ___ ve karmaşıktı",
+      "correct": "yenilikçi",
+      "incorrect": ["geleneksel", "basit"]
+    },
+    {
+      "sentence": "Politikacılar ekonomik krizi ___ bir dille tartıştılar",
+      "correct": "keskin",
+      "incorrect": ["yumuşak", "genel"]
+    },
+    {
+      "sentence": "Şehir planlaması ___ bir vizyon gerektirir",
+      "correct": "stratejik",
+      "incorrect": ["rastgele", "kısa vadeli"]
+    },
+    {
+      "sentence": "Sergi, sanatçının kariyerini ___ bir perspektiften ele aldı",
+      "correct": "geniş",
+      "incorrect": ["dar", "sınırlı"]
+    },
+    {
+      "sentence": "Tarihi olaylar kitapta ___ bir çerçevede sunuldu",
+      "correct": "geniş",
+      "incorrect": ["dar", "sınırlı"]
+    },
+    {
+      "sentence": "Elektrik kesintisi şehrin bazı bölgelerinde ___ etki yarattı",
+      "correct": "ciddi",
+      "incorrect": ["hafif", "geçici"]
+    },
+    {
+      "sentence": "Ekonomistler, krizin etkilerini ___ bir şekilde değerlendirdiler",
+      "correct": "derinlemesine",
+      "incorrect": ["yüzeysel", "genel"]
+    },
+    {
+      "sentence": "Tartışma sırasında çok sayıda ___ konu gündeme geldi",
+      "correct": "karmaşık",
+      "incorrect": ["basit", "genel"]
+    },
+    {
+      "sentence": "Konferansta çeşitli konular ___ bir şekilde ele alındı",
+      "correct": "ayrıntılı",
+      "incorrect": ["özet", "yüzeysel"]
+    },
+    {
+      "sentence": "Hükümetin politikaları ___ bir şekilde eleştirildi",
+      "correct": "sert",
+      "incorrect": ["ılımlı", "övgüyle"]
+    },
+    {
+      "sentence": "Eğitim sistemini ___ bir şekilde reform etmek gerekir",
+      "correct": "köklü",
+      "incorrect": ["kısmi", "yüzeysel"]
+    },
+    {
+      "sentence": "Eleştirmen kitabı ___ bir dille değerlendirdi",
+      "correct": "eleştirel",
+      "incorrect": ["övücü", "yüzeysel"]
+    },
+    {
+      "sentence": "Filmin görsel efektleri ___ beğeni topladı",
+      "correct": "büyük",
+      "incorrect": ["az", "yetersiz"]
+    },
+    {
+      "sentence": "Hükümet kriz üzerine ___ bir plan açıkladı",
+      "correct": "kapsamlı",
+      "incorrect": ["kısa", "yüzeysel"]
+    },
+    {
+      "sentence": "Roman kahramanının iç dünyası ___ bir şekilde işlendi",
+      "correct": "derin",
+      "incorrect": ["yüzeysel", "kısa"]
+    },
+    {
+      "sentence": "Sanat eleştirmeni sergiyi ___ bir açıdan değerlendirdi",
+      "correct": "farklı",
+      "incorrect": ["benzer", "sıradan"]
+    },
+    {
+      "sentence": "Yönetmen filmi ___ bir tema üzerine kurdu",
+      "correct": "özgün",
+      "incorrect": ["klişe", "genel"]
+    },
+    {
+      "sentence": "Konferansta sunulan fikirler ___ yenilikçiydi",
+      "correct": "son derece",
+      "incorrect": ["orta", "geleneksel"]
+    },
+    {
+      "sentence": "Kitap, yazarın yaşam öyküsünü ___ bir bakış açısıyla ele aldı",
+      "correct": "benzersiz",
+      "incorrect": ["tipik", "sıradan"]
+    },
+    {
+      "sentence": "Müze, tarihi eserleri ___ bir şekilde sergiliyor",
+      "correct": "etkileyici",
+      "incorrect": ["sıradan", "yetersiz"]
+    },
+    {
+      "sentence": "Toplantıda stratejik planlar ___ bir şekilde sunuldu",
+      "correct": "detaylı",
+      "incorrect": ["özet", "yüzeysel"]
+    },
+    {
+      "sentence": "Filozof düşüncelerini ___ bir dille ifade etti",
+      "correct": "karmaşık",
+      "incorrect": ["basit", "açık"]
     }
   ]
 }

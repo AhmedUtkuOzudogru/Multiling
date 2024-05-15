@@ -14,6 +14,251 @@
       "sentence": "Kitaplar masanın ___ var",
       "correct": "üstünde",
       "incorrect": ["altında", "yanında"]
+    },
+    {
+      "sentence": "Türkiye'nin başkenti ___",
+      "correct": "Ankara",
+      "incorrect": ["İstanbul", "Adana"]
+    },
+    {
+      "sentence": "Çay genellikle ___ içilir",
+      "correct": "sıcak",
+      "incorrect": ["soğuk", "ağır"]
+    },
+    {
+      "sentence": "Yemek için masa ___ kurulur",
+      "correct": "önceden",
+      "incorrect": ["sonra", "alt"]
+    },
+    {
+      "sentence": "Araba garajda ___ duruyor",
+      "correct": "yeni",
+      "incorrect": ["eski", "kullanılmış"]
+    },
+    {
+      "sentence": "Sinema biletimi ___ kaybettim",
+      "correct": "dün",
+      "incorrect": ["bugün", "yarın"]
+    },
+    {
+      "sentence": "Çiçekler bahçede ___ güzel görünüyor",
+      "correct": "çok",
+      "incorrect": ["az", "biraz"]
+    },
+    {
+      "sentence": "Kitapları rafta ___ düzenledim",
+      "correct": "dikkatlice",
+      "incorrect": ["rastgele", "kötü"]
+    },
+    {
+      "sentence": "Çocuklar parkta ___ oynuyorlar",
+      "correct": "şenlikle",
+      "incorrect": ["üzgün", "korkarak"]
+    },
+    {
+      "sentence": "Tatilde denize ___ girdim",
+      "correct": "sıkça",
+      "incorrect": ["nadiren", "zor"]
+    },
+    {
+      "sentence": "Annem pasta için ___ aldı",
+      "correct": "yumurtayı",
+      "incorrect": ["peynir", "sosis"]
+    },
+    {
+      "sentence": "Okul yarın ___ başlıyor",
+      "correct": "erkenden",
+      "incorrect": ["geç", "düzenli"]
+    },
+    {
+      "sentence": "Oda çok ___ görünüyor",
+      "correct": "temiz",
+      "incorrect": ["kirli", "karışık"]
+    },
+    {
+      "sentence": "Arabayı ___ yıkadım",
+      "correct": "dün",
+      "incorrect": ["yarın", "her zaman"]
+    },
+    {
+      "sentence": "Çoraplarımı çekmecede ___ buldum",
+      "correct": "kolayca",
+      "incorrect": ["zorla", "dışarıda"]
+    },
+    {
+      "sentence": "Müzik ___ yüksek sesle çalıyor",
+      "correct": "çok",
+      "incorrect": ["az", "biraz"]
+    },
+    {
+      "sentence": "Kahvaltıda genellikle ___ yerim",
+      "correct": "peyniri",
+      "incorrect": ["pasta", "çikolata"]
+    },
+    {
+      "sentence": "Tatil için ___ rezervasyon yaptırdım",
+      "correct": "oteli",
+      "incorrect": ["uçak", "restoran"]
+    },
+    {
+      "sentence": "Kitabı masanın ___ bıraktım",
+      "correct": "üstüne",
+      "incorrect": ["altına", "yanına"]
+    },
+    {
+      "sentence": "Telefonumu ___ şarj ediyorum",
+      "correct": "her gece",
+      "incorrect": ["her sabah", "her öğlen"]
+    },
+    {
+      "sentence": "Dışarıda yağmur ___ yağıyor",
+      "correct": "şiddetlice",
+      "incorrect": ["hafif", "güneşli"]
+    },
+    {
+      "sentence": "Çayı ___ demledim",
+      "correct": "yeni",
+      "incorrect": ["eski", "bozuk"]
+    },
+    {
+      "sentence": "Oyunu ___ kazandık",
+      "correct": "kolayca",
+      "incorrect": ["zorla", "kaybederek"]
+    },
+    {
+      "sentence": "Çocuk parkta ___ oynadı",
+      "correct": "top ile",
+      "incorrect": ["taş", "defter"]
+    },
+    {
+      "sentence": "Kalem masanın ___ duruyor",
+      "correct": "üstünde",
+      "incorrect": ["altında", "içinde"]
+    },
+    {
+      "sentence": "Yemek ___ pişirildi",
+      "correct": "dün",
+      "incorrect": ["bugün", "haftaya"]
+    },
+    {
+      "sentence": "Meyveleri ___ yıkadım",
+      "correct": "hızlıca",
+      "incorrect": ["yavaşça", "kırmızı"]
+    },
+    {
+      "sentence": "Sınıf çok ___ görünüyor",
+      "correct": "büyük",
+      "incorrect": ["küçük", "dar"]
+    },
+    {
+      "sentence": "Köpek ___ havladı",
+      "correct": "dışarıda",
+      "incorrect": ["içeride", "aşağıda"]
+    },
+    {
+      "sentence": "Annem bana ___ ördü",
+      "correct": "kazağı",
+      "incorrect": ["şapka", "ayakkabı"]
+    },
+    {
+      "sentence": "Tren ___ saatte kalkıyor",
+      "correct": "her",
+      "incorrect": ["bazen", "sık"]
+    },
+    {
+      "sentence": "Çiçekler ___ sulanmalı",
+      "correct": "düzenli olarak",
+      "incorrect": ["ara sıra", "yanlış"]
+    },
+    {
+      "sentence": "Okuldan sonra ___ gitmek istiyorum",
+      "correct": "eve",
+      "incorrect": ["parka", "işe"]
+    },
+    {
+      "sentence": "Tatil için ___ gittik",
+      "correct": "yazın",
+      "incorrect": ["kışın", "öğlen"]
+    },
+    {
+      "sentence": "Deniz suyu ___ tuzludur",
+      "correct": "çok",
+      "incorrect": ["az", "tatlı"]
+    },
+    {
+      "sentence": "Kitabı ___ bitirdim",
+      "correct": "nihayet",
+      "incorrect": ["başlangıçta", "sonunda"]
+    },
+    {
+      "sentence": "Hava çok ___ olduğu için dışarı çıkmadık",
+      "correct": "soğuk",
+      "incorrect": ["sıcak", "ılık"]
+    },
+    {
+      "sentence": "Çayı ___ içerim",
+      "correct": "genellikle",
+      "incorrect": ["nadiren", "bazen"]
+    },
+    {
+      "sentence": "Film ___ başladı",
+      "correct": "tam zamanında",
+      "incorrect": ["geç", "erken"]
+    },
+    {
+      "sentence": "Araba ___ park edildi",
+      "correct": "dışarıda",
+      "incorrect": ["içeride", "yanında"]
+    },
+    {
+      "sentence": "Pasta ___ güzel oldu",
+      "correct": "çok",
+      "incorrect": ["az", "biraz"]
+    },
+    {
+      "sentence": "Oda ___ temizlenmeli",
+      "correct": "hemen",
+      "incorrect": ["sonra", "önce"]
+    },
+    {
+      "sentence": "Meyve suları ___ dolapta soğutulur",
+      "correct": "genellikle",
+      "incorrect": ["bazen", "dışında"]
+    },
+    {
+      "sentence": "Çalışma odasında ___ çalışırım",
+      "correct": "sessizce",
+      "incorrect": ["gürültülü", "açık"]
+    },
+    {
+      "sentence": "Yürüyüşe çıkmak için ___ giydim",
+      "correct": "ayakkabılarımı",
+      "incorrect": ["terlik", "çorap"]
+    },
+    {
+      "sentence": "Kitaplar ___ düzenli",
+      "correct": "raflarda",
+      "incorrect": ["masada", "yerde"]
+    },
+    {
+      "sentence": "Telefonum ___ çalıyor",
+      "correct": "sürekli",
+      "incorrect": ["bazen", "seyrek"]
+    },
+    {
+      "sentence": "Yeni yılı ___ kutladık",
+      "correct": "coşkuyla",
+      "incorrect": ["üzüntüyle", "sessizce"]
+    },
+    {
+      "sentence": "Çikolata ___ tatlıdır",
+      "correct": "çok",
+      "incorrect": ["az", "tuzlu"]
+    },
+    {
+      "sentence": "Resim ___ asıldı",
+      "correct": "duvara",
+      "incorrect": ["tavana", "zemine"]
     }
   ]
 }

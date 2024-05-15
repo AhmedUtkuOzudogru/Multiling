@@ -9,6 +9,236 @@
       "sentence": "Türk kahvesi genellikle ___ servis edilir",
       "correct": "küçük bardakta",
       "incorrect": ["büyük bardakta", "tabakta"]
+    },
+    {
+      "sentence": "Konser dün gece ___ düzenlendi",
+      "correct": "parkta",
+      "incorrect": ["sinemada", "okulda"]
+    },
+    {
+      "sentence": "Ünlü ressam tabloyu ___ boyadı",
+      "correct": "yağlı boya ile",
+      "incorrect": ["su bazlı boya ile", "kalemle"]
+    },
+    {
+      "sentence": "Kitabı bitirdikten sonra ___ geri verdim",
+      "correct": "ona",
+      "incorrect": ["bana", "sana"]
+    },
+    {
+      "sentence": "Otobüs her gün ___ saatte gelir",
+      "correct": "sabah saat sekizde",
+      "incorrect": ["gece", "öğlen"]
+    },
+    {
+      "sentence": "Yeni bir işe ___ başladım",
+      "correct": "dün",
+      "incorrect": ["bugün", "geçen hafta"]
+    },
+    {
+      "sentence": "Sinemada film ___ başladı",
+      "correct": "birden",
+      "incorrect": ["yavaşça", "planlandığı gibi"]
+    },
+    {
+      "sentence": "Tatil için ___ yer ayırttık",
+      "correct": "Antalya'ya",
+      "incorrect": ["İstanbul'a", "Bodrum'a"]
+    },
+    {
+      "sentence": "Tiyatro oyunu ___ sona erdi",
+      "correct": "aniden",
+      "incorrect": ["beklenenden erken", "uzatmalı"]
+    },
+    {
+      "sentence": "Müze ziyaretçilere ___ açılır",
+      "correct": "sabahları",
+      "incorrect": ["akşam", "gece"]
+    },
+    {
+      "sentence": "Kitap ___ masada unutulmuş",
+      "correct": "üzerindeki",
+      "incorrect": ["yanında", "altında"]
+    },
+    {
+      "sentence": "Okul projemizi ___ sunduk",
+      "correct": "başarıyla",
+      "incorrect": ["başarısız olarak", "aceleye getirerek"]
+    },
+    {
+      "sentence": "Film çok ___ etkileyiciydi",
+      "correct": "gerçekten",
+      "incorrect": ["az", "yeterince"]
+    },
+    {
+      "sentence": "Pazardan taze ___ aldım",
+      "correct": "meyveleri",
+      "incorrect": ["sebze", "balık"]
+    },
+    {
+      "sentence": "Kitap okumak için ___ sessiz bir yer buldum",
+      "correct": "sonunda",
+      "incorrect": ["başlangıçta", "arada"]
+    },
+    {
+      "sentence": "Yemek için ___ harika bir restoran önerdi",
+      "correct": "arkadaşım",
+      "incorrect": ["düşmanım", "tanımadığım biri"]
+    },
+    {
+      "sentence": "Konferans ___ düzenlenecek",
+      "correct": "İstanbul'da",
+      "incorrect": ["Ankara'da", "İzmir'de"]
+    },
+    {
+      "sentence": "Oyun sırasında ___ hava soğudu",
+      "correct": "birdenbire",
+      "incorrect": ["yavaş yavaş", "dengeli bir şekilde"]
+    },
+    {
+      "sentence": "Yaz tatili için ___ planlar yapıyoruz",
+      "correct": "şimdiden",
+      "incorrect": ["son anda", "dün"]
+    },
+    {
+      "sentence": "Dersler ___ başladı",
+      "correct": "bugünden",
+      "incorrect": ["yarından", "geçen haftadan"]
+    },
+    {
+      "sentence": "Kitapçı ___ kapalıydı",
+      "correct": "dünde",
+      "incorrect": ["bugün", "yarın"]
+    },
+    {
+      "sentence": "Öğle yemeği için ___ dışarı çıktık",
+      "correct": "hızla",
+      "incorrect": ["yavaşça", "zamanında"]
+    },
+    {
+      "sentence": "Sinema biletimizi ___ aldık",
+      "correct": "önceden",
+      "incorrect": ["sonradan", "iptal ederek"]
+    },
+    {
+      "sentence": "Konser biletleri ___ tükendi",
+      "correct": "hızla",
+      "incorrect": ["yavaşça", "kademeli olarak"]
+    },
+    {
+      "sentence": "Çalışma odamı ___ düzenledim",
+      "correct": "tamamen",
+      "incorrect": ["kısmen", "yarım yamalak"]
+    },
+    {
+      "sentence": "Resim sergisi ___ açıldı",
+      "correct": "geçen haftada",
+      "incorrect": ["bugün", "yarın"]
+    },
+    {
+      "sentence": "Kitap ___ ilgi çekici buldum",
+      "correct": "çoktur",
+      "incorrect": ["az", "yetersiz"]
+    },
+    {
+      "sentence": "Yaz tatilini ___ geçirmeyi planlıyorum",
+      "correct": "İtalya'da",
+      "incorrect": ["Fransa'da", "Almanya'da"]
+    },
+    {
+      "sentence": "Yeni dizi ___ başladı",
+      "correct": "dünde",
+      "incorrect": ["bugün", "geçen hafta"]
+    },
+    {
+      "sentence": "Müzik kursuna ___ yazıldım",
+      "correct": "geçen ayda",
+      "incorrect": ["bu ay", "gelecek ay"]
+    },
+    {
+      "sentence": "Spor salonuna ___ üye oldum",
+      "correct": "yeni",
+      "incorrect": ["eski", "önceki"]
+    },
+    {
+      "sentence": "Telefonumuzu ___ yükselttik",
+      "correct": "yazılımını",
+      "incorrect": ["donanımını", "ekranını"]
+    },
+    {
+      "sentence": "Kitaplarımı ___ taşıdım",
+      "correct": "yeni eve",
+      "incorrect": ["eski eve", "depoya"]
+    },
+    {
+      "sentence": "Proje için ___ ek bilgi topladık",
+      "correct": "detaylı",
+      "incorrect": ["genel", "yüzeysel"]
+    },
+    {
+      "sentence": "Üniversite sınavına ___ hazırlanıyorum",
+      "correct": "yoğun bir şekilde",
+      "incorrect": ["gevşek", "rahat"]
+    },
+    {
+      "sentence": "Film festivali ___ düzenleniyor",
+      "correct": "şehir merkezinde",
+      "incorrect": ["banliyöde", "kırsal alanda"]
+    },
+    {
+      "sentence": "Kitap fuarı ___ sona erdi",
+      "correct": "dünde",
+      "incorrect": ["bugün", "geçen hafta"]
+    },
+    {
+      "sentence": "Yeni bir dil öğrenmek için ___ başladım",
+      "correct": "kurs",
+      "incorrect": ["kitaba", "uygulamaya"]
+    },
+    {
+      "sentence": "Tatil için ___ kamp yapacağız",
+      "correct": "dağlarda",
+      "incorrect": ["sahilde", "şehirde"]
+    },
+    {
+      "sentence": "Müze ziyareti ___ planladık",
+      "correct": "cumartesi için",
+      "incorrect": ["pazar", "çarşamba"]
+    },
+    {
+      "sentence": "Kitap okumak için ___ zaman ayırıyorum",
+      "correct": "her gün",
+      "incorrect": ["haftada bir", "ayda bir"]
+    },
+    {
+      "sentence": "Yemek kursuna ___ katıldım",
+      "correct": "geçen haftada",
+      "incorrect": ["bugün", "yarın"]
+    },
+    {
+      "sentence": "Film ___ etkileyici buldum",
+      "correct": "gerçektendir",
+      "incorrect": ["az", "yetersiz"]
+    },
+    {
+      "sentence": "Spor yapmak için ___ sabah erkenden kalkıyorum",
+      "correct": "genellikle",
+      "incorrect": ["bazen", "nadiren"]
+    },
+    {
+      "sentence": "Yeni bir hobi olarak ___ başladım",
+      "correct": "resim çizmeye",
+      "incorrect": ["şarkı söylemeye", "dans etmeye"]
+    },
+    {
+      "sentence": "Kitap serisini ___ tamamladım",
+      "correct": "nihayet",
+      "incorrect": ["başlangıçta", "ortasında"]
+    },
+    {
+      "sentence": "Sinema salonu ___ doluydu",
+      "correct": "neredeyse",
+      "incorrect": ["tamamen", "kısmen"]      
     }
   ]
 }
