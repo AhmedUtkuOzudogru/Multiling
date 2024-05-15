@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +39,7 @@ public class Flashcard extends AppCompatActivity {
     private Button flashcardAnswer1;
     private Button flashcardAnswer2;
     private Button flashcardAnswer3;
+    private Button nextButton;
     private ProgressBar flashcardProgressBar;
 
     private List<FlashcardData> flashcards;
@@ -59,6 +61,7 @@ public class Flashcard extends AppCompatActivity {
         flashcardAnswer1 = findViewById(R.id.flashcardAnswer1);
         flashcardAnswer2 = findViewById(R.id.flashcardAnswer2);
         flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
+        nextButton = findViewById(R.id.nextButton);
         flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -66,32 +69,21 @@ public class Flashcard extends AppCompatActivity {
 
         BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
         bottomNavigation.setSelectedItemId(R.id.navigator_writingexercises);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
-        {
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item)
-            {
-                if (item.getItemId() == R.id.navigator_home)
-                {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.navigator_home) {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_profile)
-                {
+                } else if (item.getItemId() == R.id.navigator_profile) {
                     startActivity(new Intent(getApplicationContext(), Profile.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_settings)
-                {
+                } else if (item.getItemId() == R.id.navigator_settings) {
                     startActivity(new Intent(getApplicationContext(), Settings.class));
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_flashcard)
-                {
+                } else if (item.getItemId() == R.id.navigator_flashcard) {
                     return true;
-                }
-                else if (item.getItemId() == R.id.navigator_writingexercises)
-                {
+                } else if (item.getItemId() == R.id.navigator_writingexercises) {
                     startActivity(new Intent(getApplicationContext(), WritingExercise.class));
                     return true;
                 }
@@ -135,13 +127,20 @@ public class Flashcard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button selectedButton = (Button) v;
-                checkAnswer(selectedButton.getText().toString());
+                checkAnswer(selectedButton);
             }
         };
 
         flashcardAnswer1.setOnClickListener(answerClickListener);
         flashcardAnswer2.setOnClickListener(answerClickListener);
         flashcardAnswer3.setOnClickListener(answerClickListener);
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadNextFlashcard();
+            }
+        });
     }
 
     private List<FlashcardData> loadFlashcards(String level) {
@@ -200,17 +199,47 @@ public class Flashcard extends AppCompatActivity {
             flashcardAnswer1.setText(options.get(0));
             flashcardAnswer2.setText(options.get(1));
             flashcardAnswer3.setText(options.get(2));
+
+            // Reset button colors
+            flashcardAnswer1.setBackgroundColor(Color.parseColor("#800080")); // Purple
+            flashcardAnswer2.setBackgroundColor(Color.parseColor("#800080")); // Purple
+            flashcardAnswer3.setBackgroundColor(Color.parseColor("#800080")); // Purple
+
+            // Enable buttons
+            flashcardAnswer1.setEnabled(true);
+            flashcardAnswer2.setEnabled(true);
+            flashcardAnswer3.setEnabled(true);
         }
     }
 
-    private void checkAnswer(String selectedOption) {
+    private void checkAnswer(Button selectedButton) {
         FlashcardData currentFlashcard = flashcards.get(currentIndex);
+        String selectedOption = selectedButton.getText().toString();
+
         if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
-            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+            selectedButton.setBackgroundColor(Color.GREEN);
         } else {
-            Toast.makeText(this, "Incorrect! The correct answer is: " + currentFlashcard.getCorrectTranslation(), Toast.LENGTH_LONG).show();
+            selectedButton.setBackgroundColor(Color.RED);
         }
 
+        // Highlight correct answer in green
+        if (flashcardAnswer1.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
+            flashcardAnswer1.setBackgroundColor(Color.GREEN);
+        }
+        if (flashcardAnswer2.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
+            flashcardAnswer2.setBackgroundColor(Color.GREEN);
+        }
+        if (flashcardAnswer3.getText().toString().equals(currentFlashcard.getCorrectTranslation())) {
+            flashcardAnswer3.setBackgroundColor(Color.GREEN);
+        }
+
+        // Disable buttons after selection
+        flashcardAnswer1.setEnabled(false);
+        flashcardAnswer2.setEnabled(false);
+        flashcardAnswer3.setEnabled(false);
+    }
+
+    private void loadNextFlashcard() {
         currentIndex++;
         if (currentIndex >= flashcards.size()) {
             currentIndex = 0;
