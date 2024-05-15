@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ResultPage extends AppCompatActivity {
 
-    private ImageView resultStarImage;
+    private ImageView resultImage;
     private ProgressBar resultProgressBar;
 
     @Override
@@ -39,22 +39,26 @@ public class ResultPage extends AppCompatActivity {
         double percentageCorrect = (double) numberOfCorrectAnswers / numberOfQuestions * 100;
 
         // Set the star image based on the percentage of correct answers
-        resultStarImage = findViewById(R.id.resultImage);
+        resultImage = findViewById(R.id.resultImage);
         if (percentageCorrect == 100) {
-            resultStarImage.setImageResource(R.drawable.crown_icon);
+            resultImage.setImageResource(R.drawable.crown_icon);
         } else if (percentageCorrect > 80) {
-            resultStarImage.setImageResource(R.drawable.three_star);
+            resultImage.setImageResource(R.drawable.three_star);
         } else if (percentageCorrect > 50) {
-            resultStarImage.setImageResource(R.drawable.two_star);
+            resultImage.setImageResource(R.drawable.two_star);
         } else if (percentageCorrect > 30) {
-            resultStarImage.setImageResource(R.drawable.one_star);
+            resultImage.setImageResource(R.drawable.one_star);
         } else {
-            resultStarImage.setImageResource(R.drawable.lose);
+            resultImage.setImageResource(R.drawable.lose);
         }
 
         // Set the progress bar based on the percentage of correct answers
         resultProgressBar = findViewById(R.id.resultProgressBar);
         int progress = (int) percentageCorrect; // Convert percentage to integer for progress bar
         resultProgressBar.setProgress(progress);
+
+        // Ensure the progress value is within the range of 0 to 100 (assuming a percentage)
+        // Adjust the maximum value of the progress bar if needed
+        resultProgressBar.setMax(100); // Assuming the maximum value of the progress bar is 100
     }
 }
