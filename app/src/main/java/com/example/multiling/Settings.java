@@ -13,11 +13,22 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Settings extends AppCompatActivity
 {
@@ -27,6 +38,12 @@ public class Settings extends AppCompatActivity
     private EditText writingNumEditText;
     private EditText flashcardNumEditText;
     private static Settings instance = null;
+    private FirebaseAuth firebaseAuth;
+    private SharedPreferences sharedPreferences;
+    String userID,noOfWritingExercise,noOfFlashcard;
+
+    FirebaseFirestore firebaseFirestore;
+    DocumentReference documentReference;
 
     public static Settings getInstance()
     {
@@ -46,23 +63,34 @@ public class Settings extends AppCompatActivity
     {
         return flashcardNumber;
     }
-    private FirebaseAuth mAuth;
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        mAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         sharedPreferences = getSharedPreferences(Login.SHARED_PREFS, MODE_PRIVATE);
+        userID=firebaseAuth.getCurrentUser().getUid();
+        firebaseFirestore=FirebaseFirestore.getInstance();
+        documentReference = firebaseFirestore.collection("users").document(userID);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                noOfWritingExercise=value.getString("noOfWritingExercise");
+                noOfFlashcard=value.getString("noOfFlashcard");
+                flashcardNumEditText.setText(noOfFlashcard);
+                writingNumEditText.setText(noOfWritingExercise);
+
+            }
+        });
 
         // Example logout button listener
         findViewById(R.id.settingsLogout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Sign out from Firebase
-                mAuth.signOut();
+                firebaseAuth.signOut();
 
                 // Clear login state
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -161,9 +189,10 @@ public class Settings extends AppCompatActivity
 
     private void setWritingNumListener() {
         writingNumEditText.addTextChangedListener(new TextWatcher() {
-             @Override
+            @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // This method is called before the text is changed
+
             }
 
             @Override
@@ -182,11 +211,26 @@ public class Settings extends AppCompatActivity
                 String enteredText = s.toString();
                 if (!enteredText.isEmpty()) {
                     int number = Integer.parseInt(enteredText);
-                    if (number >= 0 && number <= 99) {
+                    if (number >= 0 && number <= 20) {
                         writingNumber = number;
+                        noOfWritingExercise=String.valueOf(number);
+                        Map<String ,Object> map = new HashMap<>();
+                        map.put("noOfWritingExercise",noOfWritingExercise);
+
+                        documentReference.update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+
+                                }else {
+                                    Toast.makeText(Settings.this, "Failed to updated",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     } else {
                         writingNumEditText.setText(String.valueOf(writingNumber));
-                        Toast.makeText(Settings.this, "Please enter a number between 0 and 99", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Settings.this, "Please enter a number between 0 and 20", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -212,12 +256,29 @@ public class Settings extends AppCompatActivity
                 String enteredText = s.toString();
                 if (!enteredText.isEmpty()) {
                     int number = Integer.parseInt(enteredText);
-                    if (number >= 0 && number <= 99) {
+
+                    if (number >= 0 && number <= 20) {
                         flashcardNumber = number;
+                        noOfFlashcard=String.valueOf(number);
+                        Map<String ,Object> map = new HashMap<>();
+                        map.put("noOfFlashcard",noOfFlashcard);
+
+                        documentReference.update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+
+                                }else {
+                                    Toast.makeText(Settings.this, "Failed to updated",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
                     }
                     else {
                         flashcardNumEditText.setText(String.valueOf(flashcardNumber));
-                        Toast.makeText(Settings.this, "Please enter a number between 0 and 99", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Settings.this, "Please enter a number between 0 and 20", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

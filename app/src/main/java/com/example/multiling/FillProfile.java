@@ -33,7 +33,7 @@ import java.util.Map;
  * Xml done by Ahmed
  */
 public class FillProfile extends AppCompatActivity {
-    String email,userID,name,surname,proficiencyLevel;
+    String email,userID,name,surname,proficiencyLevel,noOfWritingExercise,noOfFlashcard;
     TextInputEditText nameTextField, surnameTextField;
 
     Spinner proficiencyLevelSpinner;
@@ -71,6 +71,7 @@ public class FillProfile extends AppCompatActivity {
         surnameTextField = findViewById(R.id.surnameTextField);
         proficiencyLevelSpinner = findViewById(R.id.proficiencyLevelSpinner);
 
+
         // Define the list of proficiency levels
         String[] proficiencyLevels = {"Beginner", "Intermediate", "Advanced"};
 
@@ -102,6 +103,8 @@ public class FillProfile extends AppCompatActivity {
         name="aName";
         surname="aSurname";
         proficiencyLevel="Beginner";
+        noOfWritingExercise="10";
+        noOfFlashcard="10";
         firestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getUid();
@@ -123,6 +126,8 @@ public class FillProfile extends AppCompatActivity {
                 user.put("name",name);
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
+                user.put("noOfWritingExercise",noOfWritingExercise);
+                user.put("noOfFlashcard",noOfFlashcard);
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -170,6 +175,8 @@ public class FillProfile extends AppCompatActivity {
                 user.put("surname", surname);
                 user.put("proficiencyLevel",proficiencyLevel);
                 user.put("email", email);
+                user.put("noOfWritingExercise",noOfWritingExercise);
+                user.put("noOfFlashcard",noOfFlashcard);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
