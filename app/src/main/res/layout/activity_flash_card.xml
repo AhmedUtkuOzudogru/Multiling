@@ -31,26 +31,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainProfileView" />
 
-    <FrameLayout
-        android:id="@+id/flashcardQuestionBackground"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/flashcard_background"
+    <TextView
+        android:id="@+id/flashcardQuestionText"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@android:color/transparent"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Potato"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardProgressBar">
-
-        <TextView
-            android:id="@+id/flashcardQuestionText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Fruit"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_gravity="center" />
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/flashcardProgressBar" />
 
     <Button
         android:id="@+id/flashcardAnswer1"
