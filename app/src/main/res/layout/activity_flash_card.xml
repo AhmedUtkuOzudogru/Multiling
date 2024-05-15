@@ -31,48 +31,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainProfileView" />
 
-    <ImageView
-        android:id="@+id/flashcardQuestionImage"
-        android:layout_width="200dp"
+    <FrameLayout
+        android:id="@+id/flashcardQuestionBackground"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/potato"
+        android:background="@drawable/flashcard_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardProgressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/flashcardProgressBar">
 
-    <TextView
-        android:id="@+id/flashcardQuestionText"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@android:color/transparent"
-        android:ems="10"
-        android:gravity="center"
-        android:text="Potato"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardQuestionImage" />
+        <TextView
+            android:id="@+id/flashcardQuestionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Fruit"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/flashcardAnswer1"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/purple_500"
         android:text="Domates"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardQuestionText" />
+        app:layout_constraintTop_toBottomOf="@+id/flashcardQuestionBackground" />
 
     <Button
         android:id="@+id/flashcardAnswer2"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="@color/purple_500"
         android:text="Patates"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,11 +80,22 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/purple_500"
         android:text="Patlıcan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashcardAnswer2" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Next"
+        android:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flashcardAnswer3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/flashcardNavigation"
@@ -100,6 +108,5 @@
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
