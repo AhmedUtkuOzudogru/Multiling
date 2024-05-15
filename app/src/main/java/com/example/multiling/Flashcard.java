@@ -41,19 +41,14 @@ public class Flashcard extends AppCompatActivity {
     private Button flashcardAnswer2;
     private Button flashcardAnswer3;
     private ProgressBar flashcardProgressBar;
-
     private List<FlashcardData> flashcards;
     private int currentIndex = 0;
     private String level;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
-    private String userID;
     private boolean isAttemptingToNavigate = false;
-    private int numberOfFlashcards;
-
-
-    private String userID,noOfFlashcard;
-    private  int numberOfFlashcard;
+    private int numberOfFlashcards, numberOfCorrectAnswers;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +60,7 @@ public class Flashcard extends AppCompatActivity {
         flashcardAnswer2 = findViewById(R.id.flashcardAnswer2);
         flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
         flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
+        numberOfCorrectAnswers = 0;
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
@@ -229,6 +225,7 @@ public class Flashcard extends AppCompatActivity {
         FlashcardData currentFlashcard = flashcards.get(currentIndex);
         if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+            this.numberOfCorrectAnswers++;
         } else {
             Toast.makeText(this, "Incorrect! The correct answer is: " + currentFlashcard.getCorrectTranslation(), Toast.LENGTH_LONG).show();
         }
@@ -237,6 +234,8 @@ public class Flashcard extends AppCompatActivity {
         if (currentIndex >= numberOfFlashcards) {
             // Go to result page when all flashcards are shown
             Intent intent = new Intent(Flashcard.this, ResultPage.class);
+            intent.putExtra("CORRECT_ANSWERS", numberOfCorrectAnswers); // Pass numberOfCorrectAnswers as an extra
+            intent.putExtra("NUMBER_OF_FLASHCARDS", numberOfFlashcards); // Pass numberOfCorrectAnswers as an extra
             startActivity(intent);
             finish();
         } else {
