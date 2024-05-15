@@ -27,7 +27,7 @@ public class ResultPage extends AppCompatActivity {
 
         // Retrieve numberOfCorrectAnswers and numberOfQuestions from the Intent
         int numberOfCorrectAnswers = getIntent().getIntExtra("CORRECT_ANSWERS", 0);
-        int numberOfQuestions = getIntent().getIntExtra("NUMBER_OF_FLASHCARDS", 0);
+        int numberOfQuestions = getIntent().getIntExtra("NUMBER_OF_QUESTIONS", 0);
 
         // Display the number of correct answers
         TextView resultTextView = findViewById(R.id.resultText);

@@ -44,7 +44,7 @@ public class Flashcard extends AppCompatActivity {
     private Button nextButton;
     private ProgressBar flashcardProgressBar;
 
-    private int number1 = 1;
+    private int currentQuestion = 1; // which question are we on currently
 
     private List<FlashcardData> flashcards;
     private int currentIndex = 0;
@@ -53,6 +53,7 @@ public class Flashcard extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private boolean isAttemptingToNavigate = false;
     private int numberOfFlashcards;
+    private int numberOfCorrectAnswers = 0;
 
 
     private String userID;
@@ -173,17 +174,18 @@ public class Flashcard extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (number1 < numberOfFlashcards){
+                if (currentQuestion < numberOfFlashcards){
 
-                    flashcardProgressBar.setProgress(number1);
-                    number1++;
+                    flashcardProgressBar.setProgress(currentQuestion);
+                    currentQuestion++;
                     loadNextFlashcard();
                 } else {
+                    // Go to result page when all flashcards are shown
                     Intent intent = new Intent(Flashcard.this, ResultPage.class);
-                    number1 = 1;
+                    intent.putExtra("CORRECT_ANSWERS", numberOfCorrectAnswers); // Pass numberOfCorrectAnswers as an extra
+                    intent.putExtra("NUMBER_OF_QUESTIONS", numberOfFlashcards); // Pass numberOfCorrectAnswers as an extra
                     startActivity(intent);
                     finish();
-
                 }
 
             }
@@ -263,8 +265,10 @@ public class Flashcard extends AppCompatActivity {
         FlashcardData currentFlashcard = flashcards.get(currentIndex);
         String selectedOption = selectedButton.getText().toString();
 
+
         if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
             selectedButton.setBackgroundColor(Color.GREEN);
+            this.numberOfCorrectAnswers++;
         } else {
             selectedButton.setBackgroundColor(Color.RED);
         }
