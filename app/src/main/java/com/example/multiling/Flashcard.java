@@ -2,6 +2,7 @@ package com.example.multiling;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -95,6 +96,8 @@ public class Flashcard extends AppCompatActivity {
                 return false;
             }
         });
+
+        showStartConfirmationDialog();
 
         if (currentUser != null) {
             userID = currentUser.getUid();
@@ -234,6 +237,41 @@ public class Flashcard extends AppCompatActivity {
 
         public List<String> getOptions() {
             return options;
+        }
+    }
+
+    private void showStartConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Start Flashcards");
+        builder.setMessage("Do you want to start?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // User clicked Yes, start loading flashcards
+            loadFlashcardsForUser();
+        });
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // User clicked No, close the activity
+            finish();
+        });
+        builder.setOnCancelListener(dialog -> {
+            // Dialog was cancelled (e.g., back button pressed), close the activity
+            finish();
+        });
+        builder.setCancelable(false); // Disable dismissing dialog by tapping outside or back button
+        builder.show();
+    }
+
+    private void loadFlashcardsForUser() {
+        // Retrieve user's proficiency level and load flashcards accordingly...
+
+        // Retrieve flashcards and start loading the first flashcard
+        if (level != null) {
+            Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+            flashcards = loadFlashcards(level);
+            flashcardProgressBar.setMax(flashcards.size());
+            flashcardProgressBar.setProgress(currentIndex + 1);
+            loadFlashcard();
+        } else {
+            Toast.makeText(Flashcard.this, "Level field not found", Toast.LENGTH_SHORT).show();
         }
     }
 }
