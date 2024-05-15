@@ -1,170 +1,199 @@
 package com.example.multiling;
 
-import android.content.Context;
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ProgressBar;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Random;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
 
+public class Flashcard extends AppCompatActivity {
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+    private TextView flashcardQuestionText;
+    private Button flashcardAnswer1;
+    private Button flashcardAnswer2;
+    private Button flashcardAnswer3;
+    private ProgressBar flashcardProgressBar;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
-public class Flashcard extends AppCompatActivity
-{
-
-    private Question[] questions;
-    private int correctAnswers;
-    private int currentQuestionIndex;
-    public Flashcard()
-    {
-        questions = new Question[Settings.getInstance().getFlashcardNumber()];
-        for(int i = 0; i < this.questions.length; i++)
-        {
-            questions[i] = new Question(this);
-        }
-
-        this.correctAnswers = 0;
-        this.currentQuestionIndex = 0;
-    }
-
-    private String[] shuffleAnswers(String[] answers)
-    {
-        List<String> list = new ArrayList<>(Arrays.asList(answers));
-        Collections.shuffle(list);
-        String[] shuffled = list.toArray(new String[0]);
-        return shuffled;
-    }
-
-    private void displayCurrentQuestion()
-    {
-        TextView question = findViewById(R.id.flashcardQuestionText);
-        Question currentQuestion = questions[currentQuestionIndex];
-        question.setText(currentQuestion.getQuestion());
-
-        Button firstChoice = findViewById(R.id.flashcardAnswer1);
-        Button secondChoice = findViewById(R.id.flashcardAnswer2);
-        Button thirdChoice = findViewById(R.id.flashcardAnswer3);
-        String[] shuffledAnswers = shuffleAnswers(currentQuestion.getAllAnswers());
-        firstChoice.setText(shuffledAnswers[0]);
-        secondChoice.setText(shuffledAnswers[1]);
-        thirdChoice.setText(shuffledAnswers[2]);
-    }
-
-    private void checkAnswer(Button selectedAnswer)
-    {
-        String selectedText = selectedAnswer.getText().toString();
-        Question currentQuestion = questions[currentQuestionIndex];
-        if (selectedText.equals(currentQuestion.getAnswer()))
-        {
-            selectedAnswer.setBackgroundColor(getResources().getColor(R.color.green));
-            incrementScore();
-        }
-        else
-        {
-            selectedAnswer.setBackgroundColor(getResources().getColor(R.color.red));
-        }
-        new Handler().postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                moveToNextQuestion();
-            }
-        }, 1000);
-    }
-
-    private void resetAnswerButtons()
-    {
-        Button firstChoice = findViewById(R.id.flashcardAnswer1);
-        Button secondChoice = findViewById(R.id.flashcardAnswer2);
-        Button thirdChoice = findViewById(R.id.flashcardAnswer3);
-        firstChoice.setBackgroundColor(getResources().getColor(R.color.black));
-        secondChoice.setBackgroundColor(getResources().getColor(R.color.black));
-        thirdChoice.setBackgroundColor(getResources().getColor(R.color.black));
-    }
-
-    private void moveToNextQuestion()
-    {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length)
-        {
-            displayCurrentQuestion();
-            resetAnswerButtons();
-        }
-    }
-
-    public Question[] getQuestions()
-    {
-        return this.questions;
-    }
-
-    public void incrementScore()
-    {
-        this.correctAnswers++;
-    }
+    private List<FlashcardData> flashcards;
+    private int currentIndex = 0;
+    private String level;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+    private String userID;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_card);
 
-        BottomNavigationView bottomNavigation = findViewById(R.id.flashcardNavigation);
-        bottomNavigation.setSelectedItemId(R.id.navigator_flashcard);
+        flashcardQuestionText = findViewById(R.id.flashcardQuestionText);
+        flashcardAnswer1 = findViewById(R.id.flashcardAnswer1);
+        flashcardAnswer2 = findViewById(R.id.flashcardAnswer2);
+        flashcardAnswer3 = findViewById(R.id.flashcardAnswer3);
+        flashcardProgressBar = findViewById(R.id.flashcardProgressBar);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
-        {
+        if (currentUser != null) {
+            userID = currentUser.getUid();
+            firebaseFirestore = FirebaseFirestore.getInstance();
+
+            DocumentReference documentReference = firebaseFirestore.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if (value != null && value.exists()) {
+                        level = value.getString("proficiencyLevel");
+                        if (level != null) {
+                            Toast.makeText(Flashcard.this, "User level: " + level, Toast.LENGTH_SHORT).show();
+                            flashcards = loadFlashcards(level);
+                            flashcardProgressBar.setMax(flashcards.size());
+                            flashcardProgressBar.setProgress(currentIndex + 1);
+                            loadFlashcard();
+                        } else {
+                            Toast.makeText(Flashcard.this, "Level field not found", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(Flashcard.this, "User level not found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+            finish(); // Close activity if the user is not authenticated
+        }
+
+        View.OnClickListener answerClickListener = new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item)
-            {
-                if (item.getItemId() == R.id.navigator_home)
-                {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_profile)
-                {
-                    startActivity(new Intent(getApplicationContext(), Profile.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_settings)
-                {
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_flashcard)
-                {
-                    return true;
-                }
-                else if (item.getItemId() == R.id.navigator_writingexercises)
-                {
-                    startActivity(new Intent(getApplicationContext(), WritingExercise.class));
-                    return true;
-                }
-                return false;
+            public void onClick(View v) {
+                Button selectedButton = (Button) v;
+                checkAnswer(selectedButton.getText().toString());
             }
-        });
+        };
 
-        displayCurrentQuestion();
+        flashcardAnswer1.setOnClickListener(answerClickListener);
+        flashcardAnswer2.setOnClickListener(answerClickListener);
+        flashcardAnswer3.setOnClickListener(answerClickListener);
+    }
+
+    private List<FlashcardData> loadFlashcards(String level) {
+        List<FlashcardData> flashcardList = new ArrayList<>();
+        int resourceId = R.raw.easy_words; // Default to easy words
+
+        switch (level.toLowerCase()) {
+            case "intermediate":
+                resourceId = R.raw.intermediate_words;
+                break;
+            case "advanced":
+                resourceId = R.raw.advanced_words;
+                break;
+            case "beginner":
+            default:
+                resourceId = R.raw.easy_words;
+                break;
+        }
+
+        try {
+            InputStream is = getResources().openRawResource(resourceId);
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            is.close();
+            String json = new String(buffer, StandardCharsets.UTF_8);
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray wordsArray = jsonObject.getJSONArray("words");
+
+            for (int i = 0; i < wordsArray.length(); i++) {
+                JSONObject wordObject = wordsArray.getJSONObject(i);
+                String english = wordObject.getString("english");
+                String correct = wordObject.getString("correct");
+                JSONArray incorrectArray = wordObject.getJSONArray("incorrect");
+
+                List<String> options = new ArrayList<>();
+                options.add(correct);
+                for (int j = 0; j < incorrectArray.length(); j++) {
+                    options.add(incorrectArray.getString(j));
+                }
+                Collections.shuffle(options);
+
+                flashcardList.add(new FlashcardData(english, correct, options));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flashcardList;
+    }
+
+    private void loadFlashcard() {
+        if (flashcards != null && !flashcards.isEmpty()) {
+            FlashcardData currentFlashcard = flashcards.get(currentIndex);
+            flashcardQuestionText.setText(currentFlashcard.getEnglishWord());
+            List<String> options = currentFlashcard.getOptions();
+            flashcardAnswer1.setText(options.get(0));
+            flashcardAnswer2.setText(options.get(1));
+            flashcardAnswer3.setText(options.get(2));
+        }
+    }
+
+    private void checkAnswer(String selectedOption) {
+        FlashcardData currentFlashcard = flashcards.get(currentIndex);
+        if (selectedOption.equals(currentFlashcard.getCorrectTranslation())) {
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect! The correct answer is: " + currentFlashcard.getCorrectTranslation(), Toast.LENGTH_LONG).show();
+        }
+
+        currentIndex++;
+        if (currentIndex >= flashcards.size()) {
+            currentIndex = 0;
+        }
+        flashcardProgressBar.setProgress(currentIndex + 1);
+        loadFlashcard();
+    }
+
+    private static class FlashcardData {
+        private final String englishWord;
+        private final String correctTranslation;
+        private final List<String> options;
+
+        public FlashcardData(String englishWord, String correctTranslation, List<String> options) {
+            this.englishWord = englishWord;
+            this.correctTranslation = correctTranslation;
+            this.options = options;
+        }
+
+        public String getEnglishWord() {
+            return englishWord;
+        }
+
+        public String getCorrectTranslation() {
+            return correctTranslation;
+        }
+
+        public List<String> getOptions() {
+            return options;
+        }
     }
 }
