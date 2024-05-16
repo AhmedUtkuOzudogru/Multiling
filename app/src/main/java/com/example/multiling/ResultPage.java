@@ -59,6 +59,6 @@ public class ResultPage extends AppCompatActivity {
 
         // Ensure the progress value is within the range of 0 to 100 (assuming a percentage)
         // Adjust the maximum value of the progress bar if needed
-        resultProgressBar.setMax(100); // Assuming the maximum value of the progress bar is 100
+        resultProgressBar.setMax(numberOfQuestions); // Assuming the maximum value of the progress bar is 100
     }
 }
