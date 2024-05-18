@@ -1,26 +1,26 @@
 package com.example.multiling;
 
 public class NotificationModel {
-    String notificationTitle;
-    String notificationText;
-    int notificationImage;
+    private String title;
+    private String message;
+    private String timestamp;
 
-
-    public NotificationModel(String notificationTitle, String notificationText, int notificationImage) {
-        this.notificationTitle = notificationTitle;
-        this.notificationText = notificationText;
-        this.notificationImage = notificationImage;
+    public NotificationModel(String title, String message, String timestamp) {
+        this.title = title;
+        this.message = message;
+        this.timestamp = timestamp;
     }
 
-    public String getNotificationTitle() {
-        return notificationTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getNotificationText() {
-        return notificationText;
+    public String getMessage() {
+        return message;
     }
 
-    public int getNotificationImage() {
-        return notificationImage;
+    public String getTimestamp() {
+        return timestamp;
     }
 }
+

@@ -1,43 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white">
-
-    <TextView
-        android:id="@+id/notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
-        android:textAlignment="center"
-        android:text="Notifications"
-        android:textSize="30sp" />
+    android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_above="@+id/notificationNavigation"
-        android:layout_marginBottom="14dp"
-        android:background="@android:color/white"
-        android:clipToPadding="false" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/notificationNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/navigator_background"
-        android:elevation="20dp"
-        android:layout_alignParentBottom="true"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@drawable/item_selector"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_navigation_menu"  />
-
-
-
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:padding="16dp" />
+</LinearLayout>

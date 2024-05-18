@@ -51,6 +51,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(libs.picasso)
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 
 
 

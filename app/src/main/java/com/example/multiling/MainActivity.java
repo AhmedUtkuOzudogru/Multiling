@@ -1,6 +1,9 @@
 package com.example.multiling;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -29,6 +32,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView userNameTextView, levelTextView,emailTextView;
@@ -51,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
 
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
 
 
@@ -142,4 +147,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }
