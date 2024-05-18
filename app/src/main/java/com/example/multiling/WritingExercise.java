@@ -125,11 +125,11 @@ public class WritingExercise extends AppCompatActivity {
                     if (value != null && value.exists()) {
 
                         level = value.getString("proficiencyLevel");
-                        String noOfWritings = value.getString("noOfWritings");
+                        String noOfWritingExercise = value.getString("noOfWritingExercise");
 
-                        if (noOfWritings != null) {
-                            Toast.makeText(WritingExercise.this, "Number of writings: " + noOfWritings, Toast.LENGTH_SHORT).show();
-                            numberOfWritings = Integer.parseInt(noOfWritings);
+                        if (noOfWritingExercise != null) {
+                            Toast.makeText(WritingExercise.this, "Number of writings: " + noOfWritingExercise, Toast.LENGTH_SHORT).show();
+                            numberOfWritings = Integer.parseInt(noOfWritingExercise);
                         } else {
                             Toast.makeText(WritingExercise.this, "Number of writings not found", Toast.LENGTH_SHORT).show();
                             numberOfWritings = 10; // Default value if not set
