@@ -1,100 +1,100 @@
-1 : band : grup : gürültülü : mutlu
-2 : movie : film : aptal : zengin
-3 : report : rapor : farklı : güzel
-4 : law : hukuk : soğuk : ılık
-5 : nature : doğa : tuz : biber
-6 : language : dil : fakir : doğru
-7 : science : bilim : balık : et
-8 : plant : bitki : meyve : sebze
-9 : character : karakter : kapalı : hızlı
-10 : diet : diyet : ince : ağır
-11 : thought : düşünce : kapalı : hızlı
-12 : failure : başarısızlık : alçak : parlak
-13 : reading : okuma : fakir : doğru
-14 : nutrition : beslenme : dar : kalın
-15 : decision : karar : masa : kedi
-16 : victory : zafer : zayıf : zeki
-17 : theory : teori : korkmuş : heyecanlı
-18 : camera : kamera : çirkin : yüksek
-19 : study : çalışma : alçak : parlak
-20 : technique : teknik : fakir : doğru
-21 : team : takım : yorgun : hasta
-22 : research : araştırma : çirkin : yüksek
-23 : defeat : yenilgi : aptal : zengin
-24 : important : önemli : kapı : okul
-25 : election : seçim : kötü : temiz
-26 : picture : resim : karanlık : sessiz
-27 : knowledge : bilgi : çiçek : köpek
-28 : justice : adalet : eski : iyi
-29 : culture : kültür : bulut : taş
-30 : technology : teknoloji : süt : çay
-31 : publishing : yayıncılık : yavaş : erken
-32 : relationship : ilişki : yemek : içmek
-33 : script : senaryo : geç : aynı
-34 : photography : fotoğrafçılık : alçak : parlak
-35 : method : yöntem : zayıf : zeki
-36 : match : maç : kapalı : hızlı
-37 : gallery : galeri : üzgün : kızgın
-38 : literature : edebiyat : yorgun : hasta
-39 : society : toplum : elma : yıldız
-40 : crime : suç : serin : yeni
-41 : exercise : egzersiz : kısa : geniş
-42 : album : albüm : üzgün : kızgın
-43 : author : yazar : aptal : zengin
-44 : talent : yetenek : gürültülü : mutlu
-45 : competition : yarışma : sağlıklı : güçlü
-46 : creativity : yaratıcılık : geç : aynı
-47 : solution : çözüm : kapalı : hızlı
-48 : environment : çevre : gözlük : balık
-49 : director : yönetmen : farklı : güzel
-50 : plot : kurgu : yavaş : erken
-51 : opportunity : fırsat : araba : ev
-52 : principle : ilke : yorgun : hasta
-53 : novel : roman : zayıf : zeki
-54 : goal : hedef : farklı : güzel
-55 : coach : antrenör : fakir : doğru
-56 : skill : beceri : karanlık : sessiz
-57 : hobby : hobi : üzgün : kızgın
-58 : media : medya : kirli : kolay
-59 : medicine : tıp : küçük : uzun
-60 : theater : tiyatro : fakir : doğru
-61 : player : oyuncu : yanlış : açık
-62 : security : güvenlik : hafif : sıcak
-63 : practice : pratik : sağlıklı : güçlü
-64 : health : sağlık : susuz : büyük
-65 : economy : ekonomi : ayakkabı : elbise
-66 : actress : aktris : zayıf : zeki
-67 : history : tarih : güneş : kuş
-68 : news : haber : zor : boş
-69 : education : eğitim : kahve : peynir
-70 : music : müzik : çirkin : yüksek
-71 : success : başarı : çirkin : yüksek
-72 : challenge : meydan okuma : geç : yanlış
-73 : skill : beceri : aptal : zengin
-74 : poem : şiir : sağlıklı : güçlü
-75 : journalism : gazetecilik : geç : aynı
-76 : stadium : stadyum : geç : aynı
-77 : experience : deneyim : kitap : su
-78 : writing : yazma : yanlış : açık
-79 : actor : aktör : sağlıklı : güçlü
-80 : expression : ifade : yanlış : açık
-81 : editing : düzenleme : kapalı : hızlı
-82 : sculpture : heykel : korkmuş : heyecanlı
-83 : approach : yaklaşım : yanlış : açık
-84 : painting : tablo : gürültülü : mutlu
-85 : problem : sorun : yavaş : erken
-86 : experiment : deney : karanlık : sessiz
-87 : freedom : özgürlük : pişirmek : aç
-88 : university : üniversite : ekmek : şeker
-89 : concert : konser : farklı : güzel
-90 : communication : iletişim : dolu : zengin
-91 : evidence : kanıt : üzgün : kızgın
-92 : performance : performans : korkmuş : heyecanlı
-93 : game : oyun : korkmuş : heyecanlı
-94 : scene : sahne : yanlış : açık
-95 : art : sanat : şapka : ay
-96 : imagination : hayal : yavaş : erken
-97 : song : şarkı : karanlık : sessiz
-98 : population : nüfus : sandalye : pencere
-99 : government : hükümet : portakal : muz
-100 : discovery : keşif : gürültülü : mutlu
+1 : band : grup : gürültülü : mutlu : 5
+2 : movie : film : aptal : zengin : 5
+3 : report : rapor : farklı : güzel : 5
+4 : law : hukuk : soğuk : ılık : 5
+5 : nature : doğa : tuz : biber : 5
+6 : language : dil : fakir : doğru : 5
+7 : science : bilim : balık : et : 5
+8 : plant : bitki : meyve : sebze : 5
+9 : character : karakter : kapalı : hızlı : 5
+10 : diet : diyet : ince : ağır : 5
+11 : thought : düşünce : kapalı : hızlı : 5
+12 : failure : başarısızlık : alçak : parlak : 5
+13 : reading : okuma : fakir : doğru : 5
+14 : nutrition : beslenme : dar : kalın : 5
+15 : decision : karar : masa : kedi : 5
+16 : victory : zafer : zayıf : zeki : 5
+17 : theory : teori : korkmuş : heyecanlı : 5
+18 : camera : kamera : çirkin : yüksek : 5
+19 : study : çalışma : alçak : parlak : 5
+20 : technique : teknik : fakir : doğru : 5
+21 : team : takım : yorgun : hasta : 5
+22 : research : araştırma : çirkin : yüksek : 5
+23 : defeat : yenilgi : aptal : zengin : 5
+24 : important : önemli : kapı : okul : 5
+25 : election : seçim : kötü : temiz : 5
+26 : picture : resim : karanlık : sessiz : 5
+27 : knowledge : bilgi : çiçek : köpek : 5
+28 : justice : adalet : eski : iyi : 5
+29 : culture : kültür : bulut : taş : 5
+30 : technology : teknoloji : süt : çay : 5
+31 : publishing : yayıncılık : yavaş : erken : 5
+32 : relationship : ilişki : yemek : içmek : 5
+33 : script : senaryo : geç : aynı : 5
+34 : photography : fotoğrafçılık : alçak : parlak : 5
+35 : method : yöntem : zayıf : zeki : 5
+36 : match : maç : kapalı : hızlı : 5
+37 : gallery : galeri : üzgün : kızgın : 5
+38 : literature : edebiyat : yorgun : hasta : 5
+39 : society : toplum : elma : yıldız : 5
+40 : crime : suç : serin : yeni : 5
+41 : exercise : egzersiz : kısa : geniş : 5
+42 : album : albüm : üzgün : kızgın : 5
+43 : author : yazar : aptal : zengin : 5
+44 : talent : yetenek : gürültülü : mutlu : 5
+45 : competition : yarışma : sağlıklı : güçlü : 5
+46 : creativity : yaratıcılık : geç : aynı : 5
+47 : solution : çözüm : kapalı : hızlı : 5
+48 : environment : çevre : gözlük : balık : 5
+49 : director : yönetmen : farklı : güzel : 5
+50 : plot : kurgu : yavaş : erken : 5
+51 : opportunity : fırsat : araba : ev : 5
+52 : principle : ilke : yorgun : hasta : 5
+53 : novel : roman : zayıf : zeki : 5
+54 : goal : hedef : farklı : güzel : 5
+55 : coach : antrenör : fakir : doğru : 5
+56 : skill : beceri : karanlık : sessiz : 5
+57 : hobby : hobi : üzgün : kızgın : 5
+58 : media : medya : kirli : kolay : 5
+59 : medicine : tıp : küçük : uzun : 5
+60 : theater : tiyatro : fakir : doğru : 5
+61 : player : oyuncu : yanlış : açık : 5
+62 : security : güvenlik : hafif : sıcak : 5
+63 : practice : pratik : sağlıklı : güçlü : 5
+64 : health : sağlık : susuz : büyük : 5
+65 : economy : ekonomi : ayakkabı : elbise : 5
+66 : actress : aktris : zayıf : zeki : 5
+67 : history : tarih : güneş : kuş : 5
+68 : news : haber : zor : boş : 5
+69 : education : eğitim : kahve : peynir : 5
+70 : music : müzik : çirkin : yüksek : 5
+71 : success : başarı : çirkin : yüksek : 5
+72 : challenge : meydan okuma : geç : yanlış : 5
+73 : skill : beceri : aptal : zengin : 5
+74 : poem : şiir : sağlıklı : güçlü : 5
+75 : journalism : gazetecilik : geç : aynı : 5
+76 : stadium : stadyum : geç : aynı : 5
+77 : experience : deneyim : kitap : su : 5
+78 : writing : yazma : yanlış : açık : 5
+79 : actor : aktör : sağlıklı : güçlü : 5
+80 : expression : ifade : yanlış : açık : 5
+81 : editing : düzenleme : kapalı : hızlı : 5
+82 : sculpture : heykel : korkmuş : heyecanlı : 5
+83 : approach : yaklaşım : yanlış : açık : 5
+84 : painting : tablo : gürültülü : mutlu : 5
+85 : problem : sorun : yavaş : erken : 5
+86 : experiment : deney : karanlık : sessiz : 5
+87 : freedom : özgürlük : pişirmek : aç : 5
+88 : university : üniversite : ekmek : şeker : 5
+89 : concert : konser : farklı : güzel : 5
+90 : communication : iletişim : dolu : zengin : 5
+91 : evidence : kanıt : üzgün : kızgın : 5
+92 : performance : performans : korkmuş : heyecanlı : 5
+93 : game : oyun : korkmuş : heyecanlı : 5
+94 : scene : sahne : yanlış : açık : 5
+95 : art : sanat : şapka : ay : 5
+96 : imagination : hayal : yavaş : erken : 5
+97 : song : şarkı : karanlık : sessiz : 5
+98 : population : nüfus : sandalye : pencere : 5
+99 : government : hükümet : portakal : muz : 5
+100 : discovery : keşif : gürültülü : mutlu : 5

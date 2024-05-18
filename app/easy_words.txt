@@ -1,100 +1,100 @@
-1 : fruit : meyve : pantolon : nehir
-2 : rain : yağmur : ay : yıldız
-3 : thick : kalın : aç : susuz
-4 : school : okul : gözlük : şapka
-5 : hat : şapka : balık : kitap
-6 : door : kapı : yıldız : muz
-7 : beautiful : güzel : farklı : aynı
-8 : flower : çiçek : ev : kalem
-9 : dirty : kirli : temiz : kötü
-10 : warm : ılık : sıcak : soğuk
-11 : high : yüksek : çirkin : güzel
-12 : salt : tuz : kedi : okul
-13 : shirt : gömlek : tatlı : ayakkabı
-14 : fish : balık : süt : kapı
-15 : early : erken : yavaş : hızlı
-16 : low : alçak : yüksek : çirkin
-17 : book : kitap : süt : tuz
-18 : heavy : ağır : uzun : kısa
-19 : car : araba : gözlük : meyve
-20 : cold : soğuk : ağır : hafif
-21 : lemon : limon : et : kedi
-22 : pepper : biber : kapı : araba
-23 : river : nehir : şapka : gömlek
-24 : sugar : şeker : dağ : muz
-25 : eat : yemek : taş : kuş
-26 : slow : yavaş : hızlı : kapalı
-27 : coffee : kahve : çiçek : gömlek
-28 : sea : deniz : et : kalem
-29 : dog : köpek : çiçek : araba
-30 : forest : orman : pantolon : tatlı
-31 : fire : ateş : muz : balık
-32 : wide : geniş : yemek : pişirmek
-33 : table : masa : saat : ayakkabı
-34 : small : küçük : tuz : biber
-35 : hungry : aç : süt : peynir
-36 : rich : zengin : dolu : boş
-37 : difficult : zor : kolay : kirli
-38 : road : yol : çorba : biber
-39 : window : pencere : kuş : yemek
-40 : thirsty : susuz : ekmek : çay
-41 : teacher : öğretmen : balık : elbise
-42 : big : büyük : kahve : şeker
-43 : orange : portakal : tatlı : biber
-44 : closed : kapalı : açık : yanlış
-45 : jacket : ceket : köpek : portakal
-46 : cloud : bulut : gözlük : balık
-47 : drink : içmek : balık : et
-48 : bag : çanta : yıldız : gözlük
-49 : old : eski : yeni : ılık
-50 : sun : güneş : şapka : pencere
-51 : soup : çorba : masa : köpek
-52 : banana : muz : gömlek : otobüs
-53 : bird : kuş : kitap : meyve
-54 : narrow : dar : yemek : içmek
-55 : wrong : yanlış : doğru : fakir
-56 : full : dolu : boş : zor
-57 : tea : çay : elma : yol
-58 : glasses : gözlük : kapı : elbise
-59 : late : geç : erken : yavaş
-60 : moon : ay : kapı : meyve
-61 : thin : ince : büyük : küçük
-62 : hot : sıcak : kalın : ince
-63 : park : park : kahve : ay
-64 : lake : göl : su : balık
-65 : bad : kötü : iyi : eski
-66 : vegetable : sebze : saat : kar
-67 : mountain : dağ : yemek : köpek
-68 : pants : pantolon : biber : sandalye
-69 : tree : ağaç : balık : köpek
-70 : dress : elbise : meyve : süt
-71 : apple : elma : su : köpek
-72 : cool : serin : ılık : sıcak
-73 : easy : kolay : kirli : temiz
-74 : cheese : peynir : ayakkabı : kitap
-75 : new : yeni : soğuk : serin
-76 : empty : boş : zor : kolay
-77 : fast : hızlı : kapalı : açık
-78 : garden : bahçe : çay : portakal
-79 : clean : temiz : kötü : iyi
-80 : clock : saat : muz : pencere
-81 : student : öğrenci : kitap : sandalye
-82 : cat : kedi : ağaç : öğretmen
-83 : water : su : masa : kapı
-84 : star : yıldız : kitap : tuz
-85 : right : doğru : fakir : zengin
-86 : same : aynı : geç : erken
-87 : good : iyi : eski : yeni
-88 : chair : sandalye : portakal : pencere
-89 : cook : pişirmek : bulut : yıldız
-90 : short : kısa : meyve : sebze
-91 : milk : süt : biber : şapka
-92 : air : hava : sebze : sandalye
-93 : house : ev : muz : sebze
-94 : light : hafif : geniş : dar
-95 : dessert : tatlı : bahçe : elbise
-96 : stone : taş : pencere : gözlük
-97 : long : uzun : çorba : tatlı
-98 : bright : parlak : alçak : yük
-99 : ugly : çirkin : güzel : farklı
-100 : meat : et : sandalye : tuz
+1 : fruit : meyve : pantolon : nehir : 5
+2 : rain : yağmur : ay : yıldız : 5
+3 : thick : kalın : aç : susuz : 5
+4 : school : okul : gözlük : şapka : 5
+5 : hat : şapka : balık : kitap : 5
+6 : door : kapı : yıldız : muz : 5
+7 : beautiful : güzel : farklı : aynı : 5
+8 : flower : çiçek : ev : kalem : 5
+9 : dirty : kirli : temiz : kötü : 5
+10 : warm : ılık : sıcak : soğuk : 5
+11 : high : yüksek : çirkin : güzel : 5
+12 : salt : tuz : kedi : okul : 5
+13 : shirt : gömlek : tatlı : ayakkabı : 5
+14 : fish : balık : süt : kapı : 5
+15 : early : erken : yavaş : hızlı : 5
+16 : low : alçak : yüksek : çirkin : 5
+17 : book : kitap : süt : tuz : 5
+18 : heavy : ağır : uzun : kısa : 5
+19 : car : araba : gözlük : meyve : 5
+20 : cold : soğuk : ağır : hafif : 5
+21 : lemon : limon : et : kedi : 5
+22 : pepper : biber : kapı : araba : 5
+23 : river : nehir : şapka : gömlek : 5
+24 : sugar : şeker : dağ : muz : 5
+25 : eat : yemek : taş : kuş : 5
+26 : slow : yavaş : hızlı : kapalı : 5
+27 : coffee : kahve : çiçek : gömlek : 5
+28 : sea : deniz : et : kalem : 5
+29 : dog : köpek : çiçek : araba : 5
+30 : forest : orman : pantolon : tatlı : 5
+31 : fire : ateş : muz : balık : 5
+32 : wide : geniş : yemek : pişirmek : 5
+33 : table : masa : saat : ayakkabı : 5
+34 : small : küçük : tuz : biber : 5
+35 : hungry : aç : süt : peynir : 5
+36 : rich : zengin : dolu : boş : 5
+37 : difficult : zor : kolay : kirli : 5
+38 : road : yol : çorba : biber : 5
+39 : window : pencere : kuş : yemek : 5
+40 : thirsty : susuz : ekmek : çay : 5
+41 : teacher : öğretmen : balık : elbise : 5
+42 : big : büyük : kahve : şeker : 5
+43 : orange : portakal : tatlı : biber : 5
+44 : closed : kapalı : açık : yanlış : 5
+45 : jacket : ceket : köpek : portakal : 5
+46 : cloud : bulut : gözlük : balık : 5
+47 : drink : içmek : balık : et : 5
+48 : bag : çanta : yıldız : gözlük : 5
+49 : old : eski : yeni : ılık : 5
+50 : sun : güneş : şapka : pencere : 5
+51 : soup : çorba : masa : köpek : 5
+52 : banana : muz : gömlek : otobüs : 5
+53 : bird : kuş : kitap : meyve : 5
+54 : narrow : dar : yemek : içmek : 5
+55 : wrong : yanlış : doğru : fakir : 5
+56 : full : dolu : boş : zor : 5
+57 : tea : çay : elma : yol : 5
+58 : glasses : gözlük : kapı : elbise : 5
+59 : late : geç : erken : yavaş : 5
+60 : moon : ay : kapı : meyve : 5
+61 : thin : ince : büyük : küçük : 5
+62 : hot : sıcak : kalın : ince : 5
+63 : park : park : kahve : ay : 5
+64 : lake : göl : su : balık : 5
+65 : bad : kötü : iyi : eski : 5
+66 : vegetable : sebze : saat : kar : 5
+67 : mountain : dağ : yemek : köpek : 5
+68 : pants : pantolon : biber : sandalye : 5
+69 : tree : ağaç : balık : köpek : 5
+70 : dress : elbise : meyve : süt : 5
+71 : apple : elma : su : köpek : 5
+72 : cool : serin : ılık : sıcak : 5
+73 : easy : kolay : kirli : temiz : 5
+74 : cheese : peynir : ayakkabı : kitap : 5
+75 : new : yeni : soğuk : serin : 5
+76 : empty : boş : zor : kolay : 5
+77 : fast : hızlı : kapalı : açık : 5
+78 : garden : bahçe : çay : portakal : 5
+79 : clean : temiz : kötü : iyi : 5
+80 : clock : saat : muz : pencere : 5
+81 : student : öğrenci : kitap : sandalye : 5
+82 : cat : kedi : ağaç : öğretmen : 5
+83 : water : su : masa : kapı : 5
+84 : star : yıldız : kitap : tuz : 5
+85 : right : doğru : fakir : zengin : 5
+86 : same : aynı : geç : erken : 5
+87 : good : iyi : eski : yeni : 5
+88 : chair : sandalye : portakal : pencere : 5
+89 : cook : pişirmek : bulut : yıldız : 5
+90 : short : kısa : meyve : sebze : 5
+91 : milk : süt : biber : şapka : 5
+92 : air : hava : sebze : sandalye : 5
+93 : house : ev : muz : sebze : 5
+94 : light : hafif : geniş : dar : 5
+95 : dessert : tatlı : bahçe : elbise : 5
+96 : stone : taş : pencere : gözlük : 5
+97 : long : uzun : çorba : tatlı : 5
+98 : bright : parlak : alçak : yük : 5
+99 : ugly : çirkin : güzel : farklı : 5
+100 : meat : et : sandalye : tuz : 5
