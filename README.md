@@ -7,13 +7,17 @@ memorization.
 # Known Errors
 1. Register
 - Error dialog pops up even when two passwords match. (Fixed)
-- UserID should be sent to the firestore
+- UserID should be sent to the firestore(Omitted)
+- 
 2. Login
-- Remember me does not work.
+- Remember me does not work.(Fixed)
+- 
 3.StartPage
 - Login button Is not Centered  when app is running(Fixed)
+- 
 4.FillProfile
 - The proficiencyLevel level should be Combo box needs implementation(Fixed)
+- 
 5. Main Activity
 - Sample user icon doesnt show up when app is running(fixed) 
 - Logout (not Fixed) and Notification Buttons (Fixed)
